@@ -1,0 +1,83 @@
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Pixel UI — Divider Component
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* ── Base ── */
+.divider {
+  display: flex;
+  align-items: center;
+  border: none;
+}
+
+/* ── Horizontal ── */
+.divider--horizontal {
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-border);
+}
+
+/* ── Vertical ── */
+.divider--vertical {
+  width: 1px;
+  height: 100%;
+  background-color: var(--color-border);
+  align-self: stretch;
+}
+
+/* ── Inset ── */
+.divider--inset.divider--horizontal {
+  padding-left: var(--spacing-5);
+  padding-right: var(--spacing-5);
+  background-color: transparent;
+  position: relative;
+}
+
+.divider--inset.divider--horizontal::after {
+  content: "";
+  position: absolute;
+  left: var(--spacing-5);
+  right: var(--spacing-5);
+  height: 1px;
+  background-color: var(--color-border);
+}
+
+.divider--inset.divider--vertical {
+  margin-top: var(--spacing-5);
+  margin-bottom: var(--spacing-5);
+  background-color: transparent;
+  position: relative;
+}
+
+.divider--inset.divider--vertical::after {
+  content: "";
+  position: absolute;
+  top: var(--spacing-5);
+  bottom: var(--spacing-5);
+  width: 1px;
+  background-color: var(--color-border);
+}
+
+/* ── With text ── */
+.divider--with-text {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  background-color: transparent;
+  height: auto;
+}
+
+.divider--with-text::before,
+.divider--with-text::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: var(--color-border);
+}
+
+.divider__text {
+  font-family: var(--font-family);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
