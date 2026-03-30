@@ -1,0 +1,49 @@
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Pixel UI — Typography Tokens
+   Font: Figtree — Google Fonts
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+@import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap");
+
+:root {
+  /* ── Font Family ── */
+  --font-family: "Figtree", sans-serif;
+
+  /* ── Font Size ── */
+  --font-size-xs: 10px;
+  --font-size-sm: 12px;
+  --font-size-md: 14px;
+  --font-size-lg: 16px;
+  --font-size-xl: 18px;
+  --font-size-2xl: 20px;
+  --font-size-3xl: 24px;
+  --font-size-4xl: 30px;
+  --font-size-5xl: 36px;
+  --font-size-6xl: 44px;
+  --font-size-7xl: 52px;
+  --font-size-8xl: 62px;
+  --font-size-9xl: 74px;
+  --font-size-10xl: 86px;
+  --font-size-11xl: 98px;
+
+  /* ── Font Weight ── */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* ── Line Height ── */
+  --line-height-default: 1;
+  --line-height-small: 1.05;
+  --line-height-medium: 1.2;
+  --line-height-paragraph: 1.6;
+  --line-height-large: 1.8;
+
+  /* ── Letter Spacing ── */
+  --letter-spacing-tight: -0.5px;
+  --letter-spacing-normal: 0px;
+  --letter-spacing-wide: 0.5px;
+  --letter-spacing-wider: 0.75px;
+  --letter-spacing-widest: 1px;
+}
