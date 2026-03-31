@@ -1,0 +1,228 @@
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Pixel UI — Button Component
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* ── Base ── */
+.btn {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-medium);
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background-color 0.2s ease-in-out,
+    color 0.2s ease-in-out,
+    border-color 0.2s ease-in-out,
+    opacity 0.2s ease-in-out;
+}
+
+/* ── Size ── */
+.btn--sm {
+  font-size: var(--font-size-sm);
+  padding: var(--spacing-2) var(--spacing-3);
+}
+
+.btn--md {
+  font-size: var(--font-size-md);
+  padding: var(--spacing-3) var(--spacing-5);
+}
+
+.btn--lg {
+  font-size: var(--font-size-lg);
+  padding: var(--spacing-4) var(--spacing-6);
+}
+
+/* ── Radius ── */
+.btn--radius-none {
+  border-radius: var(--radius-none);
+}
+.btn--radius-sm {
+  border-radius: var(--radius-sm);
+}
+.btn--radius-default {
+  border-radius: var(--radius-default);
+}
+.btn--radius-lg {
+  border-radius: var(--radius-lg);
+}
+.btn--radius-pill {
+  border-radius: var(--radius-pill);
+}
+
+/* ── Full Width ── */
+.btn--full-width {
+  width: 100%;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Variants — Primary
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+.btn--filled.btn--primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+.btn--filled.btn--primary:hover {
+  background-color: var(--color-primary-hover);
+}
+.btn--filled.btn--primary:active {
+  background-color: var(--color-primary-active);
+}
+
+.btn--outline.btn--primary {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: var(--border-width-default) solid var(--color-primary);
+}
+.btn--outline.btn--primary:hover {
+  background-color: var(--color-primary-light);
+}
+
+.btn--ghost.btn--primary {
+  background-color: transparent;
+  color: var(--color-primary);
+}
+.btn--ghost.btn--primary:hover {
+  background-color: var(--color-primary-light);
+}
+
+.btn--subtle.btn--primary {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+}
+.btn--subtle.btn--primary:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Variants — Success
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+.btn--filled.btn--success {
+  background-color: var(--color-success);
+  color: var(--color-white);
+}
+.btn--filled.btn--success:hover {
+  background-color: var(--color-success-hover);
+}
+
+.btn--outline.btn--success {
+  background-color: transparent;
+  color: var(--color-success);
+  border: var(--border-width-default) solid var(--color-success);
+}
+.btn--outline.btn--success:hover {
+  background-color: var(--color-success-light);
+}
+
+.btn--ghost.btn--success {
+  background-color: transparent;
+  color: var(--color-success);
+}
+.btn--ghost.btn--success:hover {
+  background-color: var(--color-success-light);
+}
+
+.btn--subtle.btn--success {
+  background-color: var(--color-success-light);
+  color: var(--color-success);
+}
+.btn--subtle.btn--success:hover {
+  background-color: var(--color-success);
+  color: var(--color-white);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Variants — Warning
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+.btn--filled.btn--warning {
+  background-color: var(--color-warning);
+  color: var(--color-white);
+}
+.btn--filled.btn--warning:hover {
+  background-color: var(--color-warning-hover);
+}
+
+.btn--outline.btn--warning {
+  background-color: transparent;
+  color: var(--color-warning);
+  border: var(--border-width-default) solid var(--color-warning);
+}
+.btn--outline.btn--warning:hover {
+  background-color: var(--color-warning-light);
+}
+
+.btn--ghost.btn--warning {
+  background-color: transparent;
+  color: var(--color-warning);
+}
+.btn--ghost.btn--warning:hover {
+  background-color: var(--color-warning-light);
+}
+
+.btn--subtle.btn--warning {
+  background-color: var(--color-warning-light);
+  color: var(--color-warning);
+}
+.btn--subtle.btn--warning:hover {
+  background-color: var(--color-warning);
+  color: var(--color-white);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Variants — Error
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+.btn--filled.btn--error {
+  background-color: var(--color-error);
+  color: var(--color-white);
+}
+.btn--filled.btn--error:hover {
+  background-color: var(--color-error-hover);
+}
+
+.btn--outline.btn--error {
+  background-color: transparent;
+  color: var(--color-error);
+  border: var(--border-width-default) solid var(--color-error);
+}
+.btn--outline.btn--error:hover {
+  background-color: var(--color-error-light);
+}
+
+.btn--ghost.btn--error {
+  background-color: transparent;
+  color: var(--color-error);
+}
+.btn--ghost.btn--error:hover {
+  background-color: var(--color-error-light);
+}
+
+.btn--subtle.btn--error {
+  background-color: var(--color-error-light);
+  color: var(--color-error);
+}
+.btn--subtle.btn--error:hover {
+  background-color: var(--color-error);
+  color: var(--color-white);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   States
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.btn--loading {
+  opacity: 0.7;
+  cursor: not-allowed;
+  pointer-events: none;
+}

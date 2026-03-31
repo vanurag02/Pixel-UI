@@ -1,0 +1,133 @@
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Pixel UI — Badge Component
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* ── Base ── */
+.badge {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-medium);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: var(--border-width-default) solid transparent;
+}
+
+/* ── Size ── */
+.badge--sm {
+  font-size: var(--font-size-xs);
+  padding: var(--spacing-1) var(--spacing-2);
+}
+
+.badge--md {
+  font-size: var(--font-size-sm);
+  padding: var(--spacing-1) var(--spacing-3);
+}
+
+/* ── Radius ── */
+.badge--radius-none {
+  border-radius: var(--radius-none);
+}
+.badge--radius-sm {
+  border-radius: var(--radius-sm);
+}
+.badge--radius-default {
+  border-radius: var(--radius-default);
+}
+.badge--radius-lg {
+  border-radius: var(--radius-lg);
+}
+.badge--radius-pill {
+  border-radius: var(--radius-pill);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Filled Variant
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+.badge--filled.badge--primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.badge--filled.badge--success {
+  background-color: var(--color-success);
+  color: var(--color-white);
+}
+
+.badge--filled.badge--warning {
+  background-color: var(--color-warning);
+  color: var(--color-white);
+}
+
+.badge--filled.badge--error {
+  background-color: var(--color-error);
+  color: var(--color-white);
+}
+
+.badge--filled.badge--info {
+  background-color: var(--color-info);
+  color: var(--color-white);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Subtle Variant
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+.badge--subtle.badge--primary {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary-text);
+}
+
+.badge--subtle.badge--success {
+  background-color: var(--color-success-light);
+  color: var(--color-success-text);
+}
+
+.badge--subtle.badge--warning {
+  background-color: var(--color-warning-light);
+  color: var(--color-warning-text);
+}
+
+.badge--subtle.badge--error {
+  background-color: var(--color-error-light);
+  color: var(--color-error-text);
+}
+
+.badge--subtle.badge--info {
+  background-color: var(--color-info-light);
+  color: var(--color-info-text);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Light Variant
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+.badge--light.badge--primary {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary-text);
+  border-color: var(--color-primary);
+}
+
+.badge--light.badge--success {
+  background-color: var(--color-success-light);
+  color: var(--color-success-text);
+  border-color: var(--color-success);
+}
+
+.badge--light.badge--warning {
+  background-color: var(--color-warning-light);
+  color: var(--color-warning-text);
+  border-color: var(--color-warning);
+}
+
+.badge--light.badge--error {
+  background-color: var(--color-error-light);
+  color: var(--color-error-text);
+  border-color: var(--color-error);
+}
+
+.badge--light.badge--info {
+  background-color: var(--color-info-light);
+  color: var(--color-info-text);
+  border-color: var(--color-info);
+}
