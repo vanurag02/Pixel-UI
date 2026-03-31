@@ -1,0 +1,96 @@
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Pixel UI — Select Component
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* ── Base ── */
+.select {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg);
+  border: var(--border-width-default) solid var(--color-border);
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  outline: none;
+  width: auto;
+  box-shadow: var(--shadow-sm);
+  transition:
+    border-color 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
+
+  /* Custom dropdown arrow */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23868e96' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+}
+
+/* ── Full Width ── */
+.select--full-width {
+  width: 100%;
+}
+
+/* ── Radius ── */
+.select--radius-none {
+  border-radius: var(--radius-none);
+}
+.select--radius-sm {
+  border-radius: var(--radius-sm);
+}
+.select--radius-default {
+  border-radius: var(--radius-default);
+}
+.select--radius-lg {
+  border-radius: var(--radius-lg);
+}
+.select--radius-pill {
+  border-radius: var(--radius-pill);
+}
+
+/* ── Size ── */
+.select--sm {
+  font-size: var(--font-size-sm);
+  padding: var(--spacing-2) var(--spacing-7) var(--spacing-2) var(--spacing-3);
+  height: 32px;
+}
+
+.select--md {
+  font-size: var(--font-size-md);
+  padding: var(--spacing-3) var(--spacing-7) var(--spacing-3) var(--spacing-4);
+  height: 38px;
+}
+
+.select--lg {
+  font-size: var(--font-size-lg);
+  padding: var(--spacing-3) var(--spacing-8) var(--spacing-3) var(--spacing-5);
+  height: 44px;
+}
+
+/* ── Hover ── */
+.select:hover:not(.select--disabled):not(.select--error) {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-hover);
+}
+
+/* ── Focus ── */
+.select:focus:not(.select--disabled) {
+  border-color: var(--color-primary);
+}
+
+/* ── Error State ── */
+.select--error {
+  border-color: var(--color-error) !important;
+  box-shadow: var(--shadow-default);
+}
+
+.select--error:hover {
+  box-shadow: var(--shadow-hover) !important;
+}
+
+/* ── Disabled State ── */
+.select--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: var(--color-bg-disabled);
+  box-shadow: none;
+}

@@ -1,0 +1,125 @@
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Pixel UI — Radio Group Component
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* ── Radio Group Wrapper ── */
+.radio-group {
+  display: flex;
+}
+
+.radio-group--vertical {
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.radio-group--horizontal {
+  flex-direction: row;
+  gap: var(--spacing-5);
+}
+
+.radio-group--disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Radio Item
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* ── Base ── */
+.radio-item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  cursor: pointer;
+  user-select: none;
+}
+
+/* ── Hide native input ── */
+.radio-item__input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  margin: 0;
+}
+
+/* ── Custom circle ── */
+.radio-item__circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: var(--border-width-default) solid var(--color-border-strong);
+  background-color: var(--color-white);
+  transition:
+    border-color 0.2s ease-in-out,
+    background-color 0.2s ease-in-out;
+}
+
+/* ── Inner dot ── */
+.radio-item__circle::after {
+  content: "";
+  display: none;
+  border-radius: 50%;
+  background-color: var(--color-white);
+}
+
+/* ── Size ── */
+.radio-item--sm .radio-item__circle {
+  width: 14px;
+  height: 14px;
+}
+
+.radio-item--sm .radio-item__circle::after {
+  width: 6px;
+  height: 6px;
+}
+
+.radio-item--md .radio-item__circle {
+  width: 18px;
+  height: 18px;
+}
+
+.radio-item--md .radio-item__circle::after {
+  width: 8px;
+  height: 8px;
+}
+
+/* ── Checked State ── */
+.radio-item__input:checked + .radio-item__circle {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.radio-item__input:checked + .radio-item__circle::after {
+  display: block;
+}
+
+/* ── Hover ── */
+.radio-item:hover .radio-item__circle {
+  border-color: var(--color-primary);
+}
+
+/* ── Label ── */
+.radio-item__label {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-primary);
+}
+
+.radio-item--sm .radio-item__label {
+  font-size: var(--font-size-sm);
+}
+
+.radio-item--md .radio-item__label {
+  font-size: var(--font-size-md);
+}
+
+/* ── Disabled ── */
+.radio-item--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}

@@ -8,6 +8,11 @@ import Badge from "./components/Badge/Badge";
 import Checkbox from "./components/Checkbox/Checkbox";
 import Input from "./components/Input/Input";
 import Textarea from "./components/Textarea/Textarea";
+import Switch from "./components/Switch/Switch";
+import RadioGroup from "./components/RadioGroup/Radiogroup";
+import RadioItem from "./components/RadioGroup/Radioitem";
+import Select from "./components/Select/Select";
+import SelectOption from "./components/Select/SelectOption";
 
 function App() {
   return (
@@ -21,29 +26,38 @@ function App() {
       }}
     >
       {/* Default */}
-      <Textarea placeholder="Enter your message..." />
-
-      {/* Filled */}
-      <Textarea variant="filled" placeholder="Filled textarea" />
+      <Select placeholder="Select a plan">
+        <SelectOption value="free" label="Free" />
+        <SelectOption value="pro" label="Pro" />
+        <SelectOption value="enterprise" label="Enterprise" />
+      </Select>
 
       {/* Sizes */}
-      <Textarea size="sm" placeholder="Small" />
-      <Textarea size="lg" placeholder="Large" />
+      <Select size="sm" placeholder="Small">
+        <SelectOption value="a" label="Option A" />
+        <SelectOption value="b" label="Option B" />
+      </Select>
 
-      {/* Rows */}
-      <Textarea rows={8} placeholder="Tall textarea" />
-
-      {/* Resize options */}
-      <Textarea resize="none" placeholder="Not resizable" />
+      <Select size="lg" placeholder="Large">
+        <SelectOption value="a" label="Option A" />
+        <SelectOption value="b" label="Option B" />
+      </Select>
 
       {/* Error */}
-      <Textarea error placeholder="Invalid input" />
+      <Select error placeholder="Select an option">
+        <SelectOption value="a" label="Option A" />
+      </Select>
 
       {/* Disabled */}
-      <Textarea disabled placeholder="Disabled" />
+      <Select disabled placeholder="Disabled">
+        <SelectOption value="a" label="Option A" />
+      </Select>
 
       {/* Full width */}
-      <Textarea fullWidth placeholder="Full width" />
+      <Select fullWidth placeholder="Full width">
+        <SelectOption value="a" label="Option A" />
+        <SelectOption value="b" label="Option B" />
+      </Select>
     </div>
   );
 }
