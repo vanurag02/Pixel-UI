@@ -1,6 +1,4 @@
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   Pixel UI — Badge Component
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* =============== Pixel UI — Badge Component =============== */
 
 /* ── Base ── */
 .badge {
@@ -40,9 +38,7 @@
   border-radius: var(--radius-pill);
 }
 
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   Filled Variant
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* =============== Filled Variant =============== */
 
 .badge--filled.badge--primary {
   background-color: var(--color-primary);
@@ -69,9 +65,7 @@
   color: var(--color-white);
 }
 
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   Subtle Variant
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* =============== Subtle Variant =============== */
 
 .badge--subtle.badge--primary {
   background-color: var(--color-primary-light);
@@ -98,9 +92,7 @@
   color: var(--color-info-text);
 }
 
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   Light Variant
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* =============== Light Variant =============== */
 
 .badge--light.badge--primary {
   background-color: var(--color-primary-light);

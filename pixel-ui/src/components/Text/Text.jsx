@@ -7,10 +7,22 @@ function Text({
   weight = "regular",
   color = "primary",
   align = "left",
+  className,
+  style,
 }) {
   return (
     <Element
-      className={`text text--${size} text--${weight} text--${color} text--${align}`}
+      className={[
+        "text",
+        `text--${size}`,
+        `text--${weight}`,
+        `text--${color}`,
+        `text--${align}`,
+        className,
+      ]
+        .filter(Boolean)
+        .join(" ")}
+      style={style}
     >
       {children}
     </Element>

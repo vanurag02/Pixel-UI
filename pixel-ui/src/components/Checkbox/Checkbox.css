@@ -1,6 +1,4 @@
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   Pixel UI — Checkbox Component
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* =============== Pixel UI — Checkbox Component =============== */
 
 /* ── Base ── */
 .checkbox {
@@ -64,7 +62,7 @@
   border: 2px solid var(--color-white);
   border-top: none;
   border-left: none;
-  transform: rotate(45deg) translateY(-10%);
+  transform: rotate(45deg) translate(-1px, -2px);
 }
 
 /* Indeterminate state — dash */

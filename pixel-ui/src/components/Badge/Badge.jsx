@@ -6,6 +6,8 @@ function Badge({
   color = "primary",
   size = "md",
   radius = "pill",
+  className,
+  style,
 }) {
   return (
     <span
@@ -15,7 +17,11 @@ function Badge({
         `badge--${color}`,
         `badge--${size}`,
         `badge--radius-${radius}`,
-      ].join(" ")}
+        className,
+      ]
+        .filter(Boolean)
+        .join(" ")}
+      style={style}
     >
       {children}
     </span>

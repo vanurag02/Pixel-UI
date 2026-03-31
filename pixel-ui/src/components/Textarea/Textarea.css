@@ -1,0 +1,112 @@
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Pixel UI — Textarea Component
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* ── Base ── */
+.textarea {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-primary);
+  width: auto;
+  outline: none;
+  transition:
+    border-color 0.2s ease-in-out,
+    background-color 0.2s ease-in-out;
+}
+
+.textarea::placeholder {
+  color: var(--color-text-disabled);
+}
+
+/* ── Full Width ── */
+.textarea--full-width {
+  width: 100%;
+}
+
+/* ── Size ── */
+.textarea--sm {
+  font-size: var(--font-size-sm);
+  padding: var(--spacing-2) var(--spacing-3);
+}
+
+.textarea--md {
+  font-size: var(--font-size-md);
+  padding: var(--spacing-3) var(--spacing-4);
+}
+
+.textarea--lg {
+  font-size: var(--font-size-lg);
+  padding: var(--spacing-3) var(--spacing-5);
+}
+
+/* ── Radius ── */
+.textarea--radius-none {
+  border-radius: var(--radius-none);
+}
+.textarea--radius-sm {
+  border-radius: var(--radius-sm);
+}
+.textarea--radius-default {
+  border-radius: var(--radius-default);
+}
+.textarea--radius-lg {
+  border-radius: var(--radius-lg);
+}
+
+/* ── Resize ── */
+.textarea--resize-vertical {
+  resize: vertical;
+}
+.textarea--resize-horizontal {
+  resize: horizontal;
+}
+.textarea--resize-both {
+  resize: both;
+}
+.textarea--resize-none {
+  resize: none;
+}
+
+/* ── Default Variant ── */
+.textarea--default {
+  background-color: var(--color-bg);
+  border: var(--border-width-default) solid var(--color-border);
+}
+
+.textarea--default:focus {
+  border-color: var(--color-primary);
+}
+
+/* ── Filled Variant ── */
+.textarea--filled {
+  background-color: var(--color-bg-muted);
+  border: var(--border-width-default) solid transparent;
+}
+
+.textarea--filled:focus {
+  background-color: var(--color-bg);
+  border-color: var(--color-primary);
+}
+
+/* ── Error State ── */
+.textarea--error {
+  border-color: var(--color-error) !important;
+}
+
+.textarea--error:focus {
+  border-color: var(--color-error) !important;
+}
+
+.textarea--error::placeholder {
+  color: var(--color-error);
+  opacity: 0.6;
+}
+
+/* ── Disabled State ── */
+.textarea--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: var(--color-bg-disabled) !important;
+  resize: none;
+  pointer-events: none;
+}

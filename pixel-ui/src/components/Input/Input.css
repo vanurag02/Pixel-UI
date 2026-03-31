@@ -1,0 +1,139 @@
+/* =============== Pixel UI — Input Component =============== */
+
+/* ── Wrapper ── */
+.input-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.input-wrapper--full-width {
+  width: 100%;
+}
+
+/* ── Radius ── */
+.input-wrapper--radius-none {
+  border-radius: var(--radius-none);
+}
+.input-wrapper--radius-sm {
+  border-radius: var(--radius-sm);
+}
+.input-wrapper--radius-default {
+  border-radius: var(--radius-default);
+}
+.input-wrapper--radius-lg {
+  border-radius: var(--radius-lg);
+}
+.input-wrapper--radius-pill {
+  border-radius: var(--radius-pill);
+}
+
+/* ── Base Input ── */
+.input {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-primary);
+  width: 100%;
+  outline: none;
+  border: none;
+  background: transparent;
+  transition:
+    border-color 0.2s ease-in-out,
+    background-color 0.2s ease-in-out;
+}
+
+.input::placeholder {
+  color: var(--color-gray-5);
+}
+
+/* ── Size ── */
+.input-wrapper--sm .input {
+  font-size: var(--font-size-sm);
+  padding: var(--spacing-2) var(--spacing-3);
+  height: 32px;
+}
+
+.input-wrapper--md .input {
+  font-size: var(--font-size-md);
+  padding: var(--spacing-3) var(--spacing-4);
+  height: 38px;
+}
+
+.input-wrapper--lg .input {
+  font-size: var(--font-size-lg);
+  padding: var(--spacing-3) var(--spacing-5);
+  height: 44px;
+}
+
+/* ── Default Variant ── */
+.input-wrapper--default {
+  background-color: var(--color-bg);
+  border: var(--border-width-default) solid var(--color-border);
+}
+
+.input-wrapper--default:focus-within {
+  border-color: var(--color-primary);
+}
+
+/* ── Filled Variant ── */
+.input-wrapper--filled {
+  background-color: var(--color-bg-muted);
+  border: var(--border-width-default) solid transparent;
+}
+
+.input-wrapper--filled:focus-within {
+  background-color: var(--color-bg);
+  border-color: var(--color-primary);
+}
+
+/* ── Error State ── */
+.input-wrapper--error {
+  border-color: var(--color-red-7) !important;
+}
+
+.input-wrapper--error:focus-within {
+  border-color: var(--color-red-7) !important;
+}
+
+.input-wrapper--error .input::placeholder {
+  color: var(--color-red-7);
+  opacity: 0.6;
+}
+
+/* ── Disabled State ── */
+.input-wrapper--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: var(--color-bg-disabled) !important;
+}
+
+.input-wrapper--disabled .input {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ── Left and Right Sections ── */
+.input__section {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-secondary);
+  flex-shrink: 0;
+}
+
+.input__section--left {
+  padding-left: var(--spacing-3);
+}
+
+.input__section--right {
+  padding-right: var(--spacing-3);
+}
+
+/* Adjust input padding when sections are present */
+.input--has-left {
+  padding-left: var(--spacing-2) !important;
+}
+
+.input--has-right {
+  padding-right: var(--spacing-2) !important;
+}

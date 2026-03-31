@@ -10,6 +10,8 @@ function Button({
   loading = false,
   fullWidth = false,
   onClick,
+  className,
+  style,
 }) {
   return (
     <button
@@ -21,9 +23,11 @@ function Button({
         `btn--radius-${radius}`,
         fullWidth ? "btn--full-width" : "",
         loading ? "btn--loading" : "",
+        className,
       ]
         .filter(Boolean)
         .join(" ")}
+      style={style}
       disabled={disabled || loading}
       onClick={onClick}
     >

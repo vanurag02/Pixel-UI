@@ -9,6 +9,8 @@ function Checkbox({
   disabled = false,
   label,
   size = "md",
+  className,
+  style,
 }) {
   const inputRef = useRef(null);
 
@@ -24,9 +26,11 @@ function Checkbox({
         "checkbox",
         `checkbox--${size}`,
         disabled ? "checkbox--disabled" : "",
+        className,
       ]
         .filter(Boolean)
         .join(" ")}
+      style={style}
     >
       <input
         ref={inputRef}
