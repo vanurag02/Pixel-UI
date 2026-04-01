@@ -1,0 +1,20 @@
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Pixel UI — Avatar Group Component
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* ── Base ── */
+.avatar-group {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* ── Item ── */
+.avatar-group__item {
+  border: 2px solid var(--color-white);
+  border-radius: 50%;
+}
+
+/* ── Spacing — controls overlap ── */
+.avatar-group__item + .avatar-group__item {
+  margin-left: -10px;
+}

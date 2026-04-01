@@ -1,0 +1,173 @@
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Pixel UI — Slider Component
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* ── Wrapper ── */
+.slider-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-4);
+}
+
+.slider-wrapper--full-width {
+  width: 100%;
+}
+
+.slider-wrapper--full-width .slider__track-container {
+  flex: 1;
+}
+
+/* ── Track Container ── */
+.slider__track-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 200px;
+}
+
+/* ── Track Background ── */
+.slider__track-container::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  background-color: var(--color-border);
+  border-radius: var(--radius-pill);
+  pointer-events: none;
+}
+
+/* ── Fill ── */
+.slider__fill {
+  position: absolute;
+  left: 0;
+  background-color: var(--color-primary);
+  border-radius: var(--radius-pill);
+  pointer-events: none;
+}
+
+/* ── Size — track and fill heights ── */
+.slider-wrapper--sm .slider__track-container::before,
+.slider-wrapper--sm .slider__fill {
+  height: 4px;
+}
+
+.slider-wrapper--md .slider__track-container::before,
+.slider-wrapper--md .slider__fill {
+  height: 6px;
+}
+
+.slider-wrapper--lg .slider__track-container::before,
+.slider-wrapper--lg .slider__fill {
+  height: 8px;
+}
+
+/* ── Native Range Input ── */
+.slider__input {
+  position: relative;
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  cursor: pointer;
+  margin: 0;
+  z-index: 1;
+}
+
+.slider__input:focus {
+  outline: none;
+}
+
+/* ── Thumb — Chrome/Safari ── */
+.slider__input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: var(--color-white);
+  border: var(--border-width-medium) solid var(--color-primary);
+  border-radius: 50%;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+}
+
+.slider__input::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ── Thumb — Firefox ── */
+.slider__input::-moz-range-thumb {
+  background-color: var(--color-white);
+  border: var(--border-width-medium) solid var(--color-primary);
+  border-radius: 50%;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+}
+
+.slider__input::-moz-range-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ── Thumb sizes ── */
+.slider-wrapper--sm .slider__input::-webkit-slider-thumb {
+  width: 14px;
+  height: 14px;
+}
+
+.slider-wrapper--md .slider__input::-webkit-slider-thumb {
+  width: 18px;
+  height: 18px;
+}
+
+.slider-wrapper--lg .slider__input::-webkit-slider-thumb {
+  width: 22px;
+  height: 22px;
+}
+
+.slider-wrapper--sm .slider__input::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+}
+
+.slider-wrapper--md .slider__input::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+}
+
+.slider-wrapper--lg .slider__input::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+}
+
+/* ── Value Label ── */
+.slider__value {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  min-width: 32px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.slider-wrapper--sm .slider__value {
+  font-size: var(--font-size-sm);
+}
+.slider-wrapper--md .slider__value {
+  font-size: var(--font-size-md);
+}
+.slider-wrapper--lg .slider__value {
+  font-size: var(--font-size-lg);
+}
+
+/* ── Disabled ── */
+.slider-wrapper--disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.slider-wrapper--disabled .slider__input {
+  cursor: not-allowed;
+}

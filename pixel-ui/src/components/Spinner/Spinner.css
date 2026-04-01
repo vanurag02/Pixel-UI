@@ -1,0 +1,52 @@
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Pixel UI — Spinner Component
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* ── Keyframes ── */
+@keyframes spinner-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ── Base ── */
+.spinner {
+  display: inline-block;
+  border-style: solid;
+  border-radius: 50%;
+  animation: spinner-rotate 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+/* ── Sizes ── */
+.spinner--sm {
+  width: 16px;
+  height: 16px;
+  border-width: 2px;
+}
+
+.spinner--md {
+  width: 24px;
+  height: 24px;
+  border-width: 3px;
+}
+
+.spinner--lg {
+  width: 36px;
+  height: 36px;
+  border-width: 4px;
+}
+
+/* ── Colors ── */
+.spinner--primary {
+  border-color: var(--color-primary-light);
+  border-top-color: var(--color-primary);
+}
+
+.spinner--white {
+  border-color: rgba(255, 255, 255, 0.3);
+  border-top-color: var(--color-white);
+}

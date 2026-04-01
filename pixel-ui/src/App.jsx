@@ -13,6 +13,12 @@ import RadioGroup from "./components/RadioGroup/Radiogroup";
 import RadioItem from "./components/RadioGroup/Radioitem";
 import Select from "./components/Select/Select";
 import SelectOption from "./components/Select/SelectOption";
+import Slider from "./components/Slider/Slider";
+import SpinButton from "./components/SpinButton/SpinButton";
+import Spinner from "./components/Spinner/Spinner";
+import ProgressBar from "./components/ProgressBar/ProgressBar";
+import Avatar from "./components/Avatar/Avatar";
+import AvatarGroup from "./components/AvatarGroup/AvatarGroup";
 
 function App() {
   return (
@@ -20,44 +26,47 @@ function App() {
       style={{
         display: "flex",
         flexDirection: "column",
-        gap: "16px",
+        gap: "24px",
         padding: "24px",
-        maxWidth: "400px",
       }}
     >
-      {/* Default */}
-      <Select placeholder="Select a plan">
-        <SelectOption value="free" label="Free" />
-        <SelectOption value="pro" label="Pro" />
-        <SelectOption value="enterprise" label="Enterprise" />
-      </Select>
+      {/* Default — with overflow indicator */}
+      <AvatarGroup max={4}>
+        <Avatar initials="JD" />
+        <Avatar initials="MR" />
+        <Avatar initials="AS" />
+        <Avatar initials="PL" />
+        <Avatar initials="KW" />
+        <Avatar initials="RB" />
+      </AvatarGroup>
 
-      {/* Sizes */}
-      <Select size="sm" placeholder="Small">
-        <SelectOption value="a" label="Option A" />
-        <SelectOption value="b" label="Option B" />
-      </Select>
+      {/* Spacing variants */}
+      <AvatarGroup spacing="sm">
+        <Avatar initials="JD" />
+        <Avatar initials="MR" />
+        <Avatar initials="AS" />
+      </AvatarGroup>
 
-      <Select size="lg" placeholder="Large">
-        <SelectOption value="a" label="Option A" />
-        <SelectOption value="b" label="Option B" />
-      </Select>
+      <AvatarGroup spacing="md">
+        <Avatar initials="JD" />
+        <Avatar initials="MR" />
+        <Avatar initials="AS" />
+      </AvatarGroup>
 
-      {/* Error */}
-      <Select error placeholder="Select an option">
-        <SelectOption value="a" label="Option A" />
-      </Select>
+      <AvatarGroup spacing="lg">
+        <Avatar initials="JD" />
+        <Avatar initials="MR" />
+        <Avatar initials="AS" />
+      </AvatarGroup>
 
-      {/* Disabled */}
-      <Select disabled placeholder="Disabled">
-        <SelectOption value="a" label="Option A" />
-      </Select>
-
-      {/* Full width */}
-      <Select fullWidth placeholder="Full width">
-        <SelectOption value="a" label="Option A" />
-        <SelectOption value="b" label="Option B" />
-      </Select>
+      {/* With images */}
+      <AvatarGroup max={3}>
+        <Avatar src="https://i.pravatar.cc/150?img=1" alt="User 1" />
+        <Avatar src="https://i.pravatar.cc/150?img=2" alt="User 2" />
+        <Avatar src="https://i.pravatar.cc/150?img=3" alt="User 3" />
+        <Avatar src="https://i.pravatar.cc/150?img=4" alt="User 4" />
+        <Avatar src="https://i.pravatar.cc/150?img=5" alt="User 5" />
+      </AvatarGroup>
     </div>
   );
 }

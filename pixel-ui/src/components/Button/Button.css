@@ -1,4 +1,6 @@
-/* =============== Pixel UI — Button Component =============== */
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Pixel UI — Button Component
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
 /* ── Base ── */
 .btn {
@@ -9,11 +11,12 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: var(--spacing-3);
   transition:
-    background-color 0.2s ease-in-out,
-    color 0.2s ease-in-out,
-    border-color 0.2s ease-in-out,
-    opacity 0.2s ease-in-out;
+    background-color 0.2s,
+    color 0.2s,
+    border-color 0.2s,
+    opacity 0.2s;
 }
 
 /* ── Size ── */
@@ -54,7 +57,9 @@
   width: 100%;
 }
 
-/* =============== Variants — Primary =============== */
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Variants — Primary
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
 .btn--filled.btn--primary {
   background-color: var(--color-primary);
@@ -93,7 +98,9 @@
   color: var(--color-white);
 }
 
-/* =============== Variants — Success =============== */
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Variants — Success
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
 .btn--filled.btn--success {
   background-color: var(--color-success);
@@ -129,7 +136,9 @@
   color: var(--color-white);
 }
 
-/* =============== Variants — Warning =============== */
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Variants — Warning
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
 .btn--filled.btn--warning {
   background-color: var(--color-warning);
@@ -165,7 +174,9 @@
   color: var(--color-white);
 }
 
-/* =============== Variants — Error =============== */
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Variants — Error
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
 .btn--filled.btn--error {
   background-color: var(--color-error);
@@ -201,7 +212,9 @@
   color: var(--color-white);
 }
 
-/* =============== States =============== */
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   States
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
 .btn:disabled {
   opacity: 0.5;

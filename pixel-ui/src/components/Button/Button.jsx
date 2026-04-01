@@ -1,4 +1,5 @@
 import "./Button.css";
+import Spinner from "../Spinner/Spinner";
 
 function Button({
   children,
@@ -13,6 +14,9 @@ function Button({
   className,
   style,
 }) {
+  const spinnerColor = variant === "filled" ? "white" : "primary";
+  const spinnerSize = size === "lg" ? "md" : "sm";
+
   return (
     <button
       className={[
@@ -31,7 +35,14 @@ function Button({
       disabled={disabled || loading}
       onClick={onClick}
     >
-      {loading ? "Loading..." : children}
+      {loading ? (
+        <>
+          <Spinner size={spinnerSize} color={spinnerColor} />
+          <span>{children}</span>
+        </>
+      ) : (
+        children
+      )}
     </button>
   );
 }

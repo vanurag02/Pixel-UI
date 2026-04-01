@@ -1,0 +1,114 @@
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Pixel UI — Spin Button Component
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* ── Wrapper ── */
+.spin-button {
+  display: inline-flex;
+  align-items: center;
+  border: var(--border-width-default) solid var(--color-primary);
+  border-radius: var(--radius-default);
+  overflow: hidden;
+  background-color: var(--color-bg);
+  transition: border-color 0.2s ease-in-out;
+}
+
+.spin-button:hover:not(.spin-button--disabled) {
+  border-color: var(--color-primary);
+}
+
+.spin-button--full-width {
+  width: 100%;
+}
+
+/* ── Buttons ── */
+.spin-button__btn {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-white);
+  background-color: var(--color-primary);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.spin-button__btn:hover:not(:disabled) {
+  background-color: var(--color-primary-hover);
+}
+
+.spin-button__btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ── Input ── */
+.spin-button__input {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-primary);
+  background-color: transparent;
+  border: none;
+  border-left: var(--border-width-default) solid var(--color-border);
+  border-right: var(--border-width-default) solid var(--color-border);
+  text-align: center;
+  outline: none;
+  flex: 1;
+
+  /* Hide native number input arrows */
+  /* -moz-appearance: textfield; */
+}
+
+.spin-button__input::-webkit-outer-spin-button,
+.spin-button__input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* ── Sizes ── */
+.spin-button--sm .spin-button__btn {
+  width: 28px;
+  height: 32px;
+  font-size: var(--font-size-md);
+}
+
+.spin-button--sm .spin-button__input {
+  font-size: var(--font-size-sm);
+  height: 32px;
+  min-width: 48px;
+}
+
+.spin-button--md .spin-button__btn {
+  width: 36px;
+  height: 38px;
+  font-size: var(--font-size-lg);
+}
+
+.spin-button--md .spin-button__input {
+  font-size: var(--font-size-md);
+  height: 38px;
+  min-width: 56px;
+}
+
+.spin-button--lg .spin-button__btn {
+  width: 44px;
+  height: 44px;
+  font-size: var(--font-size-xl);
+}
+
+.spin-button--lg .spin-button__input {
+  font-size: var(--font-size-lg);
+  height: 44px;
+  min-width: 64px;
+}
+
+/* ── Disabled ── */
+.spin-button--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+  background-color: var(--color-bg-disabled);
+}
