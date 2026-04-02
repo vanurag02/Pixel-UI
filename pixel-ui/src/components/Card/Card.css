@@ -1,0 +1,102 @@
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Pixel UI — Card Component
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* ── Base ── */
+.card {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  transition:
+    box-shadow 0.2s ease-in-out,
+    transform 0.2s ease-in-out;
+}
+
+.card--full-width {
+  width: 100%;
+}
+
+/* ── Radius ── */
+.card--radius-none {
+  border-radius: var(--radius-none);
+}
+.card--radius-sm {
+  border-radius: var(--radius-sm);
+}
+.card--radius-default {
+  border-radius: var(--radius-default);
+}
+.card--radius-lg {
+  border-radius: var(--radius-lg);
+}
+
+/* ── Padding ── */
+.card--padding-none {
+  padding: 0;
+}
+.card--padding-sm {
+  padding: var(--spacing-3);
+}
+.card--padding-md {
+  padding: var(--spacing-5);
+}
+.card--padding-lg {
+  padding: var(--spacing-6);
+}
+
+/* ── Shadow ── */
+.card--shadow-none {
+  box-shadow: var(--shadow-none);
+}
+.card--shadow-sm {
+  box-shadow: var(--shadow-sm);
+}
+.card--shadow-default {
+  box-shadow: var(--shadow-default);
+}
+.card--shadow-hover {
+  box-shadow: var(--shadow-hover);
+}
+.card--shadow-lg {
+  box-shadow: var(--shadow-lg);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Variants
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* Elevated */
+.card--elevated {
+  background-color: var(--color-bg);
+  border: var(--border-width-default) solid var(--color-border);
+}
+
+/* Outline */
+.card--outline {
+  background-color: var(--color-bg);
+  border: var(--border-width-default) solid var(--color-border-strong);
+  box-shadow: var(--shadow-none);
+}
+
+/* Subtle */
+.card--subtle {
+  background-color: var(--color-bg-subtle);
+  border: none;
+  box-shadow: var(--shadow-none);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Clickable
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.card--clickable {
+  cursor: pointer;
+}
+
+.card--clickable:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+.card--clickable:active {
+  transform: translateY(0px);
+  box-shadow: var(--shadow-default);
+}

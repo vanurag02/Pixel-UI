@@ -1,0 +1,60 @@
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Pixel UI — Profile Badge Component
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* ── Base ── */
+.profile-badge {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* ── Size — gap between avatar and info ── */
+.profile-badge--sm {
+  gap: var(--spacing-2);
+}
+.profile-badge--md {
+  gap: var(--spacing-3);
+}
+.profile-badge--lg {
+  gap: var(--spacing-4);
+}
+
+/* ── Info ── */
+.profile-badge__info {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Name ── */
+.profile-badge__name {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+.profile-badge--sm .profile-badge__name {
+  font-size: var(--font-size-sm);
+}
+.profile-badge--md .profile-badge__name {
+  font-size: var(--font-size-md);
+}
+.profile-badge--lg .profile-badge__name {
+  font-size: var(--font-size-lg);
+}
+
+/* ── Description ── */
+.profile-badge__description {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-secondary);
+}
+
+.profile-badge--sm .profile-badge__description {
+  font-size: var(--font-size-xs);
+}
+.profile-badge--md .profile-badge__description {
+  font-size: var(--font-size-sm);
+}
+.profile-badge--lg .profile-badge__description {
+  font-size: var(--font-size-md);
+}

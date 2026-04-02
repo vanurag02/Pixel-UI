@@ -1,0 +1,58 @@
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Pixel UI — Skeleton Component
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* ── Pulse Animation ── */
+@keyframes skeleton-pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* ── Base ── */
+.skeleton {
+  display: block;
+  background-color: var(--color-bg-muted);
+}
+
+/* ── Animate ── */
+.skeleton--animate {
+  animation: skeleton-pulse 1.5s ease-in-out infinite;
+}
+
+/* ── Variants ── */
+.skeleton--text {
+  height: 12px;
+  border-radius: var(--radius-pill);
+}
+
+.skeleton--circle {
+  border-radius: 50%;
+}
+
+.skeleton--rectangle {
+  border-radius: var(--radius-default);
+}
+
+/* ── Radius ── */
+.skeleton--radius-none {
+  border-radius: var(--radius-none);
+}
+.skeleton--radius-sm {
+  border-radius: var(--radius-sm);
+}
+.skeleton--radius-default {
+  border-radius: var(--radius-default);
+}
+.skeleton--radius-lg {
+  border-radius: var(--radius-lg);
+}
+.skeleton--radius-pill {
+  border-radius: var(--radius-pill);
+}

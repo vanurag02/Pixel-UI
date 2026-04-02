@@ -19,54 +19,56 @@ import Spinner from "./components/Spinner/Spinner";
 import ProgressBar from "./components/ProgressBar/ProgressBar";
 import Avatar from "./components/Avatar/Avatar";
 import AvatarGroup from "./components/AvatarGroup/AvatarGroup";
+import Link from "./components/Link/Link";
+import Tag from "./components/Tag/Tag";
+import Card from "./components/Card/Card";
+import Skeleton from "./components/Skeleton/Skeleton";
+import ProfileBadge from "./components/ProfileBadge/ProfileBadge";
+import Breadcrumb from "./components/Breadcrumb/Breadcrumb";
+import BreadcrumbItem from "./components/Breadcrumb/BreadcrumbItem";
+import Tablist from "./components/Tablist/Tablist";
+import TabItem from "./components/Tablist/TabItem";
 
 function App() {
+  const [tab1, setTab1] = useState("overview");
+  const [tab2, setTab2] = useState("overview");
+
   return (
     <div
       style={{
         display: "flex",
         flexDirection: "column",
-        gap: "24px",
+        gap: "32px",
         padding: "24px",
       }}
     >
-      {/* Default — with overflow indicator */}
-      <AvatarGroup max={4}>
-        <Avatar initials="JD" />
-        <Avatar initials="MR" />
-        <Avatar initials="AS" />
-        <Avatar initials="PL" />
-        <Avatar initials="KW" />
-        <Avatar initials="RB" />
-      </AvatarGroup>
+      {/* Default variant */}
+      <Tablist value={tab1} onChange={setTab1}>
+        <TabItem value="overview">Overview</TabItem>
+        <TabItem value="settings">Settings</TabItem>
+        <TabItem value="members">Members</TabItem>
+        <TabItem value="billing" disabled>
+          Billing
+        </TabItem>
+      </Tablist>
 
-      {/* Spacing variants */}
-      <AvatarGroup spacing="sm">
-        <Avatar initials="JD" />
-        <Avatar initials="MR" />
-        <Avatar initials="AS" />
-      </AvatarGroup>
+      {/* Pills variant */}
+      <Tablist value={tab2} onChange={setTab2} variant="pills">
+        <TabItem value="overview">Overview</TabItem>
+        <TabItem value="settings">Settings</TabItem>
+        <TabItem value="members">Members</TabItem>
+      </Tablist>
 
-      <AvatarGroup spacing="md">
-        <Avatar initials="JD" />
-        <Avatar initials="MR" />
-        <Avatar initials="AS" />
-      </AvatarGroup>
+      {/* Sizes */}
+      <Tablist defaultValue="a" size="sm">
+        <TabItem value="a">Small</TabItem>
+        <TabItem value="b">Tabs</TabItem>
+      </Tablist>
 
-      <AvatarGroup spacing="lg">
-        <Avatar initials="JD" />
-        <Avatar initials="MR" />
-        <Avatar initials="AS" />
-      </AvatarGroup>
-
-      {/* With images */}
-      <AvatarGroup max={3}>
-        <Avatar src="https://i.pravatar.cc/150?img=1" alt="User 1" />
-        <Avatar src="https://i.pravatar.cc/150?img=2" alt="User 2" />
-        <Avatar src="https://i.pravatar.cc/150?img=3" alt="User 3" />
-        <Avatar src="https://i.pravatar.cc/150?img=4" alt="User 4" />
-        <Avatar src="https://i.pravatar.cc/150?img=5" alt="User 5" />
-      </AvatarGroup>
+      <Tablist defaultValue="a" size="lg">
+        <TabItem value="a">Large</TabItem>
+        <TabItem value="b">Tabs</TabItem>
+      </Tablist>
     </div>
   );
 }
