@@ -28,47 +28,43 @@ import Breadcrumb from "./components/Breadcrumb/Breadcrumb";
 import BreadcrumbItem from "./components/Breadcrumb/BreadcrumbItem";
 import Tablist from "./components/Tablist/Tablist";
 import TabItem from "./components/Tablist/TabItem";
+import Toolbar from "./components/Toolbar/Toolbar";
+import ToolbarGroup from "./components/Toolbar/ToolbarGroup";
+import Menu from "./components/Menu/Menu";
+import MenuItem from "./components/Menu/MenuItem";
+import MenuDivider from "./components/Menu/MenuDivider";
+import MenuLabel from "./components/Menu/MenuLabel";
+import Dropdown from "./components/Dropdown/Dropdown";
+import DropdownItem from "./components/Dropdown/DropdownItem";
 
 function App() {
-  const [tab1, setTab1] = useState("overview");
-  const [tab2, setTab2] = useState("overview");
-
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: "32px",
-        padding: "24px",
-      }}
-    >
-      {/* Default variant */}
-      <Tablist value={tab1} onChange={setTab1}>
-        <TabItem value="overview">Overview</TabItem>
-        <TabItem value="settings">Settings</TabItem>
-        <TabItem value="members">Members</TabItem>
-        <TabItem value="billing" disabled>
-          Billing
-        </TabItem>
-      </Tablist>
+    <div style={{ display: "flex", gap: "16px", padding: "24px" }}>
+      {/* Outline — default */}
+      <Dropdown label="Options">
+        <DropdownItem onClick={() => alert("Edit")}>Edit</DropdownItem>
+        <DropdownItem onClick={() => alert("Duplicate")}>
+          Duplicate
+        </DropdownItem>
+        <DropdownItem disabled>Archive</DropdownItem>
+      </Dropdown>
 
-      {/* Pills variant */}
-      <Tablist value={tab2} onChange={setTab2} variant="pills">
-        <TabItem value="overview">Overview</TabItem>
-        <TabItem value="settings">Settings</TabItem>
-        <TabItem value="members">Members</TabItem>
-      </Tablist>
+      {/* Filled */}
+      <Dropdown label="Actions" variant="filled">
+        <DropdownItem onClick={() => {}}>Save</DropdownItem>
+        <DropdownItem onClick={() => {}}>Export</DropdownItem>
+      </Dropdown>
 
-      {/* Sizes */}
-      <Tablist defaultValue="a" size="sm">
-        <TabItem value="a">Small</TabItem>
-        <TabItem value="b">Tabs</TabItem>
-      </Tablist>
+      {/* Ghost */}
+      <Dropdown label="More" variant="ghost">
+        <DropdownItem onClick={() => {}}>Settings</DropdownItem>
+        <DropdownItem onClick={() => {}}>Help</DropdownItem>
+      </Dropdown>
 
-      <Tablist defaultValue="a" size="lg">
-        <TabItem value="a">Large</TabItem>
-        <TabItem value="b">Tabs</TabItem>
-      </Tablist>
+      {/* Disabled */}
+      <Dropdown label="Disabled" disabled>
+        <DropdownItem>Item</DropdownItem>
+      </Dropdown>
     </div>
   );
 }

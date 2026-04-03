@@ -1,0 +1,72 @@
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Pixel UI — Toolbar Component
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* ── Base Toolbar ── */
+.toolbar {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* ── Variants ── */
+.toolbar--default {
+  background-color: var(--color-bg);
+  border: var(--border-width-default) solid var(--color-border);
+  border-radius: var(--radius-default);
+}
+
+.toolbar--outline {
+  background-color: transparent;
+  border: var(--border-width-default) solid var(--color-border);
+  border-radius: var(--radius-default);
+}
+
+/* ── Sizes ── */
+.toolbar--sm {
+  padding: var(--spacing-1);
+  gap: var(--spacing-1);
+}
+.toolbar--md {
+  padding: var(--spacing-2);
+  gap: var(--spacing-2);
+}
+.toolbar--lg {
+  padding: var(--spacing-3);
+  gap: var(--spacing-3);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Toolbar Group
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+.toolbar-group {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-1);
+}
+
+/* Divider between groups */
+.toolbar-group + .toolbar-group {
+  border-left: var(--border-width-default) solid var(--color-border);
+  padding-left: var(--spacing-2);
+  margin-left: var(--spacing-1);
+}
+
+/* ── Toolbar Button ── */
+.toolbar__btn {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-md);
+  color: var(--color-gray-7);
+  background-color: var(--color-white);
+  border: none;
+  border-radius: var(--radius-default);
+  padding: var(--spacing-2) var(--spacing-3);
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+.toolbar__btn:hover {
+  color: var(--color-gray-9);
+}

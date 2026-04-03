@@ -1,0 +1,99 @@
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Pixel UI — Menu Component
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* ── Overlay ── */
+.menu__overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+}
+
+/* ── Menu Panel ── */
+.menu {
+  position: absolute;
+  z-index: 100;
+  background-color: var(--color-bg);
+  border: var(--border-width-default) solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: var(--spacing-2);
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Menu Item
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.menu-item {
+  font-family: var(--font-family);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-primary);
+  background-color: transparent;
+  border: none;
+  border-radius: var(--radius-default);
+  padding: var(--spacing-2) var(--spacing-3);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  width: 100%;
+  text-align: left;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.menu-item:hover:not(.menu-item--disabled) {
+  background-color: var(--color-bg-subtle);
+}
+
+/* ── Error Color ── */
+.menu-item--error {
+  color: var(--color-error);
+}
+
+.menu-item--error:hover:not(.menu-item--disabled) {
+  background-color: var(--color-error-light);
+}
+
+/* ── Disabled ── */
+.menu-item--disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ── Left Section ── */
+.menu-item__left {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  font-size: 16px;
+}
+
+/* ── Text ── */
+.menu-item__text {
+  flex: 1;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Menu Divider
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.menu-divider {
+  height: 1px;
+  background-color: var(--color-border);
+  margin: var(--spacing-2) 0;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Menu Label
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.menu-label {
+  font-family: var(--font-family);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-secondary);
+  padding: var(--spacing-2) var(--spacing-3) var(--spacing-1);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wider);
+}
