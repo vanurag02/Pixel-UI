@@ -1,3 +1,4 @@
+import { ChevronDown } from "lucide-react";
 import "./Select.css";
 
 function Select({
@@ -15,31 +16,36 @@ function Select({
   style,
 }) {
   return (
-    <select
+    <div
       className={[
-        "select",
-        `select--${size}`,
-        `select--radius-${radius}`,
-        fullWidth ? "select--full-width" : "",
-        disabled ? "select--disabled" : "",
-        error ? "select--error" : "",
+        "select-wrapper",
+        `select-wrapper--${size}`,
+        `select-wrapper--radius-${radius}`,
+        fullWidth ? "select-wrapper--full-width" : "",
+        disabled ? "select-wrapper--disabled" : "",
+        error ? "select-wrapper--error" : "",
         className,
       ]
         .filter(Boolean)
         .join(" ")}
       style={style}
-      value={value}
-      defaultValue={defaultValue ?? (placeholder ? "" : undefined)}
-      onChange={onChange}
-      disabled={disabled}
     >
-      {placeholder && (
-        <option value="" disabled hidden>
-          {placeholder}
-        </option>
-      )}
-      {children}
-    </select>
+      <select
+        className="select"
+        value={value}
+        defaultValue={defaultValue ?? (placeholder ? "" : undefined)}
+        onChange={onChange}
+        disabled={disabled}
+      >
+        {placeholder && (
+          <option value="" disabled hidden>
+            {placeholder}
+          </option>
+        )}
+        {children}
+      </select>
+      <ChevronDown size={16} className="select__icon" />
+    </div>
   );
 }
 

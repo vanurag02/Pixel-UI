@@ -36,35 +36,56 @@ import MenuDivider from "./components/Menu/MenuDivider";
 import MenuLabel from "./components/Menu/MenuLabel";
 import Dropdown from "./components/Dropdown/Dropdown";
 import DropdownItem from "./components/Dropdown/DropdownItem";
+import Combobox from "./components/Combobox/Combobox";
+
+const frameworks = ["React", "Vue", "Svelte", "Angular", "Solid", "Qwik"];
+const skills = ["JavaScript", "TypeScript", "CSS", "HTML", "Node.js", "Python"];
 
 function App() {
   return (
-    <div style={{ display: "flex", gap: "16px", padding: "24px" }}>
-      {/* Outline — default */}
-      <Dropdown label="Options">
-        <DropdownItem onClick={() => alert("Edit")}>Edit</DropdownItem>
-        <DropdownItem onClick={() => alert("Duplicate")}>
-          Duplicate
-        </DropdownItem>
-        <DropdownItem disabled>Archive</DropdownItem>
-      </Dropdown>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "16px",
+        padding: "24px",
+        maxWidth: "400px",
+      }}
+    >
+      {/* Default */}
+      <Select placeholder="Select a framework">
+        <SelectOption value="react" label="React" />
+        <SelectOption value="vue" label="Vue" />
+        <SelectOption value="svelte" label="Svelte" />
+        <SelectOption value="angular" label="Angular" />
+      </Select>
 
-      {/* Filled */}
-      <Dropdown label="Actions" variant="filled">
-        <DropdownItem onClick={() => {}}>Save</DropdownItem>
-        <DropdownItem onClick={() => {}}>Export</DropdownItem>
-      </Dropdown>
+      {/* Sizes */}
+      <Select size="sm" placeholder="Small">
+        <SelectOption value="a" label="Option A" />
+        <SelectOption value="b" label="Option B" />
+      </Select>
 
-      {/* Ghost */}
-      <Dropdown label="More" variant="ghost">
-        <DropdownItem onClick={() => {}}>Settings</DropdownItem>
-        <DropdownItem onClick={() => {}}>Help</DropdownItem>
-      </Dropdown>
+      <Select size="lg" placeholder="Large">
+        <SelectOption value="a" label="Option A" />
+        <SelectOption value="b" label="Option B" />
+      </Select>
+
+      {/* Error */}
+      <Select error placeholder="Error state">
+        <SelectOption value="a" label="Option A" />
+      </Select>
 
       {/* Disabled */}
-      <Dropdown label="Disabled" disabled>
-        <DropdownItem>Item</DropdownItem>
-      </Dropdown>
+      <Select disabled placeholder="Disabled">
+        <SelectOption value="a" label="Option A" />
+      </Select>
+
+      {/* Full width */}
+      <Select fullWidth placeholder="Full width">
+        <SelectOption value="a" label="Option A" />
+        <SelectOption value="b" label="Option B" />
+      </Select>
     </div>
   );
 }
