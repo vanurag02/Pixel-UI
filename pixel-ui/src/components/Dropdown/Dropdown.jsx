@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { ChevronDown } from "lucide-react";
 import "./Dropdown.css";
 
 function Dropdown({
@@ -44,11 +45,10 @@ function Dropdown({
         type="button"
       >
         <span>{label}</span>
-        <span
+        <ChevronDown
+          size={16}
           className={`dropdown__arrow ${opened ? "dropdown__arrow--up" : ""}`}
-        >
-          ▾
-        </span>
+        />
       </button>
 
       {opened && <div className="dropdown__menu">{children}</div>}

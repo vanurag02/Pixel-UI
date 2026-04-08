@@ -42,6 +42,8 @@ const frameworks = ["React", "Vue", "Svelte", "Angular", "Solid", "Qwik"];
 const skills = ["JavaScript", "TypeScript", "CSS", "HTML", "Node.js", "Python"];
 
 function App() {
+  const [tags, setTags] = useState(["React", "TypeScript", "CSS", "Vite"]);
+
   return (
     <div
       style={{
@@ -49,43 +51,54 @@ function App() {
         flexDirection: "column",
         gap: "16px",
         padding: "24px",
-        maxWidth: "400px",
       }}
     >
-      {/* Default */}
-      <Select placeholder="Select a framework">
-        <SelectOption value="react" label="React" />
-        <SelectOption value="vue" label="Vue" />
-        <SelectOption value="svelte" label="Svelte" />
-        <SelectOption value="angular" label="Angular" />
-      </Select>
+      {/* Variants */}
+      <div style={{ display: "flex", gap: "8px" }}>
+        <Tag>Filled</Tag>
+        <Tag variant="subtle">Subtle</Tag>
+        <Tag variant="light">Light</Tag>
+      </div>
 
-      {/* Sizes */}
-      <Select size="sm" placeholder="Small">
-        <SelectOption value="a" label="Option A" />
-        <SelectOption value="b" label="Option B" />
-      </Select>
+      {/* Colors */}
+      <div style={{ display: "flex", gap: "8px" }}>
+        <Tag variant="subtle" color="primary">
+          Primary
+        </Tag>
+        <Tag variant="subtle" color="success">
+          Success
+        </Tag>
+        <Tag variant="subtle" color="warning">
+          Warning
+        </Tag>
+        <Tag variant="subtle" color="error">
+          Error
+        </Tag>
+        <Tag variant="subtle" color="info">
+          Info
+        </Tag>
+      </div>
 
-      <Select size="lg" placeholder="Large">
-        <SelectOption value="a" label="Option A" />
-        <SelectOption value="b" label="Option B" />
-      </Select>
+      {/* Closable */}
+      <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+        {tags.map((tag) => (
+          <Tag
+            key={tag}
+            variant="subtle"
+            closable
+            onClose={() => setTags(tags.filter((t) => t !== tag))}
+          >
+            {tag}
+          </Tag>
+        ))}
+      </div>
 
-      {/* Error */}
-      <Select error placeholder="Error state">
-        <SelectOption value="a" label="Option A" />
-      </Select>
-
-      {/* Disabled */}
-      <Select disabled placeholder="Disabled">
-        <SelectOption value="a" label="Option A" />
-      </Select>
-
-      {/* Full width */}
-      <Select fullWidth placeholder="Full width">
-        <SelectOption value="a" label="Option A" />
-        <SelectOption value="b" label="Option B" />
-      </Select>
+      {/* Radius */}
+      <div style={{ display: "flex", gap: "8px" }}>
+        <Tag radius="none">None</Tag>
+        <Tag radius="sm">Small</Tag>
+        <Tag radius="pill">Pill</Tag>
+      </div>
     </div>
   );
 }

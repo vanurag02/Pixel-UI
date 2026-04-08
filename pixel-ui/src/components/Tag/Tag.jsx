@@ -1,3 +1,4 @@
+import { X } from "lucide-react";
 import "./Tag.css";
 
 function Tag({
@@ -33,7 +34,7 @@ function Tag({
           type="button"
           aria-label="Remove"
         >
-          ×
+          <X size={12} />
         </button>
       )}
     </span>
