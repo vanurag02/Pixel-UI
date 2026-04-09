@@ -1,0 +1,39 @@
+/* ===== Pixel UI — Field Component ===== */
+
+/* ===== Base ===== */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+/* ===== Input Wrapper ===== */
+.field__input {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== Messages ===== */
+.field__message {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
+}
+
+/* ===== Size ===== */
+.field__message--sm {
+  font-size: var(--font-size-xs);
+}
+.field__message--md {
+  font-size: var(--font-size-sm);
+}
+
+/* ===== Error Message ===== */
+.field__message--error {
+  color: var(--color-error);
+}
+
+/* ===== Description ===== */
+.field__message--description {
+  color: var(--color-text-secondary);
+}

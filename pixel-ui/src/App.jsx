@@ -37,68 +37,38 @@ import MenuLabel from "./components/Menu/MenuLabel";
 import Dropdown from "./components/Dropdown/Dropdown";
 import DropdownItem from "./components/Dropdown/DropdownItem";
 import Combobox from "./components/Combobox/Combobox";
+import Field from "./components/Field/Field";
+import Tooltip from "./components/Tooltip/Tooltip";
 
 const frameworks = ["React", "Vue", "Svelte", "Angular", "Solid", "Qwik"];
 const skills = ["JavaScript", "TypeScript", "CSS", "HTML", "Node.js", "Python"];
 
 function App() {
-  const [tags, setTags] = useState(["React", "TypeScript", "CSS", "Vite"]);
-
   return (
     <div
       style={{
         display: "flex",
-        flexDirection: "column",
-        gap: "16px",
-        padding: "24px",
+        gap: "48px",
+        padding: "80px",
+        alignItems: "center",
+        justifyContent: "center",
       }}
     >
-      {/* Variants */}
-      <div style={{ display: "flex", gap: "8px" }}>
-        <Tag>Filled</Tag>
-        <Tag variant="subtle">Subtle</Tag>
-        <Tag variant="light">Light</Tag>
-      </div>
+      <Tooltip label="This appears on top">
+        <Button variant="outline">Top</Button>
+      </Tooltip>
 
-      {/* Colors */}
-      <div style={{ display: "flex", gap: "8px" }}>
-        <Tag variant="subtle" color="primary">
-          Primary
-        </Tag>
-        <Tag variant="subtle" color="success">
-          Success
-        </Tag>
-        <Tag variant="subtle" color="warning">
-          Warning
-        </Tag>
-        <Tag variant="subtle" color="error">
-          Error
-        </Tag>
-        <Tag variant="subtle" color="info">
-          Info
-        </Tag>
-      </div>
+      <Tooltip label="This appears on bottom" position="bottom">
+        <Button variant="outline">Bottom</Button>
+      </Tooltip>
 
-      {/* Closable */}
-      <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-        {tags.map((tag) => (
-          <Tag
-            key={tag}
-            variant="subtle"
-            closable
-            onClose={() => setTags(tags.filter((t) => t !== tag))}
-          >
-            {tag}
-          </Tag>
-        ))}
-      </div>
+      <Tooltip label="This appears on left" position="left">
+        <Button variant="outline">Left</Button>
+      </Tooltip>
 
-      {/* Radius */}
-      <div style={{ display: "flex", gap: "8px" }}>
-        <Tag radius="none">None</Tag>
-        <Tag radius="sm">Small</Tag>
-        <Tag radius="pill">Pill</Tag>
-      </div>
+      <Tooltip label="This appears on right" position="right">
+        <Button variant="outline">Right</Button>
+      </Tooltip>
     </div>
   );
 }
