@@ -1,0 +1,108 @@
+/* ===== Pixel UI — Dialog Component ===== */
+
+/* ===== Overlay ===== */
+.dialog__overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(1px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 300;
+  animation: dialog-overlay-fade 0.2s ease-in-out;
+}
+
+@keyframes dialog-overlay-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ===== Dialog Panel ===== */
+.dialog {
+  background-color: var(--color-bg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh;
+  width: 100%;
+  animation: dialog-slide-up 0.2s ease-in-out;
+}
+
+@keyframes dialog-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Sizes ===== */
+.dialog--sm {
+  max-width: 380px;
+}
+.dialog--md {
+  max-width: 520px;
+}
+.dialog--lg {
+  max-width: 720px;
+}
+.dialog--xl {
+  max-width: 960px;
+}
+
+/* ===== Header ===== */
+.dialog__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-5) var(--spacing-5) var(--spacing-4);
+  border-bottom: var(--border-width-default) solid var(--color-border);
+}
+
+/* ===== Title ===== */
+.dialog__title {
+  font-family: var(--font-family);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+/* ===== Close Button ===== */
+.dialog__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  border-radius: var(--radius-default);
+  padding: var(--spacing-2);
+  transition:
+    background-color 0.2s ease-in-out,
+    color 0.2s ease-in-out;
+}
+
+.dialog__close:hover {
+  background-color: var(--color-bg-subtle);
+  color: var(--color-text-primary);
+}
+
+/* ===== Content ===== */
+.dialog__content {
+  padding: var(--spacing-5);
+  overflow-y: auto;
+  font-family: var(--font-family);
+  font-size: var(--font-size-md);
+  color: var(--color-text-primary);
+}

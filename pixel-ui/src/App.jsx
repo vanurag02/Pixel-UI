@@ -1,41 +1,42 @@
 import { useState } from "react";
 import "./index.css";
-
-import Popover from "./components/Popover/Popover";
+import Dialog from "./components/Dialog/Dialog";
 import Button from "./components/Button/Button";
 import Text from "./components/Text/Text";
 
 function App() {
   const [opened, setOpened] = useState(false);
-  const [opened2, setOpened2] = useState(false);
 
   return (
-    <div style={{ display: "flex", gap: "24px", padding: "80px" }}>
-      {/* Bottom — default */}
-      <Popover
-        trigger={
-          <Button onClick={() => setOpened(!opened)}>Open Popover</Button>
-        }
+    <div style={{ padding: "24px" }}>
+      <Button onClick={() => setOpened(true)}>Open Dialog</Button>
+
+      <Dialog
         opened={opened}
         onClose={() => setOpened(false)}
+        title="Confirm action"
+        size="md"
       >
-        <Text size="sm" weight="semibold">
-          Popover title
+        <Text color="primary">
+          Are you sure you want to delete this item? This action cannot be
+          undone.
         </Text>
-        <Text size="sm" color="secondary">
-          This is some popover content.
-        </Text>
-      </Popover>
-
-      {/* Top */}
-      <Popover
-        trigger={<Button onClick={() => setOpened2(!opened2)}>Open Top</Button>}
-        opened={opened2}
-        onClose={() => setOpened2(false)}
-        position="top"
-      >
-        <Text size="sm">Content above the trigger.</Text>
-      </Popover>
+        <div
+          style={{
+            display: "flex",
+            gap: "8px",
+            marginTop: "24px",
+            justifyContent: "flex-end",
+          }}
+        >
+          <Button variant="outline" onClick={() => setOpened(false)}>
+            Cancel
+          </Button>
+          <Button color="error" onClick={() => setOpened(false)}>
+            Delete
+          </Button>
+        </div>
+      </Dialog>
     </div>
   );
 }
