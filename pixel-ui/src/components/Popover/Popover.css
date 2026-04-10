@@ -1,0 +1,104 @@
+/* ===== Pixel UI — Popover Component ===== */
+
+/* ===== Wrapper ===== */
+.popover-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* ===== Popover Panel ===== */
+.popover {
+  position: absolute;
+  z-index: 200;
+  background-color: var(--color-bg);
+  border: var(--border-width-default) solid var(--color-border);
+  border-radius: var(--radius-default);
+  box-shadow: var(--shadow-lg);
+  animation: popover-fade 0.15s ease-in-out;
+}
+
+@keyframes popover-fade {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ===== Content ===== */
+.popover__content {
+  padding: var(--spacing-4);
+  font-family: var(--font-family);
+  font-size: var(--font-size-md);
+  color: var(--color-text-primary);
+}
+
+/* ===== Positions ===== */
+.popover--bottom {
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.popover--top {
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.popover--left {
+  right: calc(100% + 10px);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.popover--right {
+  left: calc(100% + 10px);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* ===== Arrow ===== */
+.popover__arrow {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-bg);
+  border: var(--border-width-default) solid var(--color-border);
+  transform: rotate(45deg);
+}
+
+.popover--bottom .popover__arrow {
+  top: -5px;
+  left: 50%;
+  margin-left: -4px;
+  border-bottom: none;
+  border-right: none;
+}
+
+.popover--top .popover__arrow {
+  bottom: -5px;
+  left: 50%;
+  margin-left: -4px;
+  border-top: none;
+  border-left: none;
+}
+
+.popover--left .popover__arrow {
+  right: -5px;
+  top: 50%;
+  margin-top: -4px;
+  border-left: none;
+  border-bottom: none;
+}
+
+.popover--right .popover__arrow {
+  left: -5px;
+  top: 50%;
+  margin-top: -4px;
+  border-right: none;
+  border-top: none;
+}
