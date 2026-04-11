@@ -1,0 +1,178 @@
+/* ===== Pixel UI — Drawer Component ===== */
+
+/* ===== Overlay ===== */
+.drawer__overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(1px);
+  z-index: 300;
+  animation: drawer-overlay-fade 0.2s ease-in-out;
+}
+
+@keyframes drawer-overlay-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ===== Drawer Panel ===== */
+.drawer {
+  position: fixed;
+  background-color: var(--color-bg);
+  border: var(--border-width-default) solid var(--color-border);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  z-index: 301;
+}
+
+/* ===== Positions ===== */
+.drawer--right {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  animation: drawer-slide-left 0.25s ease-in-out;
+}
+
+.drawer--left {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  animation: drawer-slide-right 0.25s ease-in-out;
+}
+
+.drawer--top {
+  top: 0;
+  left: 0;
+  right: 0;
+  animation: drawer-slide-down 0.25s ease-in-out;
+}
+
+.drawer--bottom {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  animation: drawer-slide-up 0.25s ease-in-out;
+}
+
+/* ===== Animations ===== */
+@keyframes drawer-slide-left {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes drawer-slide-right {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes drawer-slide-down {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes drawer-slide-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* ===== Sizes — width for left/right, height for top/bottom ===== */
+.drawer--right.drawer--sm,
+.drawer--left.drawer--sm {
+  width: 280px;
+}
+
+.drawer--right.drawer--md,
+.drawer--left.drawer--md {
+  width: 400px;
+}
+
+.drawer--right.drawer--lg,
+.drawer--left.drawer--lg {
+  width: 560px;
+}
+
+.drawer--top.drawer--sm,
+.drawer--bottom.drawer--sm {
+  height: 200px;
+}
+
+.drawer--top.drawer--md,
+.drawer--bottom.drawer--md {
+  height: 320px;
+}
+
+.drawer--top.drawer--lg,
+.drawer--bottom.drawer--lg {
+  height: 480px;
+}
+
+/* ===== Header ===== */
+.drawer__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-5);
+  border-bottom: var(--border-width-default) solid var(--color-border);
+  flex-shrink: 0;
+}
+
+/* ===== Title ===== */
+.drawer__title {
+  font-family: var(--font-family);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+/* ===== Close Button ===== */
+.drawer__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  border-radius: var(--radius-default);
+  padding: var(--spacing-2);
+  transition:
+    background-color 0.2s ease-in-out,
+    color 0.2s ease-in-out;
+}
+
+.drawer__close:hover {
+  background-color: var(--color-bg-subtle);
+  color: var(--color-text-primary);
+}
+
+/* ===== Content ===== */
+.drawer__content {
+  padding: var(--spacing-5);
+  overflow-y: auto;
+  flex: 1;
+  font-family: var(--font-family);
+  font-size: var(--font-size-md);
+  color: var(--color-text-primary);
+}
