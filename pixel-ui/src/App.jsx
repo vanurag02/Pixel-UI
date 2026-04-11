@@ -1,46 +1,56 @@
 import { useState } from "react";
 import "./index.css";
-import Drawer from "./components/Drawer/Drawer";
 import Button from "./components/Button/Button";
-import Text from "./components/Text/Text";
+
+import { useToast } from "./components/Toast/ToastContext";
 
 function App() {
-  const [right, setRight] = useState(false);
-  const [left, setLeft] = useState(false);
-  const [bottom, setBottom] = useState(false);
+  const { addToast } = useToast();
 
   return (
-    <div style={{ display: "flex", gap: "12px", padding: "24px" }}>
-      <Button onClick={() => setRight(true)}>Right Drawer</Button>
-      <Button onClick={() => setLeft(true)}>Left Drawer</Button>
-      <Button onClick={() => setBottom(true)}>Bottom Drawer</Button>
-
-      <Drawer
-        opened={right}
-        onClose={() => setRight(false)}
-        title="Right Drawer"
-        position="right"
+    <div
+      style={{ display: "flex", gap: "8px", padding: "24px", flexWrap: "wrap" }}
+    >
+      <Button onClick={() => addToast({ message: "Action completed!" })}>
+        Default
+      </Button>
+      <Button
+        color="success"
+        onClick={() =>
+          addToast({ message: "Saved successfully!", type: "success" })
+        }
       >
-        <Text color="secondary">This drawer slides in from the right.</Text>
-      </Drawer>
-
-      <Drawer
-        opened={left}
-        onClose={() => setLeft(false)}
-        title="Left Drawer"
-        position="left"
+        Success
+      </Button>
+      <Button
+        color="error"
+        onClick={() =>
+          addToast({ message: "Something went wrong.", type: "error" })
+        }
       >
-        <Text color="secondary">This drawer slides in from the left.</Text>
-      </Drawer>
-
-      <Drawer
-        opened={bottom}
-        onClose={() => setBottom(false)}
-        title="Bottom Drawer"
-        position="bottom"
+        Error
+      </Button>
+      <Button
+        onClick={() =>
+          addToast({ message: "Please review your input.", type: "warning" })
+        }
       >
-        <Text color="secondary">This drawer slides in from the bottom.</Text>
-      </Drawer>
+        Warning
+      </Button>
+      <Button
+        onClick={() =>
+          addToast({ message: "New update available.", type: "info" })
+        }
+      >
+        Info
+      </Button>
+      <Button
+        onClick={() =>
+          addToast({ message: "This stays until closed.", duration: 0 })
+        }
+      >
+        No auto-dismiss
+      </Button>
     </div>
   );
 }
