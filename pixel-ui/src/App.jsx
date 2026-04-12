@@ -2,75 +2,47 @@ import { useState } from "react";
 import "./index.css";
 import { useToast } from "./components/Toast/ToastContext";
 
-import Accordion from "./components/Accordion/Accordion";
-import AccordionItem from "./components/Accordion/AccordionItem";
-import Field from "./components/Field/Field";
-import Input from "./components/Input/Input";
-import Select from "./components/Select/Select";
-import SelectOption from "./components/Select/SelectOption";
-import Textarea from "./components/Textarea/Textarea";
-import Image from "./components/Image/Image";
+import { Text, Card, Skeleton } from "./components";
 
 function App() {
   return (
     <div
       style={{
         display: "flex",
-        flexWrap: "wrap",
-        gap: "16px",
+        flexDirection: "column",
+        gap: "24px",
         padding: "24px",
+        maxWidth: "400px",
       }}
     >
-      {/* Basic */}
-      <Image
-        src="https://picsum.photos/200/150"
-        alt="Sample"
-        width={200}
-        height={150}
-      />
+      {/* Mimicking a card with avatar, title and text */}
+      <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
+        <Skeleton variant="circle" width={40} height={40} />
+        <div
+          style={{
+            flex: 1,
+            display: "flex",
+            flexDirection: "column",
+            gap: "8px",
+          }}
+        >
+          <Skeleton variant="text" width="60%" />
+          <Skeleton variant="text" width="40%" />
+        </div>
+      </div>
 
-      {/* Radius */}
-      <Image
-        src="https://picsum.photos/200/150"
-        alt="Sample"
-        width={200}
-        height={150}
-        radius="lg"
-      />
-      <Image
-        src="https://picsum.photos/150"
-        alt="Sample"
-        width={150}
-        height={150}
-        radius="pill"
-      />
+      {/* Mimicking an image */}
+      <Skeleton variant="rectangle" width="100%" height={200} radius="lg" />
 
-      {/* Fit */}
-      <Image
-        src="https://picsum.photos/400/200"
-        alt="Sample"
-        width={200}
-        height={150}
-        fit="contain"
-      />
+      {/* Mimicking a paragraph */}
+      <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+        <Skeleton variant="text" width="100%" />
+        <Skeleton variant="text" width="90%" />
+        <Skeleton variant="text" width="75%" />
+      </div>
 
-      {/* Fallback */}
-      <Image
-        src="invalid-url.jpg"
-        alt="Broken"
-        width={200}
-        height={150}
-        fallback="https://picsum.photos/200/150"
-      />
-
-      {/* Lazy loading */}
-      <Image
-        src="https://picsum.photos/200/150?random=1"
-        alt="Lazy"
-        width={200}
-        height={150}
-        lazy
-      />
+      {/* Without animation */}
+      <Skeleton variant="rectangle" width="100%" height={60} animate={false} />
     </div>
   );
 }
