@@ -1,0 +1,86 @@
+/* ===== Pixel UI — Message Bar Component ===== */
+
+/* ===== Base ===== */
+.message-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-5);
+  padding: var(--spacing-4) var(--spacing-5);
+  border-radius: var(--radius-lg);
+  border-left: 4px solid transparent;
+  width: 100%;
+}
+
+/* ===== Variants ===== */
+.message-bar--info {
+  background-color: var(--color-info-light);
+  border-left-color: var(--color-info);
+  color: var(--color-info-text);
+}
+
+.message-bar--success {
+  background-color: var(--color-success-light);
+  border-left-color: var(--color-success);
+  color: var(--color-success-text);
+}
+
+.message-bar--warning {
+  background-color: var(--color-warning-light);
+  border-left-color: var(--color-warning);
+  color: var(--color-warning-text);
+}
+
+.message-bar--error {
+  background-color: var(--color-error-light);
+  border-left-color: var(--color-error);
+  color: var(--color-error-text);
+}
+
+/* ===== Icon ===== */
+.message-bar__icon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ===== Body ===== */
+.message-bar__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+  flex: 1;
+  font-family: var(--font-family);
+}
+
+/* ===== Title ===== */
+.message-bar__title {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* ===== Message ===== */
+.message-bar__message {
+  font-size: var(--font-size-sm);
+  opacity: 0.9;
+}
+
+/* ===== Close Button ===== */
+.message-bar__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  opacity: 0.6;
+  padding: var(--spacing-1);
+  border-radius: var(--radius-default);
+  flex-shrink: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.message-bar__close:hover {
+  opacity: 1;
+}

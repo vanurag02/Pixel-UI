@@ -1,0 +1,88 @@
+/* ===== Pixel UI — Accordion Component ===== */
+
+/* ===== Accordion Wrapper ===== */
+.accordion {
+  display: flex;
+  flex-direction: column;
+  border: var(--border-width-default) solid var(--color-border);
+  border-radius: var(--radius-default);
+  overflow: hidden;
+}
+
+/* ===== Accordion Item ===== */
+.accordion-item {
+  border-bottom: var(--border-width-default) solid var(--color-border);
+}
+
+.accordion-item:last-child {
+  border-bottom: none;
+}
+
+/* ===== Header ===== */
+.accordion-item__header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-4) var(--spacing-5);
+  background-color: var(--color-bg);
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.accordion-item__header:hover:not(:disabled) {
+  background-color: var(--color-bg-subtle);
+}
+
+/* ===== Label ===== */
+.accordion-item__label {
+  font-family: var(--font-family);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+}
+
+/* ===== Icon ===== */
+.accordion-item__icon {
+  color: var(--color-text-secondary);
+  flex-shrink: 0;
+  transition: transform 0.25s ease-in-out;
+}
+
+.accordion-item__icon--open {
+  transform: rotate(180deg);
+}
+
+/* ===== Panel ===== */
+.accordion-item__panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
+
+.accordion-item__panel--open {
+  max-height: 600px;
+}
+
+/* ===== Content ===== */
+.accordion-item__content {
+  font-family: var(--font-family);
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+  padding: var(--spacing-4) var(--spacing-5);
+  border-top: var(--border-width-default) solid var(--color-border);
+  line-height: var(--line-height-paragraph);
+}
+
+/* ===== Disabled ===== */
+.accordion-item--disabled .accordion-item__header {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* ===== Open State ===== */
+.accordion-item--open .accordion-item__label {
+  color: var(--color-primary);
+}
