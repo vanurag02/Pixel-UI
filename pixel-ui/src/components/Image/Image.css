@@ -1,0 +1,38 @@
+/* ===== Pixel UI — Image Component ===== */
+
+/* ===== Base ===== */
+.image {
+  display: block;
+  max-width: 100%;
+}
+
+/* ===== Radius ===== */
+.image--radius-none {
+  border-radius: var(--radius-none);
+}
+.image--radius-sm {
+  border-radius: var(--radius-sm);
+}
+.image--radius-default {
+  border-radius: var(--radius-default);
+}
+.image--radius-lg {
+  border-radius: var(--radius-lg);
+}
+.image--radius-pill {
+  border-radius: var(--radius-pill);
+}
+
+/* ===== Fit ===== */
+.image--fit-cover {
+  object-fit: cover;
+}
+.image--fit-contain {
+  object-fit: contain;
+}
+.image--fit-fill {
+  object-fit: fill;
+}
+.image--fit-none {
+  object-fit: none;
+}

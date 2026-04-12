@@ -4,45 +4,73 @@ import { useToast } from "./components/Toast/ToastContext";
 
 import Accordion from "./components/Accordion/Accordion";
 import AccordionItem from "./components/Accordion/AccordionItem";
+import Field from "./components/Field/Field";
+import Input from "./components/Input/Input";
+import Select from "./components/Select/Select";
+import SelectOption from "./components/Select/SelectOption";
+import Textarea from "./components/Textarea/Textarea";
+import Image from "./components/Image/Image";
 
 function App() {
   return (
-    <div style={{ padding: "24px", maxWidth: "500px" }}>
-      {/* Single open at a time — default */}
-      <Accordion defaultValue="item1">
-        <AccordionItem value="item1" label="What is Pixel UI?">
-          Pixel UI is a custom React component library built with a token-based
-          design system.
-        </AccordionItem>
-        <AccordionItem value="item2" label="How do I install it?">
-          Clone the repository and import components directly into your React
-          project.
-        </AccordionItem>
-        <AccordionItem value="item3" label="Is it free to use?">
-          Yes, Pixel UI is completely open source and free to use.
-        </AccordionItem>
-        <AccordionItem value="item4" label="Disabled item" disabled>
-          This content is not accessible.
-        </AccordionItem>
-      </Accordion>
+    <div
+      style={{
+        display: "flex",
+        flexWrap: "wrap",
+        gap: "16px",
+        padding: "24px",
+      }}
+    >
+      {/* Basic */}
+      <Image
+        src="https://picsum.photos/200/150"
+        alt="Sample"
+        width={200}
+        height={150}
+      />
 
-      {/* Multiple open at a time */}
-      <div style={{ marginTop: "24px" }}>
-        <Accordion multiple defaultValue={["q1", "q2"]}>
-          <AccordionItem value="q1" label="Can multiple items be open?">
-            Yes — pass the multiple prop to allow multiple items open
-            simultaneously.
-          </AccordionItem>
-          <AccordionItem value="q2" label="Can I set a default open item?">
-            Yes — use the defaultValue prop with a value string or array of
-            strings.
-          </AccordionItem>
-          <AccordionItem value="q3" label="Does it animate?">
-            Yes — the panel smoothly expands and collapses with a CSS
-            transition.
-          </AccordionItem>
-        </Accordion>
-      </div>
+      {/* Radius */}
+      <Image
+        src="https://picsum.photos/200/150"
+        alt="Sample"
+        width={200}
+        height={150}
+        radius="lg"
+      />
+      <Image
+        src="https://picsum.photos/150"
+        alt="Sample"
+        width={150}
+        height={150}
+        radius="pill"
+      />
+
+      {/* Fit */}
+      <Image
+        src="https://picsum.photos/400/200"
+        alt="Sample"
+        width={200}
+        height={150}
+        fit="contain"
+      />
+
+      {/* Fallback */}
+      <Image
+        src="invalid-url.jpg"
+        alt="Broken"
+        width={200}
+        height={150}
+        fallback="https://picsum.photos/200/150"
+      />
+
+      {/* Lazy loading */}
+      <Image
+        src="https://picsum.photos/200/150?random=1"
+        alt="Lazy"
+        width={200}
+        height={150}
+        lazy
+      />
     </div>
   );
 }
