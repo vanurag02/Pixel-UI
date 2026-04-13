@@ -1,20 +1,18 @@
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   Pixel UI — Avatar Group Component
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* =============== PIXEL UI — AVATAR GROUP COMPONENT =============== */
 
-/* ── Base ── */
+/* ── BASE ── */
 .avatar-group {
   display: inline-flex;
   align-items: center;
 }
 
-/* ── Item ── */
+/* ── ITEM ── */
 .avatar-group__item {
   border: 2px solid var(--color-white);
   border-radius: 50%;
 }
 
-/* ── Spacing — controls overlap ── */
+/* ── SPACING — CONTROLS OVERLAP ── */
 .avatar-group__item + .avatar-group__item {
   margin-left: -10px;
 }

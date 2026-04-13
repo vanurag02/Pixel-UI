@@ -1,4 +1,4 @@
-/* =============== Pixel UI — Label Component =============== */
+/* =============== PIXEL UI — LABEL COMPONENT =============== */
 
 .label {
   font-family: var(--font-family);
@@ -7,7 +7,7 @@
   display: inline-block;
 }
 
-/* ── Size ── */
+/* ── SIZE ── */
 .label--sm {
   font-size: var(--font-size-sm);
 }
@@ -15,7 +15,7 @@
   font-size: var(--font-size-md);
 }
 
-/* ── Required asterisk ── */
+/* ── REQUIRED ASTERISK ── */
 .label__required {
   color: var(--color-error);
   margin-left: 4px;

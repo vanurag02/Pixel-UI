@@ -1,14 +1,12 @@
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   Pixel UI — Profile Badge Component
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* =============== PIXEL UI — PROFILE BADGE COMPONENT =============== */
 
-/* ── Base ── */
+/* ── BASE ── */
 .profile-badge {
   display: inline-flex;
   align-items: center;
 }
 
-/* ── Size — gap between avatar and info ── */
+/* ── SIZE — GAP BETWEEN AVATAR AND INFO ── */
 .profile-badge--sm {
   gap: var(--spacing-2);
 }
@@ -19,13 +17,13 @@
   gap: var(--spacing-4);
 }
 
-/* ── Info ── */
+/* ── INFO ── */
 .profile-badge__info {
   display: flex;
   flex-direction: column;
 }
 
-/* ── Name ── */
+/* ── NAME ── */
 .profile-badge__name {
   font-family: var(--font-family);
   font-weight: var(--font-weight-semibold);
@@ -42,7 +40,7 @@
   font-size: var(--font-size-lg);
 }
 
-/* ── Description ── */
+/* ── DESCRIPTION ── */
 .profile-badge__description {
   font-family: var(--font-family);
   font-weight: var(--font-weight-regular);

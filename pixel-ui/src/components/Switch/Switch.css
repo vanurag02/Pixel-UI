@@ -1,8 +1,6 @@
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   Pixel UI — Switch Component
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* =============== PIXEL UI — SWITCH COMPONENT =============== */
 
-/* ── Base ── */
+/* ── BASE ── */
 .switch {
   display: inline-flex;
   align-items: center;
@@ -19,7 +17,7 @@
   flex-direction: row;
 }
 
-/* ── Hide native input ── */
+/* ── HIDE NATIVE INPUT ── */
 .switch__input {
   position: absolute;
   opacity: 0;
@@ -28,7 +26,7 @@
   margin: 0;
 }
 
-/* ── Track wrapper ── */
+/* ── TRACK WRAPPER ── */
 .switch__track-wrapper {
   position: relative;
   display: inline-flex;
@@ -36,7 +34,7 @@
   flex-shrink: 0;
 }
 
-/* ── Track ── */
+/* ── TRACK ── */
 .switch__track {
   display: flex;
   align-items: center;
@@ -46,7 +44,7 @@
   position: relative;
 }
 
-/* ── Thumb ── */
+/* ── THUMB ── */
 .switch__thumb {
   background-color: var(--color-white);
   border-radius: 50%;
@@ -55,7 +53,7 @@
   box-shadow: var(--shadow-sm);
 }
 
-/* ── Sizes ── */
+/* ── SIZES ── */
 .switch--sm .switch__track {
   width: 28px;
   height: 16px;
@@ -89,7 +87,7 @@
   left: 4px;
 }
 
-/* ── Checked State ── */
+/* ── CHECKED STATE ── */
 .switch__input:checked + .switch__track {
   background-color: var(--color-primary);
 }
@@ -106,7 +104,7 @@
   transform: translateX(22px);
 }
 
-/* ── Hover ── */
+/* ── HOVER ── */
 .switch:hover .switch__track {
   background-color: var(--color-gray-6);
 }
@@ -115,7 +113,7 @@
   background-color: var(--color-primary-hover);
 }
 
-/* ── Label ── */
+/* ── LABEL ── */
 .switch__label {
   font-family: var(--font-family);
   font-weight: var(--font-weight-regular);
@@ -132,7 +130,7 @@
   font-size: var(--font-size-lg);
 }
 
-/* ── Disabled ── */
+/* ── DISABLED ── */
 .switch--disabled {
   opacity: 0.5;
   cursor: not-allowed;

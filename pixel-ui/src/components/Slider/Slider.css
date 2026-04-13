@@ -1,8 +1,6 @@
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   Pixel UI — Slider Component
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* =============== PIXEL UI — SLIDER COMPONENT =============== */
 
-/* ── Wrapper ── */
+/* ── WRAPPER ── */
 .slider-wrapper {
   display: inline-flex;
   align-items: center;
@@ -17,7 +15,7 @@
   flex: 1;
 }
 
-/* ── Track Container ── */
+/* ── TRACK CONTAINER ── */
 .slider__track-container {
   position: relative;
   display: flex;
@@ -25,7 +23,7 @@
   width: 200px;
 }
 
-/* ── Track Background ── */
+/* ── TRACK BACKGROUND ── */
 .slider__track-container::before {
   content: "";
   position: absolute;
@@ -36,7 +34,7 @@
   pointer-events: none;
 }
 
-/* ── Fill ── */
+/* ── FILL ── */
 .slider__fill {
   position: absolute;
   left: 0;
@@ -45,7 +43,7 @@
   pointer-events: none;
 }
 
-/* ── Size — track and fill heights ── */
+/* ── SIZE — TRACK AND FILL HEIGHT ── */
 .slider-wrapper--sm .slider__track-container::before,
 .slider-wrapper--sm .slider__fill {
   height: 4px;
@@ -61,7 +59,7 @@
   height: 8px;
 }
 
-/* ── Native Range Input ── */
+/* ── NATIVE RANGE INPUT ── */
 .slider__input {
   position: relative;
   width: 100%;
@@ -77,7 +75,7 @@
   outline: none;
 }
 
-/* ── Thumb — Chrome/Safari ── */
+/* ── THUMB — CHROME/ SAFARI ── */
 .slider__input::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
@@ -95,7 +93,7 @@
   box-shadow: var(--shadow-sm);
 }
 
-/* ── Thumb — Firefox ── */
+/* ── THUMB — FIREFOX ── */
 .slider__input::-moz-range-thumb {
   background-color: var(--color-white);
   border: var(--border-width-medium) solid var(--color-primary);
@@ -111,7 +109,7 @@
   box-shadow: var(--shadow-sm);
 }
 
-/* ── Thumb sizes ── */
+/* ── THUMB SIZES ── */
 .slider-wrapper--sm .slider__input::-webkit-slider-thumb {
   width: 14px;
   height: 14px;
@@ -142,7 +140,7 @@
   height: 22px;
 }
 
-/* ── Value Label ── */
+/* ── VALUE LABEL ── */
 .slider__value {
   font-family: var(--font-family);
   font-weight: var(--font-weight-medium);
@@ -162,7 +160,7 @@
   font-size: var(--font-size-lg);
 }
 
-/* ── Disabled ── */
+/* ── DISABLED ── */
 .slider-wrapper--disabled {
   opacity: 0.5;
   pointer-events: none;

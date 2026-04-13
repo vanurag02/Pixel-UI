@@ -1,12 +1,12 @@
-/* ===== Pixel UI — Popover Component ===== */
+/* =============== PIXEL UI — MESSAGE BAR COMPONENT =============== */
 
-/* ===== Wrapper ===== */
+/* ===== WRAPPER ===== */
 .popover-wrapper {
   position: relative;
   display: inline-block;
 }
 
-/* ===== Popover Panel ===== */
+/* ===== POPOVER PANEL ===== */
 .popover {
   position: absolute;
   z-index: 200;
@@ -28,7 +28,7 @@
   }
 }
 
-/* ===== Content ===== */
+/* ===== CONTENT ===== */
 .popover__content {
   padding: var(--spacing-4);
   font-family: var(--font-family);
@@ -36,7 +36,7 @@
   color: var(--color-text-primary);
 }
 
-/* ===== Positions ===== */
+/* ===== POSITIONS ===== */
 .popover--bottom {
   top: calc(100% + 10px);
   left: 50%;
@@ -61,7 +61,7 @@
   transform: translateY(-50%);
 }
 
-/* ===== Arrow ===== */
+/* ===== ARROW ===== */
 .popover__arrow {
   position: absolute;
   width: 8px;

@@ -1,8 +1,6 @@
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   Pixel UI — Radio Group Component
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* =============== PIXEL UI — RADIO GROUP COMPONENT =============== */
 
-/* ── Radio Group Wrapper ── */
+/* ── RADIO GROUP WRAPPER ── */
 .radio-group {
   display: flex;
 }
@@ -22,11 +20,9 @@
   pointer-events: none;
 }
 
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   Radio Item
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* =============== RADIO ITEM =============== */
 
-/* ── Base ── */
+/* ── BASE ── */
 .radio-item {
   display: inline-flex;
   align-items: center;
@@ -35,7 +31,7 @@
   user-select: none;
 }
 
-/* ── Hide native input ── */
+/* ── HIDE NATIVE INPUT ── */
 .radio-item__input {
   position: absolute;
   opacity: 0;
@@ -44,7 +40,7 @@
   margin: 0;
 }
 
-/* ── Custom circle ── */
+/* ── CUSTOM CIRCLE ── */
 .radio-item__circle {
   display: inline-flex;
   align-items: center;
@@ -58,7 +54,7 @@
     background-color 0.2s ease-in-out;
 }
 
-/* ── Inner dot ── */
+/* ── INNER DOT ── */
 .radio-item__circle::after {
   content: "";
   display: none;
@@ -66,7 +62,7 @@
   background-color: var(--color-white);
 }
 
-/* ── Size ── */
+/* ── SIZE ── */
 .radio-item--sm .radio-item__circle {
   width: 14px;
   height: 14px;
@@ -87,7 +83,7 @@
   height: 8px;
 }
 
-/* ── Checked State ── */
+/* ── CHECKED STATE ── */
 .radio-item__input:checked + .radio-item__circle {
   background-color: var(--color-primary);
   border-color: var(--color-primary);
@@ -97,12 +93,12 @@
   display: block;
 }
 
-/* ── Hover ── */
+/* ── HOVER ── */
 .radio-item:hover .radio-item__circle {
   border-color: var(--color-primary);
 }
 
-/* ── Label ── */
+/* ── LABEL ── */
 .radio-item__label {
   font-family: var(--font-family);
   font-weight: var(--font-weight-regular);
@@ -117,7 +113,7 @@
   font-size: var(--font-size-md);
 }
 
-/* ── Disabled ── */
+/* ── DISABLED ── */
 .radio-item--disabled {
   opacity: 0.5;
   cursor: not-allowed;

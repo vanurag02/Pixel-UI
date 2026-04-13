@@ -1,8 +1,6 @@
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   Pixel UI — Spin Button Component
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* =============== PIXEL UI — SPIN BUTTON COMPONENT =============== */
 
-/* ── Wrapper ── */
+/* ── WRAPPER ── */
 .spin-button {
   display: inline-flex;
   align-items: center;
@@ -21,7 +19,7 @@
   width: 100%;
 }
 
-/* ── Buttons ── */
+/* ── BUTTONS ── */
 .spin-button__btn {
   font-family: var(--font-family);
   font-weight: var(--font-weight-medium);
@@ -45,7 +43,7 @@
   cursor: not-allowed;
 }
 
-/* ── Input ── */
+/* ── INPUT ── */
 .spin-button__input {
   font-family: var(--font-family);
   font-weight: var(--font-weight-regular);
@@ -58,7 +56,7 @@
   outline: none;
   flex: 1;
 
-  /* Hide native number input arrows */
+  /* HIDE NATIVE NUMBER INPUT ARROWS */
   /* -moz-appearance: textfield; */
 }
 
@@ -68,7 +66,7 @@
   margin: 0;
 }
 
-/* ── Sizes ── */
+/* ── SIZES ── */
 .spin-button--sm .spin-button__btn {
   width: 28px;
   height: 32px;
@@ -105,7 +103,7 @@
   min-width: 64px;
 }
 
-/* ── Disabled ── */
+/* ── DISABLED ── */
 .spin-button--disabled {
   opacity: 0.5;
   cursor: not-allowed;

@@ -1,6 +1,6 @@
-/* ===== Pixel UI — Message Bar Component ===== */
+/* =============== PIXEL UI — MESSAGE BAR COMPONENT =============== */
 
-/* ===== Base ===== */
+/* ===== BASE ===== */
 .message-bar {
   display: flex;
   align-items: center;
@@ -11,7 +11,7 @@
   width: 100%;
 }
 
-/* ===== Variants ===== */
+/* ===== VARIANTS ===== */
 .message-bar--info {
   background-color: var(--color-info-light);
   border-left-color: var(--color-info);
@@ -36,7 +36,7 @@
   color: var(--color-error-text);
 }
 
-/* ===== Icon ===== */
+/* ===== ICON ===== */
 .message-bar__icon {
   display: inline-flex;
   align-items: center;
@@ -44,7 +44,7 @@
   margin-top: 1px;
 }
 
-/* ===== Body ===== */
+/* ===== BODY ===== */
 .message-bar__body {
   display: flex;
   flex-direction: column;
@@ -53,19 +53,18 @@
   font-family: var(--font-family);
 }
 
-/* ===== Title ===== */
+/* ===== TITLE ===== */
 .message-bar__title {
   font-size: var(--font-size-md);
   font-weight: var(--font-weight-semibold);
 }
 
-/* ===== Message ===== */
+/* ===== MESSAGE ===== */
 .message-bar__message {
   font-size: var(--font-size-sm);
-  opacity: 0.9;
 }
 
-/* ===== Close Button ===== */
+/* ===== CLOSE BUTTON ===== */
 .message-bar__close {
   display: inline-flex;
   align-items: center;

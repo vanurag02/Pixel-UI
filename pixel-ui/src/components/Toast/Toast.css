@@ -1,6 +1,6 @@
-/* ===== Pixel UI — Toast Component ===== */
+/* =============== PIXEL UI — TOAST COMPONENT =============== */
 
-/* ===== Container ===== */
+/* ===== CONTAINER ===== */
 .toast-container {
   position: fixed;
   z-index: 500;
@@ -10,7 +10,7 @@
   pointer-events: none;
 }
 
-/* ===== Positions ===== */
+/* ===== POSITIONS ===== */
 .toast-container--top-right {
   top: var(--spacing-5);
   right: var(--spacing-5);
@@ -44,7 +44,7 @@
   align-items: center;
 }
 
-/* ===== Toast ===== */
+/* ===== TOAST ===== */
 .toast {
   display: inline-flex;
   align-items: center;
@@ -70,7 +70,7 @@
   }
 }
 
-/* ===== Types ===== */
+/* ===== TYPES ===== */
 .toast--default {
   background-color: var(--color-gray-9);
   color: var(--color-white);
@@ -101,14 +101,14 @@
   border-color: var(--color-info);
 }
 
-/* ===== Icon ===== */
+/* ===== ICON ===== */
 .toast__icon {
   display: inline-flex;
   align-items: center;
   flex-shrink: 0;
 }
 
-/* ===== Message ===== */
+/* ===== MESSAGE ===== */
 .toast__message {
   font-family: var(--font-family);
   font-size: var(--font-size-md);
@@ -116,7 +116,7 @@
   flex: 1;
 }
 
-/* ===== Close Button ===== */
+/* ===== CLOSE BUTTON ===== */
 .toast__close {
   display: inline-flex;
   align-items: center;

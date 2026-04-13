@@ -1,8 +1,6 @@
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   Pixel UI — Link Component
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* =============== PIXEL UI — LINK COMPONENT =============== */
 
-/* ── Base ── */
+/* ── BASE ── */
 .link {
   font-family: var(--font-family);
   font-weight: var(--font-weight-regular);
@@ -10,7 +8,7 @@
   transition: color 0.2s ease-in-out;
 }
 
-/* ── Size ── */
+/* ── SIZE ── */
 .link--xs {
   font-size: var(--font-size-xs);
 }
@@ -27,7 +25,7 @@
   font-size: var(--font-size-xl);
 }
 
-/* ── Color ── */
+/* ── COLOR ── */
 .link--primary {
   color: var(--color-primary);
 }
@@ -63,7 +61,7 @@
   color: var(--color-info-hover);
 }
 
-/* ── Underline ── */
+/* ── UNDERLINE ── */
 .link--underline-always {
   text-decoration: underline;
 }

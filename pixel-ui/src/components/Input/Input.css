@@ -1,6 +1,6 @@
-/* =============== Pixel UI — Input Component =============== */
+/* =============== PIXEL UI — INPUT COMPONENT =============== */
 
-/* ── Wrapper ── */
+/* ── WRAPER ── */
 .input-wrapper {
   position: relative;
   display: inline-flex;
@@ -11,7 +11,7 @@
   width: 100%;
 }
 
-/* ── Radius ── */
+/* ── RADIUS ── */
 .input-wrapper--radius-none {
   border-radius: var(--radius-none);
 }
@@ -28,7 +28,7 @@
   border-radius: var(--radius-pill);
 }
 
-/* ── Base Input ── */
+/* ── BASE INPUT ── */
 .input {
   font-family: var(--font-family);
   font-weight: var(--font-weight-regular);
@@ -46,7 +46,7 @@
   color: var(--color-gray-5);
 }
 
-/* ── Size ── */
+/* ── SIZE ── */
 .input-wrapper--sm .input {
   font-size: var(--font-size-sm);
   padding: var(--spacing-2) var(--spacing-3);
@@ -65,7 +65,7 @@
   height: 44px;
 }
 
-/* ── Default Variant ── */
+/* ── DEFAULT VARIANT ── */
 .input-wrapper--default {
   background-color: var(--color-bg);
   border: var(--border-width-default) solid var(--color-border);
@@ -75,7 +75,7 @@
   border-color: var(--color-primary);
 }
 
-/* ── Filled Variant ── */
+/* ── FILLED VARIANT ── */
 .input-wrapper--filled {
   background-color: var(--color-bg-muted);
   border: var(--border-width-default) solid transparent;
@@ -86,7 +86,7 @@
   border-color: var(--color-primary);
 }
 
-/* ── Error State ── */
+/* ── ERROR STATE ── */
 .input-wrapper--error {
   border-color: var(--color-red-7) !important;
 }
@@ -100,7 +100,7 @@
   opacity: 0.6;
 }
 
-/* ── Disabled State ── */
+/* ── DISABLED STATE ── */
 .input-wrapper--disabled {
   opacity: 0.5;
   cursor: not-allowed;
@@ -112,7 +112,7 @@
   pointer-events: none;
 }
 
-/* ── Left and Right Sections ── */
+/* ── LEFT AND RIGHT SECTIONS ── */
 .input__section {
   display: inline-flex;
   align-items: center;
@@ -129,7 +129,7 @@
   padding-right: var(--spacing-3);
 }
 
-/* Adjust input padding when sections are present */
+/* ADJUST INPUT PADDING WHEN SECTIONS ARE PRESENT */
 .input--has-left {
   padding-left: var(--spacing-2) !important;
 }

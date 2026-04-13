@@ -1,6 +1,6 @@
-/* ===== Pixel UI — Tooltip Component ===== */
+/* =============== PIXEL UI — TOOLTIP COMPONENT =============== */
 
-/* ===== Wrapper ===== */
+/* ===== WRAPPER ===== */
 .tooltip-wrapper {
   position: relative;
   display: inline-flex;
@@ -8,7 +8,7 @@
   justify-content: center;
 }
 
-/* ===== Tooltip Box ===== */
+/* ===== TOOLTIP BOX ===== */
 .tooltip {
   position: absolute;
   z-index: 200;
@@ -29,7 +29,7 @@
   opacity: 1;
 }
 
-/* ===== Arrow ===== */
+/* ===== ARROW ===== */
 .tooltip__arrow {
   position: absolute;
   width: 0;
@@ -37,7 +37,7 @@
   border: 5px solid transparent;
 }
 
-/* ===== Position — Top ===== */
+/* ===== POSITION - TOP ===== */
 .tooltip--top {
   bottom: calc(100% + 8px);
   left: 50%;
@@ -52,7 +52,7 @@
   border-bottom: none;
 }
 
-/* ===== Position — Bottom ===== */
+/* ===== POSITION - BOTTOM ===== */
 .tooltip--bottom {
   top: calc(100% + 8px);
   left: 50%;
@@ -67,7 +67,7 @@
   border-top: none;
 }
 
-/* ===== Position — Left ===== */
+/* ===== POSITION - LEFT ===== */
 .tooltip--left {
   right: calc(100% + 8px);
   top: 50%;
@@ -82,7 +82,7 @@
   border-right: none;
 }
 
-/* ===== Position — Right ===== */
+/* ===== POSITION - RIGHT ===== */
 .tooltip--right {
   left: calc(100% + 8px);
   top: 50%;

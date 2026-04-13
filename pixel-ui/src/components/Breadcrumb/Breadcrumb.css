@@ -1,8 +1,6 @@
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   Pixel UI — Breadcrumb Component
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* =============== PIXEL UI — BREADCRUMB COMPONENT =============== */
 
-/* ── Base ── */
+/* ── BASE ── */
 .breadcrumb__list {
   display: flex;
   align-items: center;
@@ -12,13 +10,13 @@
   padding: 0;
 }
 
-/* ── Item ── */
+/* ── ITEM ── */
 .breadcrumb__item {
   display: inline-flex;
   align-items: center;
 }
 
-/* ── Separator ── */
+/* ── SEPARATOR ── */
 .breadcrumb__separator {
   font-family: var(--font-family);
   color: var(--color-gray-8);
@@ -26,7 +24,7 @@
   user-select: none;
 }
 
-/* ── Link ── */
+/* ── LINK ── */
 .breadcrumb__link {
   font-family: var(--font-family);
   font-weight: var(--font-weight-medium);
@@ -40,14 +38,14 @@
   text-decoration: underline;
 }
 
-/* ── Active (current page) ── */
+/* ── ACTIVE (CURRENT PAGE) ── */
 .breadcrumb__link--active {
   color: var(--color-text-primary);
   font-weight: var(--font-weight-medium);
   cursor: pointer;
 }
 
-/* ── Sizes ── */
+/* ── SIZES ── */
 .breadcrumb--sm .breadcrumb__link,
 .breadcrumb--sm .breadcrumb__separator {
   font-size: var(--font-size-sm);

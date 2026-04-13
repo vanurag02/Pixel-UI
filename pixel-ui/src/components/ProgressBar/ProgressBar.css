@@ -1,8 +1,6 @@
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   Pixel UI — Progress Bar Component
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* =============== PIXEL UI — PROGRESS BAR COMPONENT =============== */
 
-/* ── Shimmer Animation ── */
+/* ── SHIMMER ANIMATION ── */
 @keyframes progress-shimmer {
   0% {
     background-position: 200% center;
@@ -12,7 +10,7 @@
   }
 }
 
-/* ── Base Track ── */
+/* ── BASE TRACK ── */
 .progress-bar {
   position: relative;
   width: 100%;
@@ -21,7 +19,7 @@
   border: var(--border-width-default) solid var(--color-border);
 }
 
-/* ── Sizes ── */
+/* ── SIZES ── */
 .progress-bar--sm {
   height: 6px;
 }
@@ -32,7 +30,7 @@
   height: 16px;
 }
 
-/* ── Radius ── */
+/* ── RADIUS ── */
 .progress-bar--radius-none {
   border-radius: var(--radius-none);
 }
@@ -43,14 +41,14 @@
   border-radius: var(--radius-pill);
 }
 
-/* ── Fill ── */
+/* ── FILL ── */
 .progress-bar__fill {
   height: 100%;
   border-radius: inherit;
   transition: width 0.4s ease-in-out;
 }
 
-/* ── Fill Colors ── */
+/* ── FILL COLORS ── */
 .progress-bar__fill--primary {
   background-color: var(--color-primary);
 }
@@ -67,7 +65,7 @@
   background-color: var(--color-info);
 }
 
-/* ── Animated ── */
+/* ── ANIMATED ── */
 .progress-bar__fill--animated {
   background-size: 200% auto;
   animation: progress-shimmer 1.5s linear infinite;
@@ -118,7 +116,7 @@
   );
 }
 
-/* ── Value Label ── */
+/* ── VALUE LABEL ── */
 .progress-bar__value {
   position: absolute;
   right: var(--spacing-3);

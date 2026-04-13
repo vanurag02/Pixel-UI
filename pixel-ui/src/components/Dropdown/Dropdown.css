@@ -1,12 +1,12 @@
-/* ===== Pixel UI — Dropdown Component ===== */
+/* =============== PIXEL UI — DROPDOWN COMPONENT =============== */
 
-/* ===== Wrapper ===== */
+/* ===== WRAPPER ===== */
 .dropdown {
   position: relative;
   display: inline-block;
 }
 
-/* ===== Trigger Button ===== */
+/* ===== TRIGGER BUTTON ===== */
 .dropdown__trigger {
   font-family: var(--font-family);
   font-weight: var(--font-weight-medium);
@@ -21,7 +21,7 @@
     color 0.2s ease-in-out;
 }
 
-/* ===== Trigger Sizes ===== */
+/* ===== TRIGGER SIZES ===== */
 .dropdown__trigger--sm {
   font-size: var(--font-size-sm);
   padding: var(--spacing-2) var(--spacing-3);
@@ -40,7 +40,7 @@
   height: 44px;
 }
 
-/* ===== Trigger Variants ===== */
+/* ===== TRIGGER VARIANTS ===== */
 .dropdown__trigger--filled {
   background-color: var(--color-primary);
   color: var(--color-white);
@@ -71,18 +71,18 @@
   background-color: var(--color-bg-subtle);
 }
 
-/* ===== Active State ===== */
+/* ===== ACTIVE STATE ===== */
 .dropdown__trigger--active.dropdown__trigger--outline {
   border-color: var(--color-primary);
 }
 
-/* ===== Disabled ===== */
+/* ===== DISABLED ===== */
 .dropdown__trigger--disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
 
-/* ===== Arrow ===== */
+/* ===== ARROW ===== */
 .dropdown__arrow {
   color: inherit;
   transition: transform 0.2s ease-in-out;
@@ -93,7 +93,7 @@
   transform: rotate(180deg);
 }
 
-/* ===== Menu Panel ===== */
+/* ===== MENU PANEL ===== */
 .dropdown__menu {
   position: absolute;
   top: calc(100% + var(--spacing-2));
@@ -109,7 +109,7 @@
   flex-direction: column;
 }
 
-/* ===== Dropdown Item ===== */
+/* ===== DROPDOWN ITEM ===== */
 .dropdown-item {
   font-family: var(--font-family);
   font-size: var(--font-size-md);
@@ -129,7 +129,7 @@
   background-color: var(--color-bg-subtle);
 }
 
-/* ===== Disabled Item ===== */
+/* ===== DISABLED ITEM ===== */
 .dropdown-item--disabled {
   opacity: 0.4;
   cursor: not-allowed;

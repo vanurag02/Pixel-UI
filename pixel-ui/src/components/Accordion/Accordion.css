@@ -1,6 +1,6 @@
-/* ===== Pixel UI — Accordion Component ===== */
+/* =============== PIXEL UI — ACCORDION COMPONENT =============== */
 
-/* ===== Accordion Wrapper ===== */
+/* ===== ACCORDION WRAPPER ===== */
 .accordion {
   display: flex;
   flex-direction: column;
@@ -9,7 +9,7 @@
   overflow: hidden;
 }
 
-/* ===== Accordion Item ===== */
+/* ===== ACCORDION ITEM ===== */
 .accordion-item {
   border-bottom: var(--border-width-default) solid var(--color-border);
 }
@@ -18,7 +18,7 @@
   border-bottom: none;
 }
 
-/* ===== Header ===== */
+/* ===== HEADER ===== */
 .accordion-item__header {
   width: 100%;
   display: flex;
@@ -36,7 +36,7 @@
   background-color: var(--color-bg-subtle);
 }
 
-/* ===== Label ===== */
+/* ===== LABEL ===== */
 .accordion-item__label {
   font-family: var(--font-family);
   font-size: var(--font-size-md);
@@ -44,7 +44,7 @@
   color: var(--color-text-primary);
 }
 
-/* ===== Icon ===== */
+/* ===== ICON ===== */
 .accordion-item__icon {
   color: var(--color-text-secondary);
   flex-shrink: 0;
@@ -55,7 +55,7 @@
   transform: rotate(180deg);
 }
 
-/* ===== Panel ===== */
+/* ===== PANEL ===== */
 .accordion-item__panel {
   max-height: 0;
   overflow: hidden;
@@ -66,7 +66,7 @@
   max-height: 600px;
 }
 
-/* ===== Content ===== */
+/* ===== CONTENT ===== */
 .accordion-item__content {
   font-family: var(--font-family);
   font-size: var(--font-size-md);
@@ -76,13 +76,13 @@
   line-height: var(--line-height-paragraph);
 }
 
-/* ===== Disabled ===== */
+/* ===== DISABLES ===== */
 .accordion-item--disabled .accordion-item__header {
   cursor: not-allowed;
   opacity: 0.5;
 }
 
-/* ===== Open State ===== */
+/* ===== OPEN STATE ===== */
 .accordion-item--open .accordion-item__label {
   color: var(--color-primary);
 }

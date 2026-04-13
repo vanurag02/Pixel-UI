@@ -1,6 +1,6 @@
-/* ===== Pixel UI — Dialog Component ===== */
+/* =============== PIXEL UI — DIALOG COMPONENT =============== */
 
-/* ===== Overlay ===== */
+/* ===== OVERLAY ===== */
 .dialog__overlay {
   position: fixed;
   inset: 0;
@@ -22,7 +22,7 @@
   }
 }
 
-/* ===== Dialog Panel ===== */
+/* ===== DIALOG PANEL ===== */
 .dialog {
   background-color: var(--color-bg);
   border-radius: var(--radius-lg);
@@ -46,7 +46,7 @@
   }
 }
 
-/* ===== Sizes ===== */
+/* ===== SIZES ===== */
 .dialog--sm {
   max-width: 380px;
 }
@@ -65,7 +65,7 @@
   border-radius: 0;
 }
 
-/* ===== Header ===== */
+/* ===== HEADER ===== */
 .dialog__header {
   display: flex;
   align-items: center;
@@ -74,7 +74,7 @@
   border-bottom: var(--border-width-default) solid var(--color-border);
 }
 
-/* ===== Title ===== */
+/* ===== TITLE ===== */
 .dialog__title {
   font-family: var(--font-family);
   font-size: var(--font-size-xl);
@@ -83,7 +83,7 @@
   margin: 0;
 }
 
-/* ===== Close Button ===== */
+/* ===== CLOSE BUTTON ===== */
 .dialog__close {
   display: inline-flex;
   align-items: center;
@@ -104,7 +104,7 @@
   color: var(--color-text-primary);
 }
 
-/* ===== Content ===== */
+/* ===== CONTENT ===== */
 .dialog__content {
   padding: var(--spacing-5);
   overflow-y: auto;
@@ -113,7 +113,7 @@
   color: var(--color-text-primary);
 }
 
-/* ===== Sub-components ===== */
+/* ===== SUB-COMPONENTS ===== */
 .dialog-header {
   font-family: var(--font-family);
   font-size: var(--font-size-xl);

@@ -1,11 +1,11 @@
-/* =============== Pixel UI — Text Component =============== */
+/* =============== PIXEL UI — TEXT COMPONENT =============== */
 
 .text {
   font-family: var(--font-family);
   margin: 0;
 }
 
-/* ── Size ── */
+/* ── SIZE ── */
 .text--xs {
   font-size: var(--font-size-xs);
 }
@@ -52,7 +52,7 @@
   font-size: var(--font-size-11xl);
 }
 
-/* ── Weight ── */
+/* ── WEIGHT ── */
 .text--light {
   font-weight: var(--font-weight-light);
 }
@@ -69,7 +69,7 @@
   font-weight: var(--font-weight-bold);
 }
 
-/* ── Color ── */
+/* ── COLOR ── */
 .text--primary {
   color: var(--color-text-primary);
 }
@@ -95,7 +95,7 @@
   color: var(--color-info);
 }
 
-/* ── Align ── */
+/* ── ALIGN ── */
 .text--left {
   text-align: left;
 }
@@ -109,7 +109,7 @@
   text-align: justify;
 }
 
-/* ── Truncate ── */
+/* ── TRUNCATE ── */
 .text--truncate {
   white-space: nowrap;
   overflow: hidden;

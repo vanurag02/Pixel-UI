@@ -1,20 +1,18 @@
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   Pixel UI — Tablist Component
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* =============== PIXEL UI — TABLIST COMPONENT =============== */
 
-/* ── Base Wrapper ── */
+/* ── BASE WRAPPER ── */
 .tablist {
   display: inline-flex;
   align-items: center;
 }
 
-/* ── Default Variant Wrapper ── */
+/* ── DEFAULT VARIANT WRAPPER ── */
 .tablist--default {
   border-bottom: var(--border-width-default) solid var(--color-border);
   width: 100%;
 }
 
-/* ── Pills Variant Wrapper ── */
+/* ── PILLS VARIANT WRAPPER ── */
 .tablist--pills {
   background-color: var(--color-bg-muted);
   border-radius: var(--radius-lg);
@@ -22,9 +20,7 @@
   gap: var(--spacing-1);
 }
 
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   Tab Item Base
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* =============== TAB ITEM BASE =============== */
 .tab-item {
   font-family: var(--font-family);
   font-weight: var(--font-weight-semibold);
@@ -42,7 +38,7 @@
   color: var(--color-text-primary);
 }
 
-/* ── Sizes ── */
+/* ── SIZES ── */
 .tab-item--sm {
   font-size: var(--font-size-sm);
   padding: var(--spacing-2) var(--spacing-3);
@@ -56,9 +52,7 @@
   padding: var(--spacing-3) var(--spacing-5);
 }
 
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   Default Variant Tab Item
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* =============== DEFAULT VARIANT TAB ITEM =============== */
 .tab-item--default {
   border-bottom: 2px solid transparent;
   margin-bottom: -1px;
@@ -69,9 +63,7 @@
   border-bottom-color: var(--color-primary);
 }
 
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   Pills Variant Tab Item
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* =============== PILL VARIANT TAB ITEM =============== */
 .tab-item--pills {
   border-radius: var(--radius-default);
 }
@@ -82,7 +74,7 @@
   box-shadow: var(--shadow-sm);
 }
 
-/* ── Disabled ── */
+/* ── DISABLED ── */
 .tab-item--disabled {
   opacity: 0.4;
   cursor: not-allowed;

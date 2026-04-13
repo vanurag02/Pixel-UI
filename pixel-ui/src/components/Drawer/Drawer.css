@@ -1,6 +1,6 @@
-/* ===== Pixel UI — Drawer Component ===== */
+/* =============== PIXEL UI — DRAWER COMPONENT =============== */
 
-/* ===== Overlay ===== */
+/* ===== OVERLAY ===== */
 .drawer__overlay {
   position: fixed;
   inset: 0;
@@ -19,7 +19,7 @@
   }
 }
 
-/* ===== Drawer Panel ===== */
+/* ===== DRAWER PANEL ===== */
 .drawer {
   position: fixed;
   background-color: var(--color-bg);
@@ -30,7 +30,7 @@
   z-index: 301;
 }
 
-/* ===== Positions ===== */
+/* ===== POSITIONS ===== */
 .drawer--right {
   top: 0;
   right: 0;
@@ -59,7 +59,7 @@
   animation: drawer-slide-up 0.25s ease-in-out;
 }
 
-/* ===== Animations ===== */
+/* ===== ANIMATIONS ===== */
 @keyframes drawer-slide-left {
   from {
     transform: translateX(100%);
@@ -96,7 +96,7 @@
   }
 }
 
-/* ===== Sizes — width for left/right, height for top/bottom ===== */
+/* ===== SIZES — WIDTH FOR LEFT/RIGHT, HEIGHT FOR TOP/BOTTOM ===== */
 .drawer--right.drawer--sm,
 .drawer--left.drawer--sm {
   width: 280px;
@@ -127,7 +127,7 @@
   height: 480px;
 }
 
-/* ===== Header ===== */
+/* ===== HEADER ===== */
 .drawer__header {
   display: flex;
   align-items: center;
@@ -137,7 +137,7 @@
   flex-shrink: 0;
 }
 
-/* ===== Title ===== */
+/* ===== TITLE ===== */
 .drawer__title {
   font-family: var(--font-family);
   font-size: var(--font-size-xl);
@@ -146,7 +146,7 @@
   margin: 0;
 }
 
-/* ===== Close Button ===== */
+/* ===== CLOSE BUTTON ===== */
 .drawer__close {
   display: inline-flex;
   align-items: center;
@@ -167,7 +167,7 @@
   color: var(--color-text-primary);
 }
 
-/* ===== Content ===== */
+/* ===== CONTENT ===== */
 .drawer__content {
   padding: var(--spacing-5);
   overflow-y: auto;

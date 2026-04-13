@@ -1,8 +1,6 @@
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   Pixel UI — Button Component
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* =============== PIXEL UI — BUTTON COMPONENT =============== */
 
-/* ── Base ── */
+/* ── BASE ── */
 .btn {
   font-family: var(--font-family);
   font-weight: var(--font-weight-medium);

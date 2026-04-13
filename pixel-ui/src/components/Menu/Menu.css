@@ -1,15 +1,13 @@
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   Pixel UI — Menu Component
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* =============== PIXEL UI — MENU COMPONENT =============== */
 
-/* ── Overlay ── */
+/* ── OVERLAY ── */
 .menu__overlay {
   position: fixed;
   inset: 0;
   z-index: 99;
 }
 
-/* ── Menu Panel ── */
+/* ── MENU PANEL ── */
 .menu {
   position: absolute;
   z-index: 100;
@@ -23,9 +21,7 @@
   flex-direction: column;
 }
 
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   Menu Item
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* =============== MENU ITEM =============== */
 .menu-item {
   font-family: var(--font-family);
   font-size: var(--font-size-md);
@@ -48,7 +44,7 @@
   background-color: var(--color-bg-subtle);
 }
 
-/* ── Error Color ── */
+/* ── ERROR COLOR ── */
 .menu-item--error {
   color: var(--color-error);
 }
@@ -57,13 +53,13 @@
   background-color: var(--color-error-light);
 }
 
-/* ── Disabled ── */
+/* ── DISABLED ── */
 .menu-item--disabled {
   opacity: 0.4;
   cursor: not-allowed;
 }
 
-/* ── Left Section ── */
+/* ── LEFT SECTION ── */
 .menu-item__left {
   display: inline-flex;
   align-items: center;
@@ -71,23 +67,19 @@
   font-size: 16px;
 }
 
-/* ── Text ── */
+/* ── TEXT ── */
 .menu-item__text {
   flex: 1;
 }
 
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   Menu Divider
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* =============== MENU DIVIDER =============== */
 .menu-divider {
   height: 1px;
   background-color: var(--color-border);
   margin: var(--spacing-2) 0;
 }
 
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   Menu Label
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* =============== MENU LABEL =============== */
 .menu-label {
   font-family: var(--font-family);
   font-size: var(--font-size-xs);
@@ -98,7 +90,7 @@
   letter-spacing: var(--letter-spacing-wider);
 }
 
-/* ===== Sub-components ===== */
+/* ===== SUB-COMPONENTS ===== */
 .menu-header {
   padding: var(--spacing-3) var(--spacing-3) var(--spacing-2);
   border-bottom: var(--border-width-default) solid var(--color-border);

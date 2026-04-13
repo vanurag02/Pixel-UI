@@ -1,8 +1,6 @@
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   Pixel UI — Textarea Component
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* =============== PIXEL UI — TEXT AREA COMPONENT =============== */
 
-/* ── Base ── */
+/* ── BASE ── */
 .textarea {
   font-family: var(--font-family);
   font-weight: var(--font-weight-regular);
@@ -18,12 +16,12 @@
   color: var(--color-text-disabled);
 }
 
-/* ── Full Width ── */
+/* ── FULL WIDTH ── */
 .textarea--full-width {
   width: 100%;
 }
 
-/* ── Size ── */
+/* ── SIZE ── */
 .textarea--sm {
   font-size: var(--font-size-sm);
   padding: var(--spacing-2) var(--spacing-3);
@@ -39,7 +37,7 @@
   padding: var(--spacing-3) var(--spacing-5);
 }
 
-/* ── Radius ── */
+/* ── RADIUS ── */
 .textarea--radius-none {
   border-radius: var(--radius-none);
 }
@@ -53,7 +51,7 @@
   border-radius: var(--radius-lg);
 }
 
-/* ── Resize ── */
+/* ── RESIZE ── */
 .textarea--resize-vertical {
   resize: vertical;
 }
@@ -67,7 +65,7 @@
   resize: none;
 }
 
-/* ── Default Variant ── */
+/* ── DEFAULT VARIANT ── */
 .textarea--default {
   background-color: var(--color-bg);
   border: var(--border-width-default) solid var(--color-border);
@@ -77,7 +75,7 @@
   border-color: var(--color-primary);
 }
 
-/* ── Filled Variant ── */
+/* ── FILLED VARIANT ── */
 .textarea--filled {
   background-color: var(--color-bg-muted);
   border: var(--border-width-default) solid transparent;
@@ -88,7 +86,7 @@
   border-color: var(--color-primary);
 }
 
-/* ── Error State ── */
+/* ── ERROR STATE ── */
 .textarea--error {
   border-color: var(--color-error) !important;
 }
@@ -102,7 +100,7 @@
   opacity: 0.6;
 }
 
-/* ── Disabled State ── */
+/* ── DISABLED STATE ── */
 .textarea--disabled {
   opacity: 0.5;
   cursor: not-allowed;

@@ -1,8 +1,6 @@
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   Pixel UI — Tag Component
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* =============== PIXEL UI — TAG COMPONENT =============== */
 
-/* ── Base ── */
+/* ── BASE ── */
 .tag {
   font-family: var(--font-family);
   font-weight: var(--font-weight-medium);
@@ -12,7 +10,7 @@
   border: var(--border-width-default) solid transparent;
 }
 
-/* ── Size ── */
+/* ── SIZE ── */
 .tag--sm {
   font-size: var(--font-size-xs);
   padding: var(--spacing-1) var(--spacing-2);
@@ -23,7 +21,7 @@
   padding: var(--spacing-1) var(--spacing-3);
 }
 
-/* ── Radius ── */
+/* ── RADIUS ── */
 .tag--radius-none {
   border-radius: var(--radius-none);
 }
@@ -40,9 +38,7 @@
   border-radius: var(--radius-pill);
 }
 
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   Filled Variant
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* =============== FILLED VARIANT =============== */
 .tag--filled.tag--primary {
   background-color: var(--color-primary);
   color: var(--color-white);
@@ -64,9 +60,7 @@
   color: var(--color-white);
 }
 
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   Subtle Variant
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* =============== SUBTLE VARIANT =============== */
 .tag--subtle.tag--primary {
   background-color: var(--color-primary-light);
   color: var(--color-primary-text);
@@ -88,9 +82,7 @@
   color: var(--color-info-text);
 }
 
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   Light Variant
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* =============== LIGHT VARIANT =============== */
 .tag--light.tag--primary {
   background-color: var(--color-primary-light);
   color: var(--color-primary-text);
@@ -117,7 +109,7 @@
   border-color: var(--color-info);
 }
 
-/* ── Close Button ── */
+/* ── CLOSE BUTTON ── */
 .tag__close {
   display: inline-flex;
   align-items: center;

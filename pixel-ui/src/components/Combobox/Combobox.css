@@ -1,6 +1,6 @@
-/* ===== Pixel UI — Combobox Component ===== */
+/* =============== PIXEL UI — COMBOBOX COMPONENT =============== */
 
-/* ===== Wrapper ===== */
+/* ===== WRAPPER ===== */
 .combobox {
   position: relative;
   display: inline-block;
@@ -10,7 +10,7 @@
   width: 100%;
 }
 
-/* ===== Radius ===== */
+/* ===== RADIUS ===== */
 .combobox--radius-none {
   border-radius: var(--radius-none);
 }
@@ -27,7 +27,7 @@
   border-radius: var(--radius-pill);
 }
 
-/* ===== Input Wrapper ===== */
+/* ===== INPUT WRAPPER ===== */
 .combobox__input-wrapper {
   display: flex;
   align-items: center;
@@ -54,7 +54,7 @@
   background-color: var(--color-bg-disabled);
 }
 
-/* ===== Sizes ===== */
+/* ===== SIZES ===== */
 .combobox--sm .combobox__input-wrapper {
   padding: var(--spacing-1) var(--spacing-2);
   min-height: 32px;
@@ -68,7 +68,7 @@
   min-height: 44px;
 }
 
-/* ===== Input ===== */
+/* ===== INPUT ===== */
 .combobox__input {
   font-family: var(--font-family);
   font-weight: var(--font-weight-regular);
@@ -98,7 +98,7 @@
   cursor: not-allowed;
 }
 
-/* ===== Arrow ===== */
+/* ===== ARROW ===== */
 .combobox__arrow {
   color: var(--color-text-secondary);
   transition: transform 0.2s ease-in-out;
@@ -109,7 +109,7 @@
   transform: rotate(180deg);
 }
 
-/* ===== Tags ===== */
+/* ===== TAGS ===== */
 .combobox__tags {
   display: flex;
   flex-wrap: wrap;
@@ -145,7 +145,7 @@
   opacity: 1;
 }
 
-/* ===== Menu ===== */
+/* ===== MENU ===== */
 .combobox__menu {
   position: absolute;
   top: calc(100% + var(--spacing-2));
@@ -163,7 +163,7 @@
   flex-direction: column;
 }
 
-/* ===== Option ===== */
+/* ===== OPTION ===== */
 .combobox__option {
   font-family: var(--font-family);
   font-size: var(--font-size-md);
@@ -183,7 +183,7 @@
   background-color: var(--color-bg-subtle);
 }
 
-/* ===== Empty State ===== */
+/* ===== EMPTY STATE ===== */
 .combobox__empty {
   font-family: var(--font-family);
   font-size: var(--font-size-sm);
