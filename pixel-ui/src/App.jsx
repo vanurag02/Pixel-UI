@@ -1,13 +1,97 @@
-import { useState } from "react";
 import "./index.css";
 import { useToast } from "./components/Toast/ToastContext";
 import { Search } from "lucide-react";
 
+import { useState } from "react";
+import {
+  Text,
+  Label,
+  Divider,
+  Image,
+  Button,
+  Input,
+  Textarea,
+  Checkbox,
+  Switch,
+  RadioGroup,
+  RadioItem,
+  Select,
+  SelectOption,
+  Slider,
+  SpinButton,
+  Combobox,
+  Field,
+  Badge,
+  Spinner,
+  ProgressBar,
+  Avatar,
+  AvatarGroup,
+  Link,
+  Tag,
+  Card,
+  Skeleton,
+  ProfileBadge,
+  Breadcrumb,
+  BreadcrumbItem,
+  Tablist,
+  TabItem,
+  Toolbar,
+  ToolbarGroup,
+  Menu,
+  MenuItem,
+  MenuDivider,
+  MenuLabel,
+  Dropdown,
+  DropdownItem,
+  Tooltip,
+  Popover,
+  Dialog,
+  Drawer,
+  Toast,
+  MessageBar,
+  Accordion,
+  AccordionItem,
+} from "./components";
 import useTheme from "./hooks/useTheme";
 
-import { MessageBar } from "./components";
+const frameworks = ["React", "Vue", "Svelte", "Angular", "Solid"];
+const skills = ["JavaScript", "TypeScript", "CSS", "HTML", "Node.js"];
 
-function App() {
+function Section({ title, children }) {
+  return (
+    <div style={{ marginBottom: "48px" }}>
+      <Text as="h2" size="2xl" weight="bold" style={{ marginBottom: "4px" }}>
+        {title}
+      </Text>
+      <Divider style={{ marginBottom: "24px" }} />
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "16px",
+          alignItems: "flex-start",
+        }}
+      >
+        {children}
+      </div>
+    </div>
+  );
+}
+
+export default function App() {
+  const { theme, toggleTheme } = useTheme();
+  const { addToast } = useToast();
+
+  // Form state
+  const [checked, setChecked] = useState(false);
+  const [switched, setSwitched] = useState(false);
+  const [radio, setRadio] = useState("react");
+  const [tab, setTab] = useState("overview");
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [popoverOpen, setPopoverOpen] = useState(false);
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [tags, setTags] = useState(["React", "TypeScript"]);
   const [bars, setBars] = useState({
     info: true,
     success: true,
@@ -16,51 +100,49 @@ function App() {
   });
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: "12px",
-        padding: "24px",
-      }}
-    >
-      {bars.info && (
-        <MessageBar
-          variant="info"
-          title="New update available"
-          message="Version 2.0 is ready to install."
-          onClose={() => setBars({ ...bars, info: false })}
-        />
-      )}
+    <div style={{ padding: "40px", maxWidth: "1000px", margin: "0 auto" }}>
+      {/* Theme Toggle */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "flex-end",
+          marginBottom: "32px",
+        }}
+      >
+        <Button onClick={toggleTheme}>
+          {theme === "light" ? "Switch to Dark" : "Switch to Light"}
+        </Button>
+      </div>
 
-      {bars.success && (
-        <MessageBar
-          variant="success"
-          title="Changes saved"
-          message="Your profile has been updated successfully."
-          onClose={() => setBars({ ...bars, success: false })}
-        />
-      )}
+      <Text as="h1" size="4xl" weight="bold" style={{ marginBottom: "8px" }}>
+        Pixel UI
+      </Text>
+      <Text color="secondary" style={{ marginBottom: "48px" }}>
+        Component Library Showcase
+      </Text>
 
-      {bars.warning && (
-        <MessageBar
-          variant="warning"
-          title="Storage almost full"
-          message="You have used 90% of your storage limit."
-          onClose={() => setBars({ ...bars, warning: false })}
-        />
-      )}
+      {/* ===== Popover ===== */}
+      <Section title="Popover">
+        <Popover
+          trigger={
+            <Button onClick={() => setPopoverOpen(!popoverOpen)}>
+              Open Popover
+            </Button>
+          }
+          opened={popoverOpen}
+          onClose={() => setPopoverOpen(false)}
+          width="220px"
+        >
+          <Text size="sm" color="primary-inverse" weight="semibold">
+            Popover title
+          </Text>
+          <Text size="sm" color="primary-inverse" style={{ marginTop: "4px" }}>
+            Some helpful content goes here.
+          </Text>
+        </Popover>
+      </Section>
 
-      {bars.error && (
-        <MessageBar
-          variant="error"
-          title="Something went wrong"
-          message="Please try again or contact support."
-          onClose={() => setBars({ ...bars, error: false })}
-        />
-      )}
+      {/*  */}
     </div>
   );
 }
-
-export default App;

@@ -19,7 +19,7 @@
 /* ── SEPARATOR ── */
 .breadcrumb__separator {
   font-family: var(--font-family);
-  color: var(--color-gray-8);
+  color: var(--color-text-primary);
   margin: 0 var(--spacing-3);
   user-select: none;
 }

@@ -4,16 +4,16 @@
 .spin-button {
   display: inline-flex;
   align-items: center;
-  border: var(--border-width-default) solid var(--color-primary);
+  /* border: var(--border-width-default) solid transparent; */
   border-radius: var(--radius-default);
   overflow: hidden;
   background-color: var(--color-bg);
   transition: border-color 0.2s ease-in-out;
 }
 
-.spin-button:hover:not(.spin-button--disabled) {
-  border-color: var(--color-primary);
-}
+/* .spin-button:hover:not(.spin-button--disabled) {
+  border-color: var(--color-border-strong);
+} */
 
 .spin-button--full-width {
   width: 100%;
@@ -50,8 +50,8 @@
   color: var(--color-text-primary);
   background-color: transparent;
   border: none;
-  border-left: var(--border-width-default) solid var(--color-border);
-  border-right: var(--border-width-default) solid var(--color-border);
+  border-top: var(--border-width-default) solid var(--color-border);
+  border-bottom: var(--border-width-default) solid var(--color-border);
   text-align: center;
   outline: none;
   flex: 1;

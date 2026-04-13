@@ -69,7 +69,8 @@
   font-family: var(--font-family);
   font-weight: var(--font-weight-regular);
   color: var(--color-text-primary);
-  background-color: transparent;
+  background-color: var(--color-bg);
+  border-radius: var(--radius-default);
   border: none;
   outline: none;
   appearance: none;

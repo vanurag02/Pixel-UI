@@ -101,7 +101,7 @@
   z-index: 100;
   background-color: var(--color-bg);
   border: var(--border-width-default) solid var(--color-border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-default);
   box-shadow: var(--shadow-lg);
   padding: var(--spacing-2);
   min-width: 100%;

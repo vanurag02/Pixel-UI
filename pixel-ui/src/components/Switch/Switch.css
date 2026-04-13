@@ -44,6 +44,10 @@
   position: relative;
 }
 
+.switch__track:hover {
+  background-color: var(--color-bg);
+}
+
 /* ── THUMB ── */
 .switch__thumb {
   background-color: var(--color-white);

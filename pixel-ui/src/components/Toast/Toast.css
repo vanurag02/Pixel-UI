@@ -72,8 +72,8 @@
 
 /* ===== TYPES ===== */
 .toast--default {
-  background-color: var(--color-gray-9);
-  color: var(--color-white);
+  background-color: var(--color-text-primary);
+  color: var(--color-text-inverse);
   border-color: var(--color-gray-8);
 }
 

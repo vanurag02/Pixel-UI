@@ -15,8 +15,8 @@
 /* ── PILLS VARIANT WRAPPER ── */
 .tablist--pills {
   background-color: var(--color-bg-muted);
-  border-radius: var(--radius-lg);
-  padding: var(--spacing-1);
+  border-radius: var(--radius-default);
+  padding: var(--spacing-2);
   gap: var(--spacing-1);
 }
 
