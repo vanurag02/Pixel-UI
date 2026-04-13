@@ -97,3 +97,21 @@
   text-transform: uppercase;
   letter-spacing: var(--letter-spacing-wider);
 }
+
+/* ===== Sub-components ===== */
+.menu-header {
+  padding: var(--spacing-3) var(--spacing-3) var(--spacing-2);
+  border-bottom: var(--border-width-default) solid var(--color-border);
+  font-family: var(--font-family);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+.menu-footer {
+  padding: var(--spacing-2) var(--spacing-3) var(--spacing-3);
+  border-top: var(--border-width-default) solid var(--color-border);
+  font-family: var(--font-family);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}

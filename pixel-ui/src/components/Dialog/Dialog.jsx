@@ -50,7 +50,6 @@ function Dialog({
         aria-modal="true"
         aria-labelledby={title ? "dialog-title" : undefined}
       >
-        {/* Header */}
         <div className="dialog__header">
           {title && (
             <h2 className="dialog__title" id="dialog-title">
@@ -66,12 +65,47 @@ function Dialog({
             <X size={18} />
           </button>
         </div>
-
-        {/* Content */}
         <div className="dialog__content">{children}</div>
       </div>
     </div>
   );
 }
+
+function DialogHeader({ children, className, style }) {
+  return (
+    <div
+      className={["dialog-header", className].filter(Boolean).join(" ")}
+      style={style}
+    >
+      {children}
+    </div>
+  );
+}
+
+function DialogContent({ children, className, style }) {
+  return (
+    <div
+      className={["dialog-content", className].filter(Boolean).join(" ")}
+      style={style}
+    >
+      {children}
+    </div>
+  );
+}
+
+function DialogActions({ children, className, style }) {
+  return (
+    <div
+      className={["dialog-actions", className].filter(Boolean).join(" ")}
+      style={style}
+    >
+      {children}
+    </div>
+  );
+}
+
+Dialog.Header = DialogHeader;
+Dialog.Content = DialogContent;
+Dialog.Actions = DialogActions;
 
 export default Dialog;

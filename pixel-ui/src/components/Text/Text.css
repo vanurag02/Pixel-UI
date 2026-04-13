@@ -108,3 +108,11 @@
 .text--justify {
   text-align: justify;
 }
+
+/* ── Truncate ── */
+.text--truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}

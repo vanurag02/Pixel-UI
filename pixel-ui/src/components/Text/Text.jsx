@@ -7,6 +7,7 @@ function Text({
   weight = "regular",
   color = "primary",
   align = "left",
+  truncate = false,
   className,
   style,
 }) {
@@ -18,6 +19,7 @@ function Text({
         `text--${weight}`,
         `text--${color}`,
         `text--${align}`,
+        truncate ? "text--truncate" : "",
         className,
       ]
         .filter(Boolean)

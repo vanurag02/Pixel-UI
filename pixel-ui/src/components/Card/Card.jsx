@@ -35,4 +35,41 @@ function Card({
   );
 }
 
+function CardHeader({ children, className, style }) {
+  return (
+    <div
+      className={["card__header", className].filter(Boolean).join(" ")}
+      style={style}
+    >
+      {children}
+    </div>
+  );
+}
+
+function CardBody({ children, className, style }) {
+  return (
+    <div
+      className={["card__body", className].filter(Boolean).join(" ")}
+      style={style}
+    >
+      {children}
+    </div>
+  );
+}
+
+function CardFooter({ children, className, style }) {
+  return (
+    <div
+      className={["card__footer", className].filter(Boolean).join(" ")}
+      style={style}
+    >
+      {children}
+    </div>
+  );
+}
+
+Card.Header = CardHeader;
+Card.Body = CardBody;
+Card.Footer = CardFooter;
+
 export default Card;

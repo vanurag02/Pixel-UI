@@ -12,3 +12,27 @@
   /* margin: 0; */
   /* padding: 0; */
 }
+
+/* ===== THEME TOGGLE ===== */
+html,
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  transition:
+    background-color 0.2s ease-in-out,
+    color 0.2s ease-in-out;
+}
+
+/* ===== OVERFLOW HANDLING ===== */
+.btn,
+.badge,
+.tag,
+.menu-item,
+.dropdown-item,
+.breadcrumb__link,
+.tab-item {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}

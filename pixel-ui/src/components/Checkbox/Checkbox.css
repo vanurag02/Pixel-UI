@@ -1,6 +1,6 @@
-/* =============== Pixel UI — Checkbox Component =============== */
+/* =============== Pixel UI — CHECKBOX COMPONENT =============== */
 
-/* ── Base ── */
+/* ── BASE ── */
 .checkbox {
   display: inline-flex;
   align-items: center;
@@ -9,7 +9,7 @@
   user-select: none;
 }
 
-/* ── Hide native input ── */
+/* ── HIDE NATIVE INPUT ── */
 .checkbox__input {
   position: absolute;
   opacity: 0;
@@ -18,7 +18,7 @@
   margin: 0;
 }
 
-/* ── Custom box ── */
+/* ── CUSTOM BOX ── */
 .checkbox__box {
   display: inline-flex;
   align-items: center;
@@ -32,7 +32,7 @@
     border-color 0.2s ease-in-out;
 }
 
-/* ── Size ── */
+/* ── SIZE ── */
 .checkbox--sm .checkbox__box {
   width: 14px;
   height: 14px;
@@ -43,13 +43,13 @@
   height: 18px;
 }
 
-/* ── Checkmark — using pseudo element ── */
+/* ── CHECKMARK — USING PSEUDO ELEMENT ── */
 .checkbox__box::after {
   content: "";
   display: none;
 }
 
-/* Checked state — checkmark */
+/* CHECKED STATE — CHECKMARK */
 .checkbox__input:checked + .checkbox__box {
   background-color: var(--color-primary);
   border-color: var(--color-primary);
@@ -65,7 +65,7 @@
   transform: rotate(45deg) translate(-1px, -2px);
 }
 
-/* Indeterminate state — dash */
+/* INTERMEDIATE STATE — DASH */
 .checkbox__input:indeterminate + .checkbox__box {
   background-color: var(--color-primary);
   border-color: var(--color-primary);
@@ -80,12 +80,12 @@
   transform: none;
 }
 
-/* ── Hover ── */
+/* ── HOVER ── */
 .checkbox:hover .checkbox__box {
   border-color: var(--color-primary);
 }
 
-/* ── Label ── */
+/* ── LABEL ── */
 .checkbox__label {
   font-family: var(--font-family);
   font-weight: var(--font-weight-regular);
@@ -100,7 +100,7 @@
   font-size: var(--font-size-md);
 }
 
-/* ── Disabled ── */
+/* ── DISABLED ── */
 .checkbox--disabled {
   cursor: not-allowed;
   opacity: 0.5;

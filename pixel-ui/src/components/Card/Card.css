@@ -1,8 +1,6 @@
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   Pixel UI — Card Component
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* =============== Pixel UI — CARD COMPONENT =============== */
 
-/* ── Base ── */
+/* ── CARD ── */
 .card {
   display: flex;
   flex-direction: column;
@@ -94,9 +92,36 @@
 
 .card--clickable:hover {
   box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
 }
 
 .card--clickable:active {
   transform: translateY(0px);
   box-shadow: var(--shadow-default);
+}
+
+/* ===== Sub-components ===== */
+.card__header {
+  padding: var(--spacing-4) var(--spacing-5);
+  border-bottom: var(--border-width-default) solid var(--color-border);
+  font-family: var(--font-family);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+.card__body {
+  padding: var(--spacing-5);
+  font-family: var(--font-family);
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+  flex: 1;
+}
+
+.card__footer {
+  padding: var(--spacing-4) var(--spacing-5);
+  border-top: var(--border-width-default) solid var(--color-border);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
 }
