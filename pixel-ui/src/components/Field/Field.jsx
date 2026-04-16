@@ -13,9 +13,20 @@ function Field({
   style,
 }) {
   const child = Children.only(children);
+
+  // Generate safe base ID
+  const baseId =
+    child.props.id ||
+    (label ? label.toLowerCase().replace(/[^a-z0-9]+/g, "-") : "field");
+
+  const inputId = baseId;
+  const messageId = `${baseId}-message`;
+
   const enhancedChild = cloneElement(child, {
+    id: inputId,
     error: !!error,
-    id: child.props.id || label?.toLowerCase().replace(/\s+/g, "-"),
+    required,
+    "aria-describedby": error || description ? messageId : undefined,
   });
 
   return (
@@ -24,30 +35,27 @@ function Field({
       style={style}
     >
       {label && (
-        <Label
-          htmlFor={child.props.id || label?.toLowerCase().replace(/\s+/g, "-")}
-          size={size}
-          required={required}
-        >
+        <Label htmlFor={inputId} size={size} required={required}>
           {label}
         </Label>
       )}
 
       <div className="field__input">{enhancedChild}</div>
 
-      {error ? (
+      {(error || description) && (
         <span
-          className={`field__message field__message--error field__message--${size}`}
+          id={messageId}
+          className={[
+            "field__message",
+            error ? "field__message--error" : "field__message--description",
+            `field__message--${size}`,
+          ].join(" ")}
+          role={error ? "alert" : undefined}
+          aria-live={error ? "assertive" : "polite"}
         >
-          {error}
+          {error || description}
         </span>
-      ) : description ? (
-        <span
-          className={`field__message field__message--description field__message--${size}`}
-        >
-          {description}
-        </span>
-      ) : null}
+      )}
     </div>
   );
 }

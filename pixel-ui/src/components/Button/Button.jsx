@@ -19,6 +19,7 @@ function Button({
 
   return (
     <button
+      type="button"
       className={[
         "btn",
         `btn--${variant}`,
@@ -33,12 +34,14 @@ function Button({
         .join(" ")}
       style={style}
       disabled={disabled || loading}
+      aria-disabled={disabled || loading}
+      aria-busy={loading}
       onClick={onClick}
     >
       {loading ? (
         <>
-          <Spinner size={spinnerSize} color={spinnerColor} />
-          <span>{children}</span>
+          <Spinner size={spinnerSize} color={spinnerColor} aria-hidden="true" />
+          <span aria-live="polite">{children}</span>
         </>
       ) : (
         children

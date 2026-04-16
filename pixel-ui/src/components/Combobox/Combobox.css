@@ -191,3 +191,8 @@
   padding: var(--spacing-3);
   text-align: center;
 }
+
+/* =============== ACTIVE =============== */
+.combobox__option.is-active {
+  background-color: var(--color-bg-subtle);
+}

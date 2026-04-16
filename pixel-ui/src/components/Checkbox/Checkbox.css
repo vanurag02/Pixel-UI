@@ -109,3 +109,9 @@
 .checkbox--disabled .checkbox__box {
   background-color: var(--color-bg-disabled);
 }
+
+/* =============== FOCUS =============== */
+.checkbox__input:focus-visible + .checkbox__box {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}

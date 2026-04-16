@@ -1,19 +1,37 @@
 import "./Input.css";
 
 function Input({
+  id,
+  name,
   type = "text",
+
+  // ACCESSIBILITY
+  ariaLabel,
+  ariaDescribedBy,
+
+  // STATE
+  disabled = false,
+  error = false,
+  required = false,
+
+  // UI
   size = "md",
   variant = "default",
-  placeholder,
+  radius = "default",
+  fullWidth = false,
+
+  // VALUE
   value,
   defaultValue,
   onChange,
-  disabled = false,
-  error = false,
-  radius = "default",
-  fullWidth = false,
+  placeholder,
+  autoComplete,
+
+  // SECTIONS
   leftSection,
   rightSection,
+
+  // STYLING
   className,
   style,
 }) {
@@ -33,13 +51,19 @@ function Input({
         .join(" ")}
       style={style}
     >
+      {/* LEFT SECTION (decorative by default) */}
       {leftSection && (
-        <span className="input__section input__section--left">
+        <span
+          className="input__section input__section--left"
+          aria-hidden="true"
+        >
           {leftSection}
         </span>
       )}
 
       <input
+        id={id}
+        name={name}
         type={type}
         className={[
           "input",
@@ -53,10 +77,22 @@ function Input({
         defaultValue={defaultValue}
         onChange={onChange}
         disabled={disabled}
+        required={required}
+        autoComplete={autoComplete}
+        // Accessibility
+        aria-label={ariaLabel}
+        aria-invalid={error || undefined}
+        aria-describedby={ariaDescribedBy}
+        aria-required={required || undefined}
+        aria-disabled={disabled || undefined}
       />
 
+      {/* RIGHT SECTION (decorative by default) */}
       {rightSection && (
-        <span className="input__section input__section--right">
+        <span
+          className="input__section input__section--right"
+          aria-hidden="true"
+        >
           {rightSection}
         </span>
       )}

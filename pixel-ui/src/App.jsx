@@ -121,25 +121,19 @@ export default function App() {
         Component Library Showcase
       </Text>
 
-      {/* ===== Popover ===== */}
-      <Section title="Popover">
-        <Popover
-          trigger={
-            <Button onClick={() => setPopoverOpen(!popoverOpen)}>
-              Open Popover
-            </Button>
-          }
-          opened={popoverOpen}
-          onClose={() => setPopoverOpen(false)}
-          width="220px"
-        >
-          <Text size="sm" color="primary-inverse" weight="semibold">
-            Popover title
-          </Text>
-          <Text size="sm" color="primary-inverse" style={{ marginTop: "4px" }}>
-            Some helpful content goes here.
-          </Text>
-        </Popover>
+      {/* ===== Combobox ===== */}
+      <Section title="Combobox">
+        <Combobox
+          data={frameworks}
+          placeholder="Select framework"
+          style={{ minWidth: "220px" }}
+        />
+        <Combobox
+          data={skills}
+          placeholder="Select skills"
+          multiple
+          style={{ minWidth: "220px" }}
+        />
       </Section>
 
       {/*  */}

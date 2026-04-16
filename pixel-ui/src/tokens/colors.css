@@ -174,7 +174,7 @@
   --color-success: var(--color-green-6);
   --color-success-hover: var(--color-green-7);
   --color-success-active: var(--color-green-8);
-  --color-success-light: var(--color-green-1);
+  --color-success-light: var(--color-green-0);
   --color-success-text: var(--color-green-9);
 
   /* Warning — Yellow (FIXED contrast) */
@@ -225,22 +225,22 @@
   --color-primary-text: var(--color-blue-8);
 
   /* ── Success — Green ── */
-  --color-success: var(--color-green-4);
-  --color-success-hover: var(--color-green-3);
+  --color-success: var(--color-green-8);
+  --color-success-hover: var(--color-green-7);
   --color-success-active: var(--color-green-2);
   --color-success-light: var(--color-green-1);
   --color-success-text: var(--color-green-8);
 
   /* ── Warning — Yellow ── */
-  --color-warning: var(--color-yellow-5);
-  --color-warning-hover: var(--color-yellow-4);
+  --color-warning: var(--color-yellow-8);
+  --color-warning-hover: var(--color-yellow-7);
   --color-warning-active: var(--color-yellow-3);
   --color-warning-light: var(--color-yellow-1);
   --color-warning-text: var(--color-yellow-8);
 
   /* ── Error — Red ── */
-  --color-error: var(--color-red-5);
-  --color-error-hover: var(--color-red-4);
+  --color-error: var(--color-red-8);
+  --color-error-hover: var(--color-red-7);
   --color-error-active: var(--color-red-3);
   --color-error-light: var(--color-red-1);
   --color-error-text: var(--color-red-8);
