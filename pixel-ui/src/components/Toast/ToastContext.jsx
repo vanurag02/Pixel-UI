@@ -3,21 +3,33 @@ import ToastContainer from "./ToastContainer";
 
 const ToastContext = createContext(null);
 
-export function ToastProvider({ children, position = "bottom-right" }) {
+export function ToastProvider({
+  children,
+  position = "bottom-right",
+  duration = 3000,
+}) {
   const [toasts, setToasts] = useState([]);
 
   const addToast = useCallback(
-    ({ message, type = "default", duration = 3000, showClose = true }) => {
+    ({
+      message,
+      type = "default",
+      duration: customDuration,
+      showClose = true,
+    }) => {
       const id = Date.now() + Math.random();
+      const finalDuration = customDuration ?? duration;
+
       setToasts((prev) => [
         ...prev,
-        { id, message, type, duration, showClose },
+        { id, message, type, duration: finalDuration, showClose },
       ]);
-      if (duration > 0) {
-        setTimeout(() => removeToast(id), duration);
+
+      if (finalDuration > 0) {
+        setTimeout(() => removeToast(id), finalDuration);
       }
     },
-    [],
+    [duration],
   );
 
   const removeToast = useCallback((id) => {

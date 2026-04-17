@@ -20,6 +20,7 @@ function MenuItem({
       disabled={disabled}
       role="menuitem"
       type="button"
+      tabIndex={-1}
     >
       {leftSection && <span className="menu-item__left">{leftSection}</span>}
       <span className="menu-item__text">{children}</span>

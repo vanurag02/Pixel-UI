@@ -161,7 +161,7 @@
   --color-orange-8: #e8590c;
   --color-orange-9: #d9480f;
 
-  /* ===== Pixel UI — Semantic Tokens =====*/
+  /* ===== LIGHT MODE =====*/
 
   /* Primary — Blue */
   --color-primary: var(--color-blue-6);
@@ -213,9 +213,10 @@
   --color-bg-subtle: var(--color-gray-0);
   --color-bg-muted: var(--color-gray-1);
   --color-bg-disabled: var(--color-gray-2);
+  --color-bg-inverse: var(--color-gray-9);
 }
 
-/* ===== Dark Mode (Fixed & Balanced) ===== */
+/* ===== DARK MODE ===== */
 [data-theme="dark"] {
   /* ── Primary — Blue ── */
   --color-primary: var(--color-blue-5);
@@ -267,4 +268,5 @@
   --color-bg-subtle: var(--color-gray-8);
   --color-bg-muted: var(--color-gray-7);
   --color-bg-disabled: var(--color-gray-6);
+  --color-bg-inverse: var(--color-white);
 }

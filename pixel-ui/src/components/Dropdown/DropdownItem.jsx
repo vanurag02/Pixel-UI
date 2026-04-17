@@ -10,6 +10,13 @@ function DropdownItem({ children, onClick, disabled = false }) {
       disabled={disabled}
       type="button"
       role="menuitem"
+      tabIndex={-1}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          if (!disabled && onClick) onClick(e);
+        }
+      }}
     >
       {children}
     </button>

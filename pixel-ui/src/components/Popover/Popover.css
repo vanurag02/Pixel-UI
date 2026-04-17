@@ -1,4 +1,4 @@
-/* =============== PIXEL UI — MESSAGE BAR COMPONENT =============== */
+/* =============== PIXEL UI — POPOVER COMPONENT =============== */
 
 /* ===== WRAPPER ===== */
 .popover-wrapper {
@@ -9,22 +9,25 @@
 /* ===== POPOVER PANEL ===== */
 .popover {
   position: absolute;
-  z-index: 200;
+  z-index: 1000;
   background-color: var(--color-text-primary);
+  color: var(--color-text-inverse);
   border: var(--border-width-default) solid var(--color-border);
   border-radius: var(--radius-default);
   box-shadow: var(--shadow-default);
   animation: popover-fade 0.15s ease-in-out;
+  max-width: 280px;
+  outline: none;
 }
 
 @keyframes popover-fade {
   from {
     opacity: 0;
-    transform: scale(0.97);
+    transform: translateX(-50%) scale(0.97);
   }
   to {
     opacity: 1;
-    transform: scale(1);
+    transform: translateX(-50%) scale(1);
   }
 }
 
@@ -33,7 +36,6 @@
   padding: var(--spacing-4);
   font-family: var(--font-family);
   font-size: var(--font-size-md);
-  color: var(--color-text-inverse);
 }
 
 /* ===== POSITIONS ===== */
@@ -66,8 +68,9 @@
   position: absolute;
   width: 8px;
   height: 8px;
-  background-color: var(--color-text-primary);
-  border: var(--border-width-default) solid var(--color-border);
+  background-color: var(--color-bg-inverse);
+  border-left: var(--border-width-default) solid var(--color-border);
+  border-top: var(--border-width-default) solid var(--color-border);
   transform: rotate(45deg);
 }
 
