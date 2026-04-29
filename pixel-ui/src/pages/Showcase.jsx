@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { useToast } from "../components/Toast/ToastContext";
 // Pixel UI Components
 import Text from "../components/Text/Text";
 import Label from "../components/Label/Label";
@@ -38,8 +38,10 @@ import Menu from "../components/Menu/Menu";
 import MenuItem from "../components/Menu/MenuItem";
 import MenuDivider from "../components/Menu/MenuDivider";
 import MenuLabel from "../components/Menu/MenuLabel";
+import { MessageBar } from "../components";
 import Toolbar from "../components/Toolbar/Toolbar";
 import ToolbarGroup from "../components/Toolbar/ToolbarGroup";
+import Pagination from "../components/Pagination/Pagination";
 
 import {
   Sun,
@@ -73,6 +75,8 @@ export default function Showcase() {
   const [spin, setSpin] = useState(5);
   const [tags, setTags] = useState(["Design", "React", "CSS"]);
   const [loading, setLoading] = useState(false);
+  const { addToast } = useToast();
+  const [page, setPage] = useState(5);
 
   const toggleTheme = () => {
     setDark(!dark);
@@ -104,29 +108,25 @@ export default function Showcase() {
       {/* ===== Header ===== */}
       <header className="showcase__header">
         <div className="showcase__header-left">
-          <div className="showcase__logo-mark">
-            <div className="showcase__logo-grid">
-              {[...Array(4)].map((_, i) => (
-                <span key={i} className="showcase__logo-pixel" />
-              ))}
-            </div>
-          </div>
+          <img src="/pixel-ui-logo.svg" alt="Pixel UI" width="36" height="36" />
           <div>
             <Text as="h1" size="2xl" weight="bold">
               Pixel UI
             </Text>
-            <Text size="sm" color="secondary">
-              Component Library Showcase
-            </Text>
           </div>
         </div>
         <div className="showcase__header-right">
-          <Badge variant="subtle" color="success">
+          <Badge variant="subtle" color="info">
             v1.0.0
           </Badge>
-          <Button variant="outline" size="sm" onClick={toggleTheme}>
+          <Button
+            variant="outline"
+            size="sm"
+            radius="pill"
+            onClick={toggleTheme}
+          >
             {dark ? <Sun size={15} /> : <Moon size={15} />}
-            {dark ? "Light mode" : "Dark mode"}
+            {/* {dark ? "Light mode" : "Dark mode"} */}
           </Button>
         </div>
       </header>
@@ -403,10 +403,10 @@ export default function Showcase() {
                       {tag}
                     </Tag>
                   ))}
-                  <Tag variant="subtle" color="success">
+                  <Tag variant="subtle" color="success" radius="sm">
                     Active
                   </Tag>
-                  <Tag variant="filled" color="error">
+                  <Tag variant="filled" color="error" radius="sm">
                     Urgent
                   </Tag>
                   <Tag radius="pill" variant="subtle" color="info">
@@ -783,6 +783,139 @@ export default function Showcase() {
                 Feedback
               </Text>
 
+              {/* Toast */}
+              <Card className="showcase__card">
+                <Text weight="semibold" style={{ marginBottom: "16px" }}>
+                  Toast
+                </Text>
+                <Divider style={{ marginBottom: "16px" }} />
+                <div className="showcase__row">
+                  <Button
+                    color="success"
+                    variant="subtle"
+                    size="sm"
+                    onClick={() =>
+                      addToast({
+                        message: "Changes saved successfully.",
+                        type: "success",
+                      })
+                    }
+                  >
+                    Success
+                  </Button>
+                  <Button
+                    color="warning"
+                    variant="subtle"
+                    size="sm"
+                    onClick={() =>
+                      addToast({
+                        message: "Your session is about to expire.",
+                        type: "warning",
+                      })
+                    }
+                  >
+                    Warning
+                  </Button>
+                  <Button
+                    color="error"
+                    variant="subtle"
+                    size="sm"
+                    onClick={() =>
+                      addToast({
+                        message: "Something went wrong.",
+                        type: "error",
+                      })
+                    }
+                  >
+                    Error
+                  </Button>
+                  <Button
+                    variant="subtle"
+                    size="sm"
+                    onClick={() =>
+                      addToast({
+                        message: "New update available.",
+                        type: "info",
+                      })
+                    }
+                  >
+                    Info
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() =>
+                      addToast({
+                        message: "Action completed.",
+                        type: "default",
+                      })
+                    }
+                  >
+                    Default
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() =>
+                      addToast({
+                        message: "This toast won't auto close.",
+                        type: "default",
+                        duration: 0,
+                      })
+                    }
+                  >
+                    Persistent
+                  </Button>
+                </div>
+              </Card>
+
+              {/* Message Bar */}
+              <Card className="showcase__card">
+                <Text weight="semibold" style={{ marginBottom: "16px" }}>
+                  Message Bar
+                </Text>
+                <Divider style={{ marginBottom: "16px" }} />
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "12px",
+                  }}
+                >
+                  <MessageBar
+                    variant="info"
+                    title="Information"
+                    message="This is an informational message for the user."
+                  />
+                  <MessageBar
+                    variant="success"
+                    title="Success"
+                    message="Your changes have been saved successfully."
+                  />
+                  <MessageBar
+                    variant="warning"
+                    title="Warning"
+                    message="Your subscription expires in 3 days."
+                  />
+                  <MessageBar
+                    variant="error"
+                    title="Error"
+                    message="Failed to save changes. Please try again."
+                  />
+                  <MessageBar
+                    variant="info"
+                    message="Message bar without a title."
+                  />
+                  <MessageBar
+                    variant="success"
+                    title="No close button"
+                    message="This message bar cannot be dismissed."
+                    closable={false}
+                  />
+                </div>
+              </Card>
+
+              {/* Progress Bar */}
               <Card className="showcase__card">
                 <Text weight="semibold" style={{ marginBottom: "16px" }}>
                   Progress Bar
@@ -829,6 +962,7 @@ export default function Showcase() {
                 </div>
               </Card>
 
+              {/* Spinner */}
               <Card className="showcase__card">
                 <Text weight="semibold" style={{ marginBottom: "16px" }}>
                   Spinner
@@ -853,6 +987,7 @@ export default function Showcase() {
                 </div>
               </Card>
 
+              {/* Skeleton */}
               <Card className="showcase__card">
                 <Text weight="semibold" style={{ marginBottom: "16px" }}>
                   Skeleton
@@ -1216,6 +1351,98 @@ export default function Showcase() {
                     <button className="toolbar__btn">Redo</button>
                   </ToolbarGroup>
                 </Toolbar>
+              </Card>
+
+              <Card className="showcase__card">
+                <Text weight="semibold" style={{ marginBottom: "16px" }}>
+                  Pagination
+                </Text>
+                <Divider style={{ marginBottom: "16px" }} />
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "16px",
+                  }}
+                >
+                  {/* Basic */}
+                  <div>
+                    <Text
+                      size="sm"
+                      color="secondary"
+                      style={{ marginBottom: "8px" }}
+                    >
+                      Basic — page {page} of 10
+                    </Text>
+                    <Pagination total={10} page={page} onChange={setPage} />
+                  </div>
+
+                  {/* With dots */}
+                  <div>
+                    <Text
+                      size="sm"
+                      color="secondary"
+                      style={{ marginBottom: "8px" }}
+                    >
+                      With ellipsis
+                    </Text>
+                    <Pagination total={20} page={page} onChange={setPage} />
+                  </div>
+
+                  {/* More siblings */}
+                  <div>
+                    <Text
+                      size="sm"
+                      color="secondary"
+                      style={{ marginBottom: "8px" }}
+                    >
+                      siblings={2}
+                    </Text>
+                    <Pagination
+                      total={20}
+                      page={page}
+                      onChange={setPage}
+                      siblings={2}
+                    />
+                  </div>
+
+                  {/* Sizes */}
+                  <div>
+                    <Text
+                      size="sm"
+                      color="secondary"
+                      style={{ marginBottom: "8px" }}
+                    >
+                      Sizes
+                    </Text>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "12px",
+                      }}
+                    >
+                      <Pagination
+                        total={10}
+                        page={3}
+                        onChange={() => {}}
+                        size="sm"
+                      />
+                      <Pagination
+                        total={10}
+                        page={3}
+                        onChange={() => {}}
+                        size="md"
+                      />
+                      <Pagination
+                        total={10}
+                        page={3}
+                        onChange={() => {}}
+                        size="lg"
+                      />
+                    </div>
+                  </div>
+                </div>
               </Card>
             </div>
           )}

@@ -51,6 +51,7 @@ import {
   MessageBar,
   Accordion,
   AccordionItem,
+  Pagination,
 } from "./components";
 import useTheme from "./hooks/useTheme";
 

@@ -46,6 +46,7 @@ export { default as MenuDivider } from "./Menu/MenuDivider";
 export { default as MenuLabel } from "./Menu/MenuLabel";
 export { default as Dropdown } from "./Dropdown/Dropdown";
 export { default as DropdownItem } from "./Dropdown/DropdownItem";
+export { default as Pagination } from "./Pagination/Pagination";
 
 // ===== Phase 5 — Overlays =====
 export { default as Tooltip } from "./Tooltip/Tooltip";
