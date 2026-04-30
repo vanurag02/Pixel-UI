@@ -10,15 +10,28 @@
   align-items: center;
   justify-content: center;
   z-index: 300;
-  animation: dialog-overlay-fade 0.2s ease-in-out;
+  animation: dialog-overlay-fade-in 0.2s ease-in-out;
 }
 
-@keyframes dialog-overlay-fade {
+.dialog__overlay--exit {
+  animation: dialog-overlay-fade-out 0.2s ease-in-out forwards;
+}
+
+@keyframes dialog-overlay-fade-in {
   from {
     opacity: 0;
   }
   to {
     opacity: 1;
+  }
+}
+
+@keyframes dialog-overlay-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }
 
@@ -35,6 +48,10 @@
   animation: dialog-slide-up 0.2s ease-in-out;
 }
 
+.dialog--exit {
+  animation: dialog-slide-down 0.2s ease-in-out forwards;
+}
+
 @keyframes dialog-slide-up {
   from {
     opacity: 0;
@@ -43,6 +60,17 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes dialog-slide-down {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(16px);
   }
 }
 

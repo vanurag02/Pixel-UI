@@ -7,10 +7,14 @@
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(1px);
   z-index: 300;
-  animation: drawer-overlay-fade 0.2s ease-in-out;
+  animation: drawer-overlay-fade-in 0.25s ease-in-out;
 }
 
-@keyframes drawer-overlay-fade {
+.drawer__overlay--exit {
+  animation: drawer-overlay-fade-out 0.25s ease-in-out forwards;
+}
+
+@keyframes drawer-overlay-fade-in {
   from {
     opacity: 0;
   }
@@ -19,48 +23,69 @@
   }
 }
 
+@keyframes drawer-overlay-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 /* ===== DRAWER PANEL ===== */
 .drawer {
   position: fixed;
   background-color: var(--color-bg);
-  border: var(--border-width-default) solid var(--color-border);
-  box-shadow: var(--shadow-lg);
   display: flex;
   flex-direction: column;
   z-index: 301;
 }
 
-/* ===== POSITIONS ===== */
+/* ===== POSITIONS — ENTRY ===== */
 .drawer--right {
   top: 0;
   right: 0;
   bottom: 0;
-  animation: drawer-slide-left 0.25s ease-in-out;
+  animation: drawer-slide-in-right 0.25s ease-in-out;
 }
 
 .drawer--left {
   top: 0;
   left: 0;
   bottom: 0;
-  animation: drawer-slide-right 0.25s ease-in-out;
+  animation: drawer-slide-in-left 0.25s ease-in-out;
 }
 
 .drawer--top {
   top: 0;
   left: 0;
   right: 0;
-  animation: drawer-slide-down 0.25s ease-in-out;
+  animation: drawer-slide-in-top 0.25s ease-in-out;
 }
 
 .drawer--bottom {
   bottom: 0;
   left: 0;
   right: 0;
-  animation: drawer-slide-up 0.25s ease-in-out;
+  animation: drawer-slide-in-bottom 0.25s ease-in-out;
 }
 
-/* ===== ANIMATIONS ===== */
-@keyframes drawer-slide-left {
+/* ===== POSITIONS — EXIT ===== */
+.drawer--exit-right {
+  animation: drawer-slide-out-right 0.25s ease-in-out forwards;
+}
+.drawer--exit-left {
+  animation: drawer-slide-out-left 0.25s ease-in-out forwards;
+}
+.drawer--exit-top {
+  animation: drawer-slide-out-top 0.25s ease-in-out forwards;
+}
+.drawer--exit-bottom {
+  animation: drawer-slide-out-bottom 0.25s ease-in-out forwards;
+}
+
+/* ===== ENTRY KEYFRAMES ===== */
+@keyframes drawer-slide-in-right {
   from {
     transform: translateX(100%);
   }
@@ -69,7 +94,7 @@
   }
 }
 
-@keyframes drawer-slide-right {
+@keyframes drawer-slide-in-left {
   from {
     transform: translateX(-100%);
   }
@@ -78,7 +103,7 @@
   }
 }
 
-@keyframes drawer-slide-down {
+@keyframes drawer-slide-in-top {
   from {
     transform: translateY(-100%);
   }
@@ -87,12 +112,49 @@
   }
 }
 
-@keyframes drawer-slide-up {
+@keyframes drawer-slide-in-bottom {
   from {
     transform: translateY(100%);
   }
   to {
     transform: translateY(0);
+  }
+}
+
+/* ===== EXIT KEYFRAMES ===== */
+@keyframes drawer-slide-out-right {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes drawer-slide-out-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes drawer-slide-out-top {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes drawer-slide-out-bottom {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
   }
 }
 
@@ -125,6 +187,19 @@
 .drawer--top.drawer--lg,
 .drawer--bottom.drawer--lg {
   height: 480px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .drawer--right,
+  .drawer--left {
+    width: 100% !important;
+  }
+
+  .drawer--top,
+  .drawer--bottom {
+    height: 60vh !important;
+  }
 }
 
 /* ===== HEADER ===== */

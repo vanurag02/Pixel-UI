@@ -1,4 +1,4 @@
-import { useEffect, useRef, useId } from "react";
+import { useEffect, useState, useRef } from "react";
 import { X } from "lucide-react";
 import "./Dialog.css";
 
@@ -12,64 +12,76 @@ function Dialog({
   className,
   style,
 }) {
+  const [visible, setVisible] = useState(false);
+  const [animating, setAnimating] = useState(false);
+
   const dialogRef = useRef(null);
-  const previouslyFocusedRef = useRef(null);
 
-  const titleId = useId();
-  const contentId = useId();
+  // Unique ids (important if multiple dialogs exist)
+  const titleId = title ? `dialog-title-${Math.random()}` : undefined;
+  const contentId = `dialog-content-${Math.random()}`;
 
-  // Scroll lock
+  // Animation handling
   useEffect(() => {
     if (opened) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
+      setVisible(true);
+      setAnimating(false);
+    } else if (visible) {
+      setAnimating(true);
+      const timer = setTimeout(() => {
+        setVisible(false);
+        setAnimating(false);
+      }, 200);
+      return () => clearTimeout(timer);
     }
+  }, [opened, visible]);
+
+  // Lock scroll
+  useEffect(() => {
+    document.body.style.overflow = visible ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
-  }, [opened]);
+  }, [visible]);
 
-  // Focus management
+  // Focus on open
   useEffect(() => {
-    if (opened) {
-      previouslyFocusedRef.current = document.activeElement;
-
-      const focusable = dialogRef.current?.querySelector(
-        'button, [href], input, textarea, select, [tabindex]:not([tabindex="-1"])',
-      );
-
-      focusable?.focus();
-    } else {
-      previouslyFocusedRef.current?.focus();
+    if (opened && dialogRef.current) {
+      dialogRef.current.focus();
     }
   }, [opened]);
 
-  // Keyboard + focus trap
+  // Keyboard handling + focus trap
   useEffect(() => {
     function handleKeyDown(e) {
       if (!opened) return;
 
+      // Escape
       if (e.key === "Escape") {
-        onClose?.();
+        onClose && onClose();
       }
 
-      if (e.key === "Tab") {
-        const focusable = dialogRef.current?.querySelectorAll(
-          'button, [href], input, textarea, select, [tabindex]:not([tabindex="-1"])',
+      // Focus trap
+      if (e.key === "Tab" && dialogRef.current) {
+        const focusable = dialogRef.current.querySelectorAll(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
         );
 
-        if (!focusable.length) return;
+        if (focusable.length === 0) return;
 
         const first = focusable[0];
         const last = focusable[focusable.length - 1];
 
-        if (e.shiftKey && document.activeElement === first) {
-          e.preventDefault();
-          last.focus();
-        } else if (!e.shiftKey && document.activeElement === last) {
-          e.preventDefault();
-          first.focus();
+        if (e.shiftKey) {
+          if (document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          }
+        } else {
+          if (document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
         }
       }
     }
@@ -78,37 +90,43 @@ function Dialog({
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [opened, onClose]);
 
-  if (!opened) return null;
+  if (!visible) return null;
 
   return (
     <div
-      className="dialog__overlay"
-      onClick={closeOnOverlay ? () => onClose?.() : undefined}
+      className={`dialog__overlay ${animating ? "dialog__overlay--exit" : ""}`}
+      onClick={closeOnOverlay ? onClose : undefined}
     >
       <div
         ref={dialogRef}
-        className={["dialog", `dialog--${size}`, className]
+        tabIndex={-1}
+        className={[
+          "dialog",
+          `dialog--${size}`,
+          animating ? "dialog--exit" : "",
+          className,
+        ]
           .filter(Boolean)
           .join(" ")}
         style={style}
         onClick={(e) => e.stopPropagation()}
         role="dialog"
         aria-modal="true"
-        aria-labelledby={title ? titleId : undefined}
+        aria-labelledby={titleId}
         aria-describedby={contentId}
       >
         <div className="dialog__header">
           {title && (
-            <h2 id={titleId} className="dialog__title">
+            <h2 className="dialog__title" id={titleId}>
               {title}
             </h2>
           )}
-
           <button
             className="dialog__close"
-            onClick={() => onClose?.()}
+            onClick={onClose}
             type="button"
             aria-label="Close dialog"
+            autoFocus
           >
             <X size={18} />
           </button>
@@ -121,43 +139,5 @@ function Dialog({
     </div>
   );
 }
-
-/* Subcomponents remain same */
-function DialogHeader({ children, className, style }) {
-  return (
-    <div
-      className={["dialog-header", className].filter(Boolean).join(" ")}
-      style={style}
-    >
-      {children}
-    </div>
-  );
-}
-
-function DialogContent({ children, className, style }) {
-  return (
-    <div
-      className={["dialog-content", className].filter(Boolean).join(" ")}
-      style={style}
-    >
-      {children}
-    </div>
-  );
-}
-
-function DialogActions({ children, className, style }) {
-  return (
-    <div
-      className={["dialog-actions", className].filter(Boolean).join(" ")}
-      style={style}
-    >
-      {children}
-    </div>
-  );
-}
-
-Dialog.Header = DialogHeader;
-Dialog.Content = DialogContent;
-Dialog.Actions = DialogActions;
 
 export default Dialog;

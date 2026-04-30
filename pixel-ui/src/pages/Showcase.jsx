@@ -77,6 +77,12 @@ export default function Showcase() {
   const [loading, setLoading] = useState(false);
   const { addToast } = useToast();
   const [page, setPage] = useState(5);
+  const [bars, setBars] = useState({
+    info: true,
+    success: true,
+    warning: true,
+    error: true,
+  });
 
   const toggleTheme = () => {
     setDark(!dark);
@@ -119,12 +125,7 @@ export default function Showcase() {
           <Badge variant="subtle" color="info">
             v1.0.0
           </Badge>
-          <Button
-            variant="outline"
-            size="sm"
-            radius="pill"
-            onClick={toggleTheme}
-          >
+          <Button size="sm" radius="pill" onClick={toggleTheme}>
             {dark ? <Sun size={15} /> : <Moon size={15} />}
             {/* {dark ? "Light mode" : "Dark mode"} */}
           </Button>
@@ -882,36 +883,41 @@ export default function Showcase() {
                     gap: "12px",
                   }}
                 >
-                  <MessageBar
-                    variant="info"
-                    title="Information"
-                    message="This is an informational message for the user."
-                  />
-                  <MessageBar
-                    variant="success"
-                    title="Success"
-                    message="Your changes have been saved successfully."
-                  />
-                  <MessageBar
-                    variant="warning"
-                    title="Warning"
-                    message="Your subscription expires in 3 days."
-                  />
-                  <MessageBar
-                    variant="error"
-                    title="Error"
-                    message="Failed to save changes. Please try again."
-                  />
-                  <MessageBar
-                    variant="info"
-                    message="Message bar without a title."
-                  />
-                  <MessageBar
-                    variant="success"
-                    title="No close button"
-                    message="This message bar cannot be dismissed."
-                    closable={false}
-                  />
+                  {bars.info && (
+                    <MessageBar
+                      variant="info"
+                      title="New update available"
+                      message="Version 2.0 is ready to install."
+                      onClose={() => setBars({ ...bars, info: false })}
+                    />
+                  )}
+
+                  {bars.success && (
+                    <MessageBar
+                      variant="success"
+                      title="Changes saved"
+                      message="Your profile has been updated successfully."
+                      onClose={() => setBars({ ...bars, success: false })}
+                    />
+                  )}
+
+                  {bars.warning && (
+                    <MessageBar
+                      variant="warning"
+                      title="Storage almost full"
+                      message="You have used 90% of your storage limit."
+                      onClose={() => setBars({ ...bars, warning: false })}
+                    />
+                  )}
+
+                  {bars.error && (
+                    <MessageBar
+                      variant="error"
+                      title="Something went wrong"
+                      message="Please try again or contact support."
+                      onClose={() => setBars({ ...bars, error: false })}
+                    />
+                  )}
                 </div>
               </Card>
 

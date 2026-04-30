@@ -1,4 +1,4 @@
-import { useState, Children, cloneElement } from "react";
+import { useState, Children, cloneElement, useRef } from "react";
 import "./Accordion.css";
 
 function Accordion({
@@ -16,6 +16,8 @@ function Accordion({
       : [],
   );
 
+  const itemRefs = useRef([]);
+
   const handleToggle = (value) => {
     if (multiple) {
       setActiveItems((prev) =>
@@ -28,16 +30,43 @@ function Accordion({
     }
   };
 
+  const handleKeyDown = (e, index) => {
+    const total = itemRefs.current.length;
+
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      itemRefs.current[(index + 1) % total]?.focus();
+    }
+
+    if (e.key === "ArrowUp") {
+      e.preventDefault();
+      itemRefs.current[(index - 1 + total) % total]?.focus();
+    }
+
+    if (e.key === "Home") {
+      e.preventDefault();
+      itemRefs.current[0]?.focus();
+    }
+
+    if (e.key === "End") {
+      e.preventDefault();
+      itemRefs.current[total - 1]?.focus();
+    }
+  };
+
   return (
     <div
       className={["accordion", className].filter(Boolean).join(" ")}
       style={style}
     >
-      {Children.map(children, (child) => {
+      {Children.map(children, (child, index) => {
         if (!child) return null;
+
         return cloneElement(child, {
           isOpen: activeItems.includes(child.props.value),
           onToggle: handleToggle,
+          headerRef: (el) => (itemRefs.current[index] = el),
+          onKeyDown: (e) => handleKeyDown(e, index),
         });
       })}
     </div>
