@@ -42,6 +42,8 @@ import { MessageBar } from "../components";
 import Toolbar from "../components/Toolbar/Toolbar";
 import ToolbarGroup from "../components/Toolbar/ToolbarGroup";
 import Pagination from "../components/Pagination/Pagination";
+import Tooltip from "../components/Tooltip/Tooltip";
+import Popover from "../components/Popover/Popover";
 
 import {
   Sun,
@@ -75,8 +77,8 @@ export default function Showcase() {
   const [spin, setSpin] = useState(5);
   const [tags, setTags] = useState(["Design", "React", "CSS"]);
   const [loading, setLoading] = useState(false);
-  const { addToast } = useToast();
   const [page, setPage] = useState(5);
+  const [popoverOpen, setPopoverOpen] = useState(false);
   const [bars, setBars] = useState({
     info: true,
     success: true,
@@ -84,6 +86,7 @@ export default function Showcase() {
     error: true,
   });
 
+  const { addToast } = useToast();
   const toggleTheme = () => {
     setDark(!dark);
     document.documentElement.setAttribute(
@@ -1266,6 +1269,87 @@ export default function Showcase() {
                     <DropdownItem>Option 1</DropdownItem>
                     <DropdownItem>Option 2</DropdownItem>
                   </Dropdown>
+                </div>
+              </Card>
+
+              {/* Tooltip */}
+              <Card className="showcase__card">
+                <Text weight="semibold" style={{ marginBottom: "16px" }}>
+                  Tooltip
+                </Text>
+                <Divider style={{ marginBottom: "16px" }} />
+                <div className="showcase__row">
+                  <Tooltip label="Tooltip on top" position="top">
+                    <Button variant="outline" size="sm">
+                      Top
+                    </Button>
+                  </Tooltip>
+                  <Tooltip label="Tooltip on bottom" position="bottom">
+                    <Button variant="outline" size="sm">
+                      Bottom
+                    </Button>
+                  </Tooltip>
+                  <Tooltip label="Tooltip on left" position="left">
+                    <Button variant="outline" size="sm">
+                      Left
+                    </Button>
+                  </Tooltip>
+                  <Tooltip label="Tooltip on right" position="right">
+                    <Button variant="outline" size="sm">
+                      Right
+                    </Button>
+                  </Tooltip>
+                  <Tooltip label="500ms delay" position="top" delay={500}>
+                    <Button variant="subtle" size="sm">
+                      Delayed
+                    </Button>
+                  </Tooltip>
+                </div>
+              </Card>
+
+              {/* Popover */}
+              <Card className="showcase__card">
+                <Text weight="semibold" style={{ marginBottom: "16px" }}>
+                  Popover
+                </Text>
+                <Divider style={{ marginBottom: "16px" }} />
+                <div className="showcase__row">
+                  <Popover
+                    trigger={
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => setPopoverOpen(!popoverOpen)}
+                      >
+                        Open Popover
+                      </Button>
+                    }
+                    opened={popoverOpen}
+                    onClose={() => setPopoverOpen(false)}
+                    position="bottom"
+                    width="220px"
+                  >
+                    <Text
+                      weight="semibold"
+                      size="md"
+                      style={{ marginBottom: "8px" }}
+                    >
+                      Popover title
+                    </Text>
+                    <Text size="sm" color="secondary">
+                      This is some popover content. Click outside to close.
+                    </Text>
+                    <Divider style={{ margin: "12px 0" }} />
+                    <Button
+                      color="primary"
+                      size="lg"
+                      radius="default"
+                      fullWidth
+                      onClick={() => setPopoverOpen(false)}
+                    >
+                      Got it
+                    </Button>
+                  </Popover>
                 </div>
               </Card>
             </div>
