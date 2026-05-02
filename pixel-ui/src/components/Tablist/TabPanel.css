@@ -1,0 +1,7 @@
+/* ===== Pixel UI — TABPANEL COMPONENT ===== */
+
+.tab-panel {
+  padding: var(--spacing-5) 0;
+  font-family: var(--font-family);
+  color: var(--color-text-primary);
+}

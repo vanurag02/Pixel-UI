@@ -14,7 +14,7 @@ import Select from "../components/Select/Select";
 import SelectOption from "../components/Select/SelectOption";
 import Divider from "../components/Divider/Divider";
 import ProgressBar from "../components/ProgressBar/ProgressBar";
-import Tablist from "../components/Tablist/Tablist";
+import Tablist from "../components/Tablist/TabList";
 import TabItem from "../components/Tablist/TabItem";
 import Switch from "../components/Switch/Switch";
 import Checkbox from "../components/Checkbox/Checkbox";
@@ -44,6 +44,7 @@ import ToolbarGroup from "../components/Toolbar/ToolbarGroup";
 import Pagination from "../components/Pagination/Pagination";
 import Tooltip from "../components/Tooltip/Tooltip";
 import Popover from "../components/Popover/Popover";
+import TabPanel from "../components/Tablist/TabPanel";
 
 import {
   Sun,
@@ -79,6 +80,7 @@ export default function Showcase() {
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(5);
   const [popoverOpen, setPopoverOpen] = useState(false);
+  const [tabPanel, setTabPanel] = useState("profile");
   const [bars, setBars] = useState({
     info: true,
     success: true,
@@ -1316,39 +1318,24 @@ export default function Showcase() {
                 <div className="showcase__row">
                   <Popover
                     trigger={
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        onClick={() => setPopoverOpen(!popoverOpen)}
-                      >
+                      <Button onClick={() => setPopoverOpen(!popoverOpen)}>
                         Open Popover
                       </Button>
                     }
                     opened={popoverOpen}
                     onClose={() => setPopoverOpen(false)}
-                    position="bottom"
                     width="220px"
                   >
-                    <Text
-                      weight="semibold"
-                      size="md"
-                      style={{ marginBottom: "8px" }}
-                    >
+                    <Text size="sm" weight="semibold" color="text-inverse">
                       Popover title
                     </Text>
-                    <Text size="sm" color="secondary">
-                      This is some popover content. Click outside to close.
-                    </Text>
-                    <Divider style={{ margin: "12px 0" }} />
-                    <Button
-                      color="primary"
-                      size="lg"
-                      radius="default"
-                      fullWidth
-                      onClick={() => setPopoverOpen(false)}
+                    <Text
+                      size="sm"
+                      color="text-inverse"
+                      style={{ marginTop: "4px" }}
                     >
-                      Got it
-                    </Button>
+                      Some helpful content goes here.
+                    </Text>
                   </Popover>
                 </div>
               </Card>
@@ -1404,6 +1391,7 @@ export default function Showcase() {
                     gap: "16px",
                   }}
                 >
+                  {/* DEFAULT VARIANT */}
                   <Tablist defaultValue="a">
                     <TabItem value="a">Overview</TabItem>
                     <TabItem value="b">Analytics</TabItem>
@@ -1412,12 +1400,103 @@ export default function Showcase() {
                       Billing
                     </TabItem>
                   </Tablist>
+
+                  {/* PILLS VARIANT */}
                   <Tablist defaultValue="a" variant="pills">
                     <TabItem value="a">Day</TabItem>
                     <TabItem value="b">Week</TabItem>
                     <TabItem value="c">Month</TabItem>
                   </Tablist>
                 </div>
+              </Card>
+
+              {/* TABPANEL */}
+              <Card className="showcase__card">
+                <Text weight="semibold" style={{ marginBottom: "16px" }}>
+                  Tablist with TabPanel
+                </Text>
+                <Divider style={{ marginBottom: "16px" }} />
+
+                <Tablist value={tabPanel} onChange={setTabPanel}>
+                  <TabItem
+                    value="profile"
+                    id="tab-profile"
+                    controls="panel-profile"
+                  >
+                    Profile
+                  </TabItem>
+                  <TabItem
+                    value="settings"
+                    id="tab-settings"
+                    controls="panel-settings"
+                  >
+                    Settings
+                  </TabItem>
+                  <TabItem
+                    value="billing"
+                    id="tab-billing"
+                    controls="panel-billing"
+                  >
+                    Billing
+                  </TabItem>
+                </Tablist>
+
+                <TabPanel
+                  value="profile"
+                  activeValue={tabPanel}
+                  id="panel-profile"
+                  labelledBy="tab-profile"
+                >
+                  <Card
+                    variant="subtle"
+                    style={{ padding: "16px", marginTop: "4px" }}
+                  >
+                    <Text weight="medium" style={{ marginBottom: "4px" }}>
+                      Profile
+                    </Text>
+                    <Text color="secondary" size="sm">
+                      Manage your profile information and preferences.
+                    </Text>
+                  </Card>
+                </TabPanel>
+
+                <TabPanel
+                  value="settings"
+                  activeValue={tabPanel}
+                  id="panel-settings"
+                  labelledBy="tab-settings"
+                >
+                  <Card
+                    variant="subtle"
+                    style={{ padding: "16px", marginTop: "4px" }}
+                  >
+                    <Text weight="medium" style={{ marginBottom: "4px" }}>
+                      Settings
+                    </Text>
+                    <Text color="secondary" size="sm">
+                      Configure your account settings and notifications.
+                    </Text>
+                  </Card>
+                </TabPanel>
+
+                <TabPanel
+                  value="billing"
+                  activeValue={tabPanel}
+                  id="panel-billing"
+                  labelledBy="tab-billing"
+                >
+                  <Card
+                    variant="subtle"
+                    style={{ padding: "16px", marginTop: "4px" }}
+                  >
+                    <Text weight="medium" style={{ marginBottom: "4px" }}>
+                      Billing
+                    </Text>
+                    <Text color="secondary" size="sm">
+                      Manage your subscription and payment methods.
+                    </Text>
+                  </Card>
+                </TabPanel>
               </Card>
 
               <Card className="showcase__card">

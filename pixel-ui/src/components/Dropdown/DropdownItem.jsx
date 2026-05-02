@@ -1,5 +1,3 @@
-import "./Dropdown.css";
-
 function DropdownItem({ children, onClick, disabled = false }) {
   return (
     <button
@@ -11,6 +9,7 @@ function DropdownItem({ children, onClick, disabled = false }) {
       type="button"
       role="menuitem"
       tabIndex={-1}
+      aria-disabled={disabled} // FIX
       onKeyDown={(e) => {
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
@@ -22,5 +21,4 @@ function DropdownItem({ children, onClick, disabled = false }) {
     </button>
   );
 }
-
 export default DropdownItem;

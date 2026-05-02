@@ -20,7 +20,10 @@ function Popover({
   useEffect(() => {
     function handleClickOutside(e) {
       if (wrapperRef.current && !wrapperRef.current.contains(e.target)) {
-        if (onClose) onClose();
+        if (onClose) {
+          onClose();
+          triggerRef.current?.focus(); // FIX: return focus
+        }
       }
     }
 
@@ -74,6 +77,8 @@ function Popover({
           id={popoverId}
           ref={popoverRef}
           role="dialog"
+          aria-modal="false"
+          aria-labelledby={`${popoverId}-label`}
           tabIndex={-1}
           className={["popover", `popover--${position}`, className]
             .filter(Boolean)
@@ -81,7 +86,15 @@ function Popover({
           style={{ width, ...style }}
         >
           <span className="popover__arrow" />
-          <div className="popover__content">{children}</div>
+
+          <div className="popover__content">
+            {/* Accessible label (screen reader only) */}
+            <div id={`${popoverId}-label`} style={{ display: "none" }}>
+              Popover
+            </div>
+
+            {children}
+          </div>
         </div>
       )}
     </div>

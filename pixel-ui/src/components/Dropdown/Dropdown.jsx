@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useId } from "react";
 import { ChevronDown } from "lucide-react";
 import "./Dropdown.css";
 
@@ -17,13 +17,14 @@ function Dropdown({
   const triggerRef = useRef(null);
   const menuRef = useRef(null);
 
-  const menuId = "dropdown-menu";
+  const menuId = useId(); // FIX
 
-  // Close on outside click
+  // CLOSE ON OUTSIDE CLICK
   useEffect(() => {
     function handleClickOutside(e) {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
         setOpened(false);
+        triggerRef.current?.focus(); // FIX
       }
     }
 
@@ -31,7 +32,7 @@ function Dropdown({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Keyboard handling
+  // KEYBOARD HANDLING
   function handleKeyDown(e) {
     if (disabled) return;
 
@@ -43,6 +44,11 @@ function Dropdown({
         const firstItem = menuRef.current?.querySelector('[role="menuitem"]');
         firstItem?.focus();
       }, 0);
+    }
+
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      setOpened((prev) => !prev);
     }
 
     if (e.key === "Escape") {
@@ -61,14 +67,12 @@ function Dropdown({
 
     if (e.key === "ArrowDown") {
       e.preventDefault();
-      const nextIndex = (currentIndex + 1) % items.length;
-      items[nextIndex].focus();
+      items[(currentIndex + 1) % items.length].focus();
     }
 
     if (e.key === "ArrowUp") {
       e.preventDefault();
-      const prevIndex = (currentIndex - 1 + items.length) % items.length;
-      items[prevIndex].focus();
+      items[(currentIndex - 1 + items.length) % items.length].focus();
     }
 
     if (e.key === "Home") {
@@ -112,6 +116,7 @@ function Dropdown({
         aria-haspopup="menu"
         aria-expanded={opened}
         aria-controls={menuId}
+        aria-disabled={disabled} // FIX
       >
         <span>{label}</span>
 
@@ -127,7 +132,7 @@ function Dropdown({
           role="menu"
           id={menuId}
           ref={menuRef}
-          onKeyDown={handleMenuKeyDown} // ADD THIS
+          onKeyDown={handleMenuKeyDown}
         >
           {children}
         </div>

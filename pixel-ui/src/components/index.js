@@ -36,7 +36,7 @@ export { default as ProfileBadge } from "./ProfileBadge/ProfileBadge";
 // ===== Phase 4 — Navigation =====
 export { default as Breadcrumb } from "./Breadcrumb/Breadcrumb";
 export { default as BreadcrumbItem } from "./Breadcrumb/BreadcrumbItem";
-export { default as Tablist } from "./Tablist/Tablist";
+export { default as Tablist } from "./Tablist/TabList";
 export { default as TabItem } from "./Tablist/TabItem";
 export { default as Toolbar } from "./Toolbar/Toolbar";
 export { default as ToolbarGroup } from "./Toolbar/ToolbarGroup";
