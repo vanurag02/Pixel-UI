@@ -56,6 +56,7 @@ import {
 import useTheme from "./hooks/useTheme";
 
 import Showcase from "./pages/Showcase";
+import Orbit from "./pages/Orbit";
 
 const frameworks = ["React", "Vue", "Svelte", "Angular", "Solid"];
 const skills = ["JavaScript", "TypeScript", "CSS", "HTML", "Node.js"];
@@ -152,6 +153,7 @@ function Section({ title, children }) {
 // }
 
 function App() {
+  // return <Orbit />;
   return <Showcase />;
 }
 export default App;

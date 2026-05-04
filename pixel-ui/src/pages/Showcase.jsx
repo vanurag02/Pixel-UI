@@ -45,6 +45,7 @@ import Pagination from "../components/Pagination/Pagination";
 import Tooltip from "../components/Tooltip/Tooltip";
 import Popover from "../components/Popover/Popover";
 import TabPanel from "../components/Tablist/TabPanel";
+import Accordion from "../components/Accordion/Accordion";
 
 import {
   Sun,

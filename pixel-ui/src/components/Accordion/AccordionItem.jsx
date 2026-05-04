@@ -32,8 +32,15 @@ function AccordionItem({
         ref={headerRef}
         id={buttonId}
         className="accordion-item__header"
-        onClick={() => !disabled && onToggle(value)}
-        onKeyDown={onKeyDown}
+        onClick={() => {
+          if (!disabled) onToggle(value);
+        }}
+        onKeyDown={(e) => {
+          if (["ArrowDown", "ArrowUp", "Home", "End"].includes(e.key)) {
+            e.preventDefault();
+            onKeyDown?.(e);
+          }
+        }}
         type="button"
         aria-expanded={isOpen}
         aria-controls={panelId}

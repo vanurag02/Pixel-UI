@@ -1,0 +1,492 @@
+/* ===== Pixel UI — Orbit App ===== */
+
+/* ===== Layout ===== */
+.orbit {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--color-bg-subtle);
+  font-family: var(--font-family);
+}
+
+/* ===== Sidebar ===== */
+.orbit__sidebar {
+  width: 220px;
+  min-height: 100vh;
+  background-color: var(--color-gray-9);
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-4) var(--spacing-3);
+  gap: var(--spacing-4);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  flex-shrink: 0;
+  overflow-y: auto;
+}
+
+/* ===== Brand ===== */
+.orbit__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  padding: var(--spacing-2) var(--spacing-2);
+}
+
+.orbit__brand-icon {
+  width: 30px;
+  height: 30px;
+  background-color: var(--color-primary);
+  border-radius: var(--radius-default);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.orbit__brand-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  padding: 6px;
+}
+
+.orbit__brand-pixel {
+  width: 6px;
+  height: 6px;
+  background-color: white;
+  border-radius: 1px;
+}
+
+.orbit__brand-pixel:nth-child(2),
+.orbit__brand-pixel:nth-child(3) {
+  opacity: 0.35;
+}
+
+/* ===== Nav ===== */
+.orbit__nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+  flex: 1;
+}
+
+.orbit__nav-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  padding: var(--spacing-2) var(--spacing-3);
+  border-radius: var(--radius-default);
+  border: none;
+  background: transparent;
+  color: var(--color-gray-5);
+  font-family: var(--font-family);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-regular);
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  transition:
+    background-color 0.15s ease-in-out,
+    color 0.15s ease-in-out;
+}
+
+.orbit__nav-btn:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: var(--color-white);
+}
+
+.orbit__nav-btn--active {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.orbit__nav-btn--active:hover {
+  background-color: var(--color-primary-hover);
+}
+
+/* ===== Sidebar Footer ===== */
+.orbit__sidebar-footer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.orbit__sidebar-footer > div:last-child {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.orbit__logout-btn {
+  background: transparent;
+  border: none;
+  color: var(--color-gray-5);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-2);
+  border-radius: var(--radius-default);
+  transition: color 0.15s ease-in-out;
+}
+
+.orbit__logout-btn:hover {
+  color: var(--color-white);
+}
+
+/* ===== Main ===== */
+.orbit__main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+}
+
+/* ===== Topbar ===== */
+.orbit__topbar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: var(--spacing-4) var(--spacing-6);
+  background-color: var(--color-bg);
+  border-bottom: var(--border-width-default) solid var(--color-border);
+  gap: var(--spacing-4);
+  flex-shrink: 0;
+}
+
+.orbit__topbar-left {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+}
+
+.orbit__topbar-right {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+}
+
+.orbit__icon-btn {
+  position: relative;
+  background: transparent;
+  border: var(--border-width-default) solid var(--color-border);
+  border-radius: var(--radius-default);
+  padding: var(--spacing-2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: var(--color-text-secondary);
+  transition:
+    border-color 0.15s ease-in-out,
+    color 0.15s ease-in-out;
+}
+
+.orbit__icon-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.orbit__notif-dot {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 7px;
+  height: 7px;
+  background-color: var(--color-error);
+  border-radius: 50%;
+  border: 1.5px solid var(--color-bg);
+}
+
+.orbit__notif-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-2);
+  padding: var(--spacing-2) 0;
+}
+
+.orbit__notif-item + .orbit__notif-item {
+  border-top: var(--border-width-default) solid var(--color-border);
+}
+
+/* ===== Body ===== */
+.orbit__body {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.orbit__view {
+  padding: var(--spacing-5) var(--spacing-6);
+}
+
+/* ===== Actions Bar ===== */
+.orbit__actions-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-5);
+  gap: var(--spacing-3);
+  flex-wrap: wrap;
+}
+
+.orbit__actions-right {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+}
+
+/* ===== Projects Grid ===== */
+.orbit__projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-4);
+}
+
+/* ===== Project Card ===== */
+.orbit__project-card {
+  padding: var(--spacing-4) !important;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  transition:
+    box-shadow 0.2s ease-in-out,
+    transform 0.2s ease-in-out;
+}
+
+.orbit__project-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.orbit__project-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--spacing-2);
+}
+
+.orbit__project-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+}
+
+.orbit__project-progress {
+  margin-top: var(--spacing-1);
+}
+
+.orbit__project-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--spacing-1);
+}
+
+.orbit__more-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-1);
+  border-radius: var(--radius-default);
+  transition: background-color 0.15s ease-in-out;
+}
+
+.orbit__more-btn:hover {
+  background-color: var(--color-bg-subtle);
+  color: var(--color-text-primary);
+}
+
+/* ===== Tasks ===== */
+.orbit__tasks-card {
+  padding: var(--spacing-5) !important;
+}
+
+.orbit__tasks-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.orbit__tasks-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.orbit__task-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  padding: var(--spacing-2) 0;
+  border-bottom: var(--border-width-default) solid var(--color-border);
+}
+
+.orbit__task-row:last-child {
+  border-bottom: none;
+}
+
+/* ===== Team ===== */
+.orbit__team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-4);
+}
+
+.orbit__member-card {
+  padding: var(--spacing-5) !important;
+  text-align: center;
+}
+
+.orbit__team-full-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-5);
+}
+
+.orbit__member-full-card {
+  padding: var(--spacing-5) !important;
+  text-align: center;
+}
+
+/* ===== Stats ===== */
+.orbit__stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-4);
+  margin-bottom: var(--spacing-5);
+}
+
+.orbit__stat-card {
+  padding: var(--spacing-5) !important;
+}
+
+/* ===== Dashboard Grid ===== */
+.orbit__dashboard-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--spacing-4);
+}
+
+.orbit__dash-card {
+  padding: var(--spacing-5) !important;
+}
+
+/* ===== Settings ===== */
+.orbit__settings-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-5);
+}
+
+.orbit__settings-card {
+  padding: var(--spacing-5) !important;
+}
+
+.orbit__settings-rows {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.orbit__pref-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-4);
+}
+
+.orbit__danger-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-4);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1200px) {
+  .orbit__projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .orbit__stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .orbit__team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .orbit__team-full-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .orbit__dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 992px) {
+  .orbit__sidebar {
+    width: 180px;
+  }
+  .orbit__settings-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .orbit {
+    flex-direction: column;
+  }
+  .orbit__sidebar {
+    width: 100%;
+    height: auto;
+    min-height: auto;
+    position: relative;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: var(--spacing-3);
+  }
+  .orbit__nav {
+    flex-direction: row;
+    flex: none;
+  }
+  .orbit__nav-btn span {
+    display: none;
+  }
+  .orbit__nav-btn {
+    padding: var(--spacing-2);
+  }
+  .orbit__projects-grid {
+    grid-template-columns: 1fr;
+  }
+  .orbit__stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .orbit__team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .orbit__team-full-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .orbit__topbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .orbit__view {
+    padding: var(--spacing-4);
+  }
+}
+
+@media (max-width: 480px) {
+  .orbit__stats-grid {
+    grid-template-columns: 1fr;
+  }
+  .orbit__team-grid {
+    grid-template-columns: 1fr;
+  }
+  .orbit__team-full-grid {
+    grid-template-columns: 1fr;
+  }
+  .orbit__settings-grid {
+    grid-template-columns: 1fr;
+  }
+}

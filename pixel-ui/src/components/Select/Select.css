@@ -7,7 +7,6 @@
   align-items: center;
   background-color: var(--color-bg);
   border: var(--border-width-default) solid var(--color-border);
-  box-shadow: var(--shadow-default);
   transition:
     border-color 0.2s ease-in-out,
     box-shadow 0.2s ease-in-out;
@@ -39,7 +38,7 @@
     .select-wrapper--error
   ) {
   border-color: var(--color-primary);
-  box-shadow: var(--shadow-hover);
+  /* box-shadow: var(--shadow-hover); */
 }
 
 /* ===== FOCUS ===== */
