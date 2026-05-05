@@ -23,33 +23,25 @@ function TabList({
   };
 
   function handleKeyDown(e, index) {
-    const tabs = tabsRef.current;
+    const tabs = tabsRef.current.filter(Boolean);
     const total = tabs.length;
 
-    if (e.key === "ArrowRight") {
+    if (!total) return;
+
+    if (["ArrowRight", "ArrowLeft", "Home", "End"].includes(e.key)) {
       e.preventDefault();
-      const next = (index + 1) % total;
-      tabs[next]?.focus();
-      handleChange(tabs[next].dataset.value);
     }
 
-    if (e.key === "ArrowLeft") {
-      e.preventDefault();
-      const prev = (index - 1 + total) % total;
-      tabs[prev]?.focus();
-      handleChange(tabs[prev].dataset.value);
-    }
+    let nextIndex = index;
 
-    if (e.key === "Home") {
-      e.preventDefault();
-      tabs[0]?.focus();
-      handleChange(tabs[0].dataset.value);
-    }
+    if (e.key === "ArrowRight") nextIndex = (index + 1) % total;
+    if (e.key === "ArrowLeft") nextIndex = (index - 1 + total) % total;
+    if (e.key === "Home") nextIndex = 0;
+    if (e.key === "End") nextIndex = total - 1;
 
-    if (e.key === "End") {
-      e.preventDefault();
-      tabs[total - 1]?.focus();
-      handleChange(tabs[total - 1].dataset.value);
+    if (nextIndex !== index) {
+      tabs[nextIndex]?.focus();
+      handleChange(tabs[nextIndex].dataset.value);
     }
   }
 
@@ -67,7 +59,7 @@ function TabList({
       role="tablist"
     >
       {Children.map(children, (child, index) => {
-        if (!child) return null;
+        if (!child || !child.props?.value) return null;
 
         const isActive = child.props.value === activeValue;
         const tabId = `${baseId}-tab-${index}`;
@@ -76,7 +68,7 @@ function TabList({
         return cloneElement(child, {
           ref: (el) => (tabsRef.current[index] = el),
           id: tabId,
-          panelId,
+          controls: panelId,
           active: isActive,
           variant,
           size,

@@ -19,6 +19,8 @@ function Accordion({
   const itemRefs = useRef([]);
 
   const handleToggle = (value) => {
+    if (!value) return;
+
     if (multiple) {
       setActiveItems((prev) =>
         prev.includes(value)
@@ -33,23 +35,23 @@ function Accordion({
   const handleKeyDown = (e, index) => {
     const total = itemRefs.current.length;
 
-    if (e.key === "ArrowDown") {
+    if (["ArrowDown", "ArrowUp", "Home", "End"].includes(e.key)) {
       e.preventDefault();
+    }
+
+    if (e.key === "ArrowDown") {
       itemRefs.current[(index + 1) % total]?.focus();
     }
 
     if (e.key === "ArrowUp") {
-      e.preventDefault();
       itemRefs.current[(index - 1 + total) % total]?.focus();
     }
 
     if (e.key === "Home") {
-      e.preventDefault();
       itemRefs.current[0]?.focus();
     }
 
     if (e.key === "End") {
-      e.preventDefault();
       itemRefs.current[total - 1]?.focus();
     }
   };
@@ -60,7 +62,7 @@ function Accordion({
       style={style}
     >
       {Children.map(children, (child, index) => {
-        if (!child) return null;
+        if (!child || !child.props?.value) return null;
 
         return cloneElement(child, {
           isOpen: activeItems.includes(child.props.value),

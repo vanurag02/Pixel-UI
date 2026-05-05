@@ -153,7 +153,6 @@ function Section({ title, children }) {
 // }
 
 function App() {
-  // return <Orbit />;
   return <Showcase />;
 }
 export default App;

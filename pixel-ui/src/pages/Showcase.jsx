@@ -46,6 +46,7 @@ import Tooltip from "../components/Tooltip/Tooltip";
 import Popover from "../components/Popover/Popover";
 import TabPanel from "../components/Tablist/TabPanel";
 import Accordion from "../components/Accordion/Accordion";
+import AccordionItem from "../components/Accordion/AccordionItem";
 
 import {
   Sun,
@@ -1160,16 +1161,11 @@ export default function Showcase() {
                   >
                     <Button
                       variant="outline"
-                      size="sm"
                       onClick={() => setDialogOpen(false)}
                     >
                       Cancel
                     </Button>
-                    <Button
-                      color="error"
-                      size="sm"
-                      onClick={() => setDialogOpen(false)}
-                    >
+                    <Button color="error" onClick={() => setDialogOpen(false)}>
                       Delete
                     </Button>
                   </div>
@@ -1283,29 +1279,19 @@ export default function Showcase() {
                 <Divider style={{ marginBottom: "16px" }} />
                 <div className="showcase__row">
                   <Tooltip label="Tooltip on top" position="top">
-                    <Button variant="outline" size="sm">
-                      Top
-                    </Button>
+                    <Button variant="outline">Top</Button>
                   </Tooltip>
                   <Tooltip label="Tooltip on bottom" position="bottom">
-                    <Button variant="outline" size="sm">
-                      Bottom
-                    </Button>
+                    <Button variant="outline">Bottom</Button>
                   </Tooltip>
                   <Tooltip label="Tooltip on left" position="left">
-                    <Button variant="outline" size="sm">
-                      Left
-                    </Button>
+                    <Button variant="outline">Left</Button>
                   </Tooltip>
                   <Tooltip label="Tooltip on right" position="right">
-                    <Button variant="outline" size="sm">
-                      Right
-                    </Button>
+                    <Button variant="outline">Right</Button>
                   </Tooltip>
                   <Tooltip label="500ms delay" position="top" delay={500}>
-                    <Button variant="subtle" size="sm">
-                      Delayed
-                    </Button>
+                    <Button variant="subtle">Delayed</Button>
                   </Tooltip>
                 </div>
               </Card>
@@ -1327,14 +1313,10 @@ export default function Showcase() {
                     onClose={() => setPopoverOpen(false)}
                     width="220px"
                   >
-                    <Text size="sm" weight="semibold" color="text-inverse">
+                    <Text size="sm" weight="semibold">
                       Popover title
                     </Text>
-                    <Text
-                      size="sm"
-                      color="text-inverse"
-                      style={{ marginTop: "4px" }}
-                    >
+                    <Text size="sm" style={{ marginTop: "4px" }}>
                       Some helpful content goes here.
                     </Text>
                   </Popover>

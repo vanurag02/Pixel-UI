@@ -10,9 +10,9 @@
 .popover {
   position: absolute;
   z-index: 1000;
-  background-color: var(--color-bg-inverse);
-  color: var(--color-text-inverse);
-  border-radius: var(--radius-default);
+  background-color: var(--color-gray-9);
+  color: var(--color-gray-0);
+  border-radius: var(--radius-sm);
   box-shadow: var(--shadow-default);
   animation: popover-fade 0.2s ease-in-out;
   max-width: 280px;
@@ -67,34 +67,49 @@
   position: absolute;
   width: 8px;
   height: 8px;
-  background-color: var(--color-text-primary);
+  background-color: var(--color-gray-9);
   transform: rotate(45deg);
 }
 
-/* bottom */
+/* ===== bottom ===== */
 .popover--bottom .popover__arrow {
   top: -4px;
   left: 50%;
   transform: translateX(-50%) rotate(45deg);
 }
 
-/* top */
+/* ===== top ===== */
 .popover--top .popover__arrow {
   bottom: -4px;
   left: 50%;
   transform: translateX(-50%) rotate(45deg);
 }
 
-/* left */
+/* ===== left ===== */
 .popover--left .popover__arrow {
   right: -4px;
   top: 50%;
   transform: translateY(-50%) rotate(45deg);
 }
 
-/* right */
+/* ===== right ===== */
 .popover--right .popover__arrow {
   left: -4px;
   top: 50%;
   transform: translateY(-50%) rotate(45deg);
+}
+
+/* ===== Dark mode ===== */
+[data-theme="dark"] .popover {
+  background-color: var(--color-gray-0);
+  color: var(--color-gray-9);
+}
+
+[data-theme="dark"] .popover__arrow {
+  background-color: var(--color-gray-0);
+}
+
+/* ===== Force text color inheritance inside Popover ===== */
+.popover .text {
+  color: inherit;
 }

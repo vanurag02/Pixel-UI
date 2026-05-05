@@ -1,22 +1,31 @@
-function TabItem({
-  children,
-  value,
-  active = false,
-  disabled = false,
-  variant,
-  size,
-  onClick,
-  id,
-  controls,
-  onKeyDown,
-}) {
+import { forwardRef } from "react";
+
+const TabItem = forwardRef(function TabItem(
+  {
+    children,
+    value,
+    active = false,
+    disabled = false,
+    variant,
+    size,
+    onClick,
+    id,
+    controls,
+    onKeyDown,
+    tabIndex,
+    ...rest
+  },
+  ref,
+) {
   return (
     <button
+      ref={ref} // ✅ CRITICAL FIX
       id={id}
       role="tab"
       aria-selected={active}
       aria-controls={controls}
-      tabIndex={active ? 0 : -1}
+      aria-disabled={disabled}
+      tabIndex={tabIndex}
       disabled={disabled}
       onClick={onClick}
       onKeyDown={onKeyDown}
@@ -30,10 +39,11 @@ function TabItem({
       ]
         .filter(Boolean)
         .join(" ")}
+      {...rest}
     >
       {children}
     </button>
   );
-}
+});
 
 export default TabItem;

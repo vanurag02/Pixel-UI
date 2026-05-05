@@ -37,13 +37,13 @@ function AccordionItem({
         }}
         onKeyDown={(e) => {
           if (["ArrowDown", "ArrowUp", "Home", "End"].includes(e.key)) {
-            e.preventDefault();
             onKeyDown?.(e);
           }
         }}
         type="button"
         aria-expanded={isOpen}
         aria-controls={panelId}
+        aria-disabled={disabled}
         disabled={disabled}
       >
         <span className="accordion-item__label">{label}</span>
@@ -59,6 +59,7 @@ function AccordionItem({
         id={panelId}
         role="region"
         aria-labelledby={buttonId}
+        hidden={!isOpen}
         className={`accordion-item__panel ${
           isOpen ? "accordion-item__panel--open" : ""
         }`}

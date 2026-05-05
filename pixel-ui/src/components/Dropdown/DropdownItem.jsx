@@ -1,15 +1,18 @@
+import "./Dropdown.css";
+
 function DropdownItem({ children, onClick, disabled = false }) {
   return (
     <button
       className={["dropdown-item", disabled ? "dropdown-item--disabled" : ""]
         .filter(Boolean)
         .join(" ")}
-      onClick={onClick}
+      onClick={(e) => {
+        if (!disabled && onClick) onClick(e);
+      }}
       disabled={disabled}
       type="button"
       role="menuitem"
       tabIndex={-1}
-      aria-disabled={disabled} // FIX
       onKeyDown={(e) => {
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
@@ -21,4 +24,5 @@ function DropdownItem({ children, onClick, disabled = false }) {
     </button>
   );
 }
+
 export default DropdownItem;

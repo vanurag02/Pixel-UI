@@ -22,7 +22,7 @@ function Popover({
       if (wrapperRef.current && !wrapperRef.current.contains(e.target)) {
         if (onClose) {
           onClose();
-          triggerRef.current?.focus(); // FIX: return focus
+          triggerRef.current?.focus();
         }
       }
     }
@@ -34,12 +34,19 @@ function Popover({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [opened, onClose]);
 
-  // Escape key
+  // Keyboard handling
   useEffect(() => {
     function handleKeyDown(e) {
-      if (e.key === "Escape" && opened) {
+      if (!opened) return;
+
+      if (e.key === "Escape") {
         if (onClose) onClose();
         triggerRef.current?.focus();
+      }
+
+      // Close on Tab (no focus trap)
+      if (e.key === "Tab") {
+        if (onClose) onClose();
       }
     }
 
@@ -78,7 +85,6 @@ function Popover({
           ref={popoverRef}
           role="dialog"
           aria-modal="false"
-          aria-labelledby={`${popoverId}-label`}
           tabIndex={-1}
           className={["popover", `popover--${position}`, className]
             .filter(Boolean)
@@ -87,14 +93,7 @@ function Popover({
         >
           <span className="popover__arrow" />
 
-          <div className="popover__content">
-            {/* Accessible label (screen reader only) */}
-            <div id={`${popoverId}-label`} style={{ display: "none" }}>
-              Popover
-            </div>
-
-            {children}
-          </div>
+          <div className="popover__content">{children}</div>
         </div>
       )}
     </div>

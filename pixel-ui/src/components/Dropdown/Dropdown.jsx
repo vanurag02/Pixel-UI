@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useId } from "react";
+import { useState, useRef, useEffect, useId, Children } from "react";
 import { ChevronDown } from "lucide-react";
 import "./Dropdown.css";
 
@@ -17,14 +17,14 @@ function Dropdown({
   const triggerRef = useRef(null);
   const menuRef = useRef(null);
 
-  const menuId = useId(); // FIX
+  const menuId = useId();
 
   // CLOSE ON OUTSIDE CLICK
   useEffect(() => {
     function handleClickOutside(e) {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
         setOpened(false);
-        triggerRef.current?.focus(); // FIX
+        triggerRef.current?.focus();
       }
     }
 
@@ -32,18 +32,23 @@ function Dropdown({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // KEYBOARD HANDLING
+  // FOCUS FIRST ITEM WHEN OPEN
+  useEffect(() => {
+    if (opened) {
+      const firstItem = menuRef.current?.querySelector(
+        '[role="menuitem"]:not(:disabled)',
+      );
+      firstItem?.focus();
+    }
+  }, [opened]);
+
+  // TRIGGER KEYBOARD
   function handleKeyDown(e) {
     if (disabled) return;
 
     if (e.key === "ArrowDown") {
       e.preventDefault();
       setOpened(true);
-
-      setTimeout(() => {
-        const firstItem = menuRef.current?.querySelector('[role="menuitem"]');
-        firstItem?.focus();
-      }, 0);
     }
 
     if (e.key === "Enter" || e.key === " ") {
@@ -57,6 +62,7 @@ function Dropdown({
     }
   }
 
+  // MENU KEYBOARD NAVIGATION
   function handleMenuKeyDown(e) {
     const items = menuRef.current?.querySelectorAll(
       '[role="menuitem"]:not(:disabled)',
@@ -90,6 +96,11 @@ function Dropdown({
       setOpened(false);
       triggerRef.current?.focus();
     }
+
+    // 🔥 IMPORTANT: CLOSE ON TAB
+    if (e.key === "Tab") {
+      setOpened(false);
+    }
   }
 
   return (
@@ -116,7 +127,6 @@ function Dropdown({
         aria-haspopup="menu"
         aria-expanded={opened}
         aria-controls={menuId}
-        aria-disabled={disabled} // FIX
       >
         <span>{label}</span>
 
@@ -134,7 +144,9 @@ function Dropdown({
           ref={menuRef}
           onKeyDown={handleMenuKeyDown}
         >
-          {children}
+          {Children.map(children, (child) => (
+            <div role="none">{child}</div>
+          ))}
         </div>
       )}
     </div>
