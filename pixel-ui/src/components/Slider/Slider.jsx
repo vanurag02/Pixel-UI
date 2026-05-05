@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useId } from "react";
 import "./Slider.css";
 
 function Slider({
@@ -12,11 +12,16 @@ function Slider({
   size = "md",
   showValue = false,
   fullWidth = false,
+  label,
+  ariaLabel,
+  ariaDescribedBy,
   className,
   style,
 }) {
   const [internalValue, setInternalValue] = useState(defaultValue);
   const currentValue = value !== undefined ? value : internalValue;
+
+  const valueId = useId();
 
   const handleChange = (e) => {
     const newValue = Number(e.target.value);
@@ -39,8 +44,11 @@ function Slider({
         .join(" ")}
       style={style}
     >
+      {label && <label className="slider__label">{label}</label>}
+
       <div className="slider__track-container">
         <div className="slider__fill" style={{ width: `${percentage}%` }}></div>
+
         <input
           type="range"
           className="slider__input"
@@ -50,9 +58,21 @@ function Slider({
           step={step}
           disabled={disabled}
           onChange={handleChange}
+          // Accessibility
+          aria-label={!label ? ariaLabel : undefined}
+          aria-valuemin={min}
+          aria-valuemax={max}
+          aria-valuenow={currentValue}
+          aria-valuetext={`${currentValue}`}
+          aria-describedby={showValue ? valueId : ariaDescribedBy}
         />
       </div>
-      {showValue && <span className="slider__value">{currentValue}</span>}
+
+      {showValue && (
+        <span id={valueId} className="slider__value">
+          {currentValue}
+        </span>
+      )}
     </div>
   );
 }

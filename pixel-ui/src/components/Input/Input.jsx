@@ -1,3 +1,4 @@
+import { useId } from "react";
 import "./Input.css";
 
 function Input({
@@ -35,6 +36,9 @@ function Input({
   className,
   style,
 }) {
+  const generatedId = useId();
+  const inputId = id || generatedId;
+
   return (
     <div
       className={[
@@ -51,7 +55,6 @@ function Input({
         .join(" ")}
       style={style}
     >
-      {/* LEFT SECTION (decorative by default) */}
       {leftSection && (
         <span
           className="input__section input__section--left"
@@ -62,7 +65,7 @@ function Input({
       )}
 
       <input
-        id={id}
+        id={inputId}
         name={name}
         type={type}
         className={[
@@ -79,15 +82,12 @@ function Input({
         disabled={disabled}
         required={required}
         autoComplete={autoComplete}
-        // Accessibility
-        aria-label={ariaLabel}
+        aria-label={!ariaLabel && !name ? undefined : ariaLabel}
         aria-invalid={error || undefined}
         aria-describedby={ariaDescribedBy}
         aria-required={required || undefined}
-        aria-disabled={disabled || undefined}
       />
 
-      {/* RIGHT SECTION (decorative by default) */}
       {rightSection && (
         <span
           className="input__section input__section--right"

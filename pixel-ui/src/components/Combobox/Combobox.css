@@ -36,7 +36,7 @@
   background-color: var(--color-bg);
   border: var(--border-width-default) solid var(--color-border);
   border-radius: inherit;
-  cursor: text;
+  cursor: pointer;
   transition: border-color 0.2s ease-in-out;
 }
 

@@ -1,20 +1,38 @@
 import { ChevronDown } from "lucide-react";
+import { useId } from "react";
 import "./Select.css";
 
 function Select({
+  id,
+  name,
   children,
+
+  // ACCESSIBILITY
+  ariaLabel,
+  ariaDescribedBy,
+
+  // STATE
+  disabled = false,
+  error = false,
+  required = false,
+
+  // VALUE
   value,
   defaultValue,
   onChange,
-  disabled = false,
-  error = false,
+
+  // UI
   size = "md",
   radius = "default",
   placeholder,
   fullWidth = false,
+
   className,
   style,
 }) {
+  const generatedId = useId();
+  const selectId = id || generatedId;
+
   return (
     <div
       className={[
@@ -31,11 +49,18 @@ function Select({
       style={style}
     >
       <select
+        id={selectId}
+        name={name}
         className="select"
         value={value}
         defaultValue={defaultValue ?? (placeholder ? "" : undefined)}
         onChange={onChange}
         disabled={disabled}
+        required={required}
+        aria-label={ariaLabel}
+        aria-describedby={ariaDescribedBy}
+        aria-invalid={error || undefined}
+        aria-required={required || undefined}
       >
         {placeholder && (
           <option value="" disabled hidden>
@@ -44,7 +69,8 @@ function Select({
         )}
         {children}
       </select>
-      <ChevronDown size={16} className="select__icon" />
+
+      <ChevronDown size={16} className="select__icon" aria-hidden="true" />
     </div>
   );
 }

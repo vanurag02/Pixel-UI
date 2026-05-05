@@ -35,6 +35,7 @@ function Combobox({
   const [activeIndex, setActiveIndex] = useState(-1);
 
   const wrapperRef = useRef(null);
+  const inputRef = useRef(null);
 
   const currentValue = value !== undefined ? value : internalValue;
 
@@ -67,6 +68,7 @@ function Combobox({
       onChange?.(item);
       setInputText(item);
       setOpened(false);
+      inputRef.current?.focus(); // FIX
     }
     setActiveIndex(-1);
   };
@@ -75,6 +77,7 @@ function Combobox({
     const newValue = currentValue.filter((v) => v !== item);
     if (value === undefined) setInternalValue(newValue);
     onChange?.(newValue);
+    inputRef.current?.focus(); // FIX
   };
 
   const handleInputChange = (e) => {
@@ -154,6 +157,7 @@ function Combobox({
         )}
 
         <input
+          ref={inputRef}
           id={inputId}
           name={name}
           type="text"
@@ -165,6 +169,7 @@ function Combobox({
           }
           aria-autocomplete="list"
           aria-invalid={error || undefined}
+          aria-disabled={disabled || undefined}
           disabled={disabled}
           className="combobox__input"
           value={
@@ -203,7 +208,9 @@ function Combobox({
               </button>
             ))
           ) : (
-            <div className="combobox__empty">No options found</div>
+            <div className="combobox__empty" role="status">
+              No options found
+            </div>
           )}
         </div>
       )}
