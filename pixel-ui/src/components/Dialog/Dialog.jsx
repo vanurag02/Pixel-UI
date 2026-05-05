@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useId } from "react";
 import { X } from "lucide-react";
 import "./Dialog.css";
 
@@ -16,12 +16,12 @@ function Dialog({
   const [animating, setAnimating] = useState(false);
 
   const dialogRef = useRef(null);
+  const lastFocusedRef = useRef(null);
 
-  // Unique ids (important if multiple dialogs exist)
-  const titleId = title ? `dialog-title-${Math.random()}` : undefined;
-  const contentId = `dialog-content-${Math.random()}`;
+  const titleId = title ? useId() : undefined;
+  const contentId = useId();
 
-  // Animation handling
+  // ANIMATION HANDLING
   useEffect(() => {
     if (opened) {
       setVisible(true);
@@ -36,7 +36,7 @@ function Dialog({
     }
   }, [opened, visible]);
 
-  // Lock scroll
+  // SCROLL LOCK
   useEffect(() => {
     document.body.style.overflow = visible ? "hidden" : "";
     return () => {
@@ -44,27 +44,28 @@ function Dialog({
     };
   }, [visible]);
 
-  // Focus on open
+  // STORE LAST FOCUSED ELEMENT + FOCUS DIALOG
   useEffect(() => {
-    if (opened && dialogRef.current) {
-      dialogRef.current.focus();
+    if (opened) {
+      lastFocusedRef.current = document.activeElement;
+      dialogRef.current?.focus();
+    } else {
+      lastFocusedRef.current?.focus();
     }
   }, [opened]);
 
-  // Keyboard handling + focus trap
+  // KEYBOARD HANDLING + FOCUS TRAP
   useEffect(() => {
     function handleKeyDown(e) {
       if (!opened) return;
 
-      // Escape
       if (e.key === "Escape") {
         onClose && onClose();
       }
 
-      // Focus trap
       if (e.key === "Tab" && dialogRef.current) {
         const focusable = dialogRef.current.querySelectorAll(
-          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
+          'button:not(:disabled), [href], input:not(:disabled), select:not(:disabled), textarea:not(:disabled), [tabindex]:not([tabindex="-1"])',
         );
 
         if (focusable.length === 0) return;
@@ -126,7 +127,6 @@ function Dialog({
             onClick={onClose}
             type="button"
             aria-label="Close dialog"
-            autoFocus
           >
             <X size={18} />
           </button>

@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useId } from "react";
 import "./Checkbox.css";
 
 function Checkbox({
@@ -22,6 +22,8 @@ function Checkbox({
   style,
 }) {
   const inputRef = useRef(null);
+  const generatedId = useId();
+  const inputId = id || generatedId;
 
   useEffect(() => {
     if (inputRef.current) {
@@ -29,10 +31,11 @@ function Checkbox({
     }
   }, [indeterminate]);
 
-  const isChecked = indeterminate ? "mixed" : checked;
+  const ariaChecked = indeterminate ? "mixed" : checked;
 
   return (
     <label
+      htmlFor={inputId}
       className={[
         "checkbox",
         `checkbox--${size}`,
@@ -45,7 +48,7 @@ function Checkbox({
     >
       <input
         ref={inputRef}
-        id={id}
+        id={inputId}
         name={name}
         value={value}
         type="checkbox"
@@ -55,13 +58,11 @@ function Checkbox({
         onChange={onChange}
         disabled={disabled}
         required={required}
-        // Accessibility
         aria-label={!label ? ariaLabel : undefined}
-        aria-checked={isChecked}
-        aria-disabled={disabled || undefined}
+        aria-checked={ariaChecked}
       />
 
-      <span className="checkbox__box"></span>
+      <span className="checkbox__box" aria-hidden="true"></span>
 
       {label && <span className="checkbox__label">{label}</span>}
     </label>

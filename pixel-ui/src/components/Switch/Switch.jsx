@@ -1,3 +1,4 @@
+import { useId } from "react";
 import "./Switch.css";
 
 function Switch({
@@ -11,8 +12,13 @@ function Switch({
   className,
   style,
 }) {
+  const id = useId();
+
+  const isChecked = checked ?? defaultChecked;
+
   return (
     <label
+      htmlFor={id}
       className={[
         "switch",
         `switch--${size}`,
@@ -30,14 +36,19 @@ function Switch({
 
       <div className="switch__track-wrapper">
         <input
+          id={id}
           type="checkbox"
+          role="switch"
           className="switch__input"
           checked={checked}
           defaultChecked={defaultChecked}
           onChange={onChange}
           disabled={disabled}
+          aria-checked={isChecked}
+          aria-disabled={disabled || undefined}
         />
-        <div className="switch__track">
+
+        <div className="switch__track" aria-hidden="true">
           <div className="switch__thumb"></div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import { Children, cloneElement } from "react";
+import { Children, cloneElement, useId, useRef } from "react";
 import "./RadioGroup.css";
 
 function RadioGroup({
@@ -13,6 +13,24 @@ function RadioGroup({
   className,
   style,
 }) {
+  const groupName = name || useId();
+  const itemsRef = useRef([]);
+
+  function handleKeyDown(e, index) {
+    const items = itemsRef.current;
+    const total = items.length;
+
+    if (["ArrowDown", "ArrowRight"].includes(e.key)) {
+      e.preventDefault();
+      items[(index + 1) % total]?.focus();
+    }
+
+    if (["ArrowUp", "ArrowLeft"].includes(e.key)) {
+      e.preventDefault();
+      items[(index - 1 + total) % total]?.focus();
+    }
+  }
+
   return (
     <div
       className={[
@@ -27,19 +45,25 @@ function RadioGroup({
       style={style}
       role="radiogroup"
     >
-      {Children.map(children, (child) => {
+      {Children.map(children, (child, index) => {
         if (!child) return null;
+
+        const isChecked =
+          value !== undefined ? child.props.value === value : undefined;
+
         return cloneElement(child, {
-          name,
+          ref: (el) => (itemsRef.current[index] = el),
+          name: groupName,
           size,
-          checked:
-            value !== undefined ? child.props.value === value : undefined,
+          checked: isChecked,
           defaultChecked:
             defaultValue !== undefined
               ? child.props.value === defaultValue
               : undefined,
           onChange,
           disabled: disabled || child.props.disabled,
+          tabIndex: isChecked ? 0 : -1,
+          onKeyDown: (e) => handleKeyDown(e, index),
         });
       })}
     </div>
